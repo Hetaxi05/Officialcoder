@@ -1,0 +1,217 @@
+/* CourseDetails.css */
+.course-container {
+  display: flex;
+  flex-direction: column;
+  max-width: 900px;
+  margin: auto;
+  background: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.course-image img {
+  width: "200px";
+  height: "200px";
+  object-fit: cover;
+}
+
+.course-content {
+  padding: 20px;
+}
+
+.tags {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.skill {
+  background: #defffc;
+  color: #07a698;
+  padding: 5px 20px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.latest {
+  background: #07a698;
+}
+
+.course-title {
+  font-size: 19px;
+  font-weight: "200";
+  margin-bottom: 10px;
+}
+
+.course-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 16px;
+  color: #555;
+}
+
+.course-meta p {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.course-meta1 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 16px;
+  color: #555;
+}
+
+.course-meta1 p {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  padding-bottom: 5px;
+  margin-bottom: 0rem;
+
+}
+.course-rating {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+.course-rating {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  /* margin-top: 10px; */
+  font-size: 17px;
+  color: #f4b400;
+}
+
+.Instructor{
+  color: #07a698;
+}
+.viewdetail-box {
+  text-decoration: none;
+  color: black;
+}
+.viewdetail-box:hover {
+  background: #07a698;
+  color: #fff;
+  
+}
+
+
+
+
+.mobilecoursecard-container{
+  padding-bottom: 50px !important;  /* Adjust this based on your navbar height */
+
+}
+
+
+/* -----------------------------------
+   Mobile Responsive Styles
+------------------------------------- */
+
+@media (max-width: 430px) and (max-height: 920px) {
+  /* Styles for most small to medium smartphones */
+  
+ .course-meta {
+  
+  gap: 5 !important;
+  font-size: 12px !important;
+  
+}
+
+} 
+@media (max-width: 768px) {
+  /* Reduce overall container padding */
+  .container-fluid {
+    padding: 30px !important;
+  }
+  
+  /* Change row columns to stack vertically */
+  .row {
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  /* Make each course card take full width */
+  .col-4 {
+    width: 100%;
+  }
+  
+  /* Adjust the course container */
+  .course-container {
+    width: 100% !important;
+    margin: 5px auto !important;
+  }
+  
+  /* Responsive image: use full width and adjust height automatically */
+  .course-image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+  
+  /* Reduce font sizes and paddings for readability */
+  .course-content {
+    padding: 15px;
+  }
+  
+  .course-title {
+    font-size: 18px;
+  }
+  
+  .course-meta {
+    /* flex-direction: column; */
+    align-items: flex-start;
+    /* gap: 4px; */
+  }
+  
+  .course-meta1 p{
+    /* flex-direction: column; */
+    align-items: flex-start;
+    gap: 4px !important;
+    font-size: 13px !important;
+  }
+  .course-meta p {
+    font-size: 13px !important;
+  }
+  
+  .tags {
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+  
+  .skill {
+    padding: 4px 12px;
+    font-size: 13px;
+  }
+  
+  /* Adjust link styling if needed */
+  .viewdetail-box,
+  .course-content a {
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+}
+
+
+@media (max-width: 578px) {
+
+.course-meta {
+  /* flex-direction: column; */
+  align-items: flex-start;
+  /* gap: 4px; */
+}
+.course-meta1 {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 16px;
+  color: #555;
+}
+}

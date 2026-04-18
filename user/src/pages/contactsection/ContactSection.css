@@ -1,0 +1,115 @@
+/* ContactSection.css */
+/* 
+.container {
+    max-width: 1310px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+} */
+
+/* Contact Form */
+.contact-form {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 40px;
+    background: #fff;
+}
+
+.contact-form h1 {
+    color: black;
+    font-size: 27px;
+    /* font-family: "Outfit", serif; */
+    font-weight: 700;
+}
+
+.contact-form p {
+    color: #605d5d;
+    margin-top: 13px;
+    /* font-family: "Outfit", serif; */
+}
+
+/* Form Inputs */
+.contact-form .form-control {
+    padding: 11px;
+    /* font-family: "Outfit", serif; */
+    font-size: 15px;
+}
+
+.contact-form .position-absolute {
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #999;
+}
+
+/* Submit Button */
+.contact-form .btn {
+    background: #07A698;
+    color: white;
+    padding: 11px;
+    /* font-family: "Outfit", serif; */
+    font-size: 15px;
+    width: 100%;
+    font-weight: bold;
+}
+
+/* Office Information */
+.office-info {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 50px;
+    background: #fff;
+}
+
+.office-info h2 {
+    color: black;
+    font-size: 25px;
+    /* font-family: "Outfit", serif; */
+    font-weight: 700;
+}
+
+.office-info p {
+    color: #6C706F;
+    margin-bottom: 20px;
+    /* font-family: "Outfit", serif; */
+}
+
+/* Icons */
+.icon-box {
+    width: 50px;
+    height: 50px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background: #fff;
+    color: #009688;
+    margin-right: 15px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon-box:hover {
+    background: #009688;
+    color: #fff;
+    border: none;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .contact-container {
+        max-width: 50px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .mobile-contact {
+
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        padding: 20px 10px !important;
+        background: #fff;
+    }
+}

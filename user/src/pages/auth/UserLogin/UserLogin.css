@@ -1,0 +1,126 @@
+@media (max-width: 768px) {
+    .userlogin-container {
+        width: 95% !important;
+        padding: 15px !important;
+    }
+    .userlogin-input-group {
+        display: flex !important;
+        flex-direction: row;
+        align-items: center;
+        width: 100%;
+        flex-wrap: nowrap !important;
+        /* position: relative;          1) Anchor for absolute error text */
+        margin-bottom: 30px;  
+    }
+    .userlogin-input-group1 {
+        display: flex !important;
+        flex-direction: row;
+        align-items: center;
+        width: 100%;
+        flex-wrap: nowrap !important;
+        /* position: relative;          1) Anchor for absolute error text */
+        /* margin-bottom: 30px;   */
+    }
+    .userlogin-input-group .form-control {
+        flex-grow: 1;
+        min-width: 0;
+        border-right: none;
+        border-radius: 5px 0 0 5px; /* Rounded corners only on left */
+    }
+    .userlogin-input-group1 .form-control {
+        flex-grow: 1;
+        min-width: 0;
+        border-right: none;
+        border-radius: 5px 0 0 5px; /* Rounded corners only on left */
+    }
+
+    /* .userlogin-input-group .userlogin-icon {
+        background: #f8f9fa;
+        padding: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-left: none;
+        width: 40px;
+        border-radius: 0 5px 5px 0; 
+    } */
+    .userlogin-input-group {
+        flex-direction: row;
+    }
+    .userlogin-input-group1 {
+        flex-direction: row;
+    }
+
+    .userlogin-input-group .userlogin-input {
+        flex-grow: 1;
+        min-width: 0;
+        font-size: 14px;
+        padding: 8px 10px;
+    }
+    .userlogin-input-group1 .userlogin-input {
+        flex-grow: 1;
+        min-width: 0;
+        font-size: 14px;
+        padding: 8px 10px;
+    }
+
+    .userlogin-input-group .userlogin-icon {
+        width: 45px;
+        background: #e9ecef; 
+        /* padding: 8px; */
+        height: 38.5px;
+        margin-bottom: 10px;
+
+
+    }
+    .userlogin-input-group1 .userlogin-icon {
+        width: 45px;
+        background: #e9ecef; 
+        /* padding: 8px; */
+        height: 38.5px;
+        margin-bottom: 10px;
+
+
+    }
+    .userlogin-input-group .invalid-feedback {
+        display: block !important;
+        width: 100%;
+        font-size: 14px;
+        color: red;
+        position: absolute;
+        bottom: -15px; 
+        left: 0;
+        text-align: left;
+        padding-left: 12px;
+    }
+    .userlogin-input-group1 .invalid-feedback {
+        display: block !important;
+        width: 100%;
+        font-size: 14px;
+        color: red;
+        position: absolute;
+        bottom: -15px; 
+        left: 0;
+        text-align: left;
+        padding-left: 12px;
+    }
+    .pwd-error{
+        display: block !important;
+        width: 100%;
+        font-size: 14px;
+        color: red;
+        position: absolute;
+        bottom: -55px !important; 
+        left: 0;
+        text-align: left;
+        padding-left: 12px;
+    }
+    .user-btn{
+        margin-top: 20px !important;
+
+    }
+    .userlogin-form-box h4{
+        margin-bottom: 20px;
+    }
+
+}

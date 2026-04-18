@@ -1,0 +1,40 @@
+/* Mobile Responsive Styles */
+@media screen and (max-width: 768px) {
+    .toolbar {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+
+    .run-button {
+        width: 100%;
+        max-width: none;
+    }
+
+    .dropdown-menu {
+        width: 100%;
+        text-align: center;
+    }
+
+    .editor-container {
+        width: 100%;
+        overflow-x: auto;
+    }
+
+    .output-box {
+        font-size: 14px;
+        overflow-x: auto;
+        word-wrap: break-word;
+    }
+
+    .output-header {
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
+    }
+    .phpcontainer{
+        padding-bottom: 80px !important;  /* Adjust this based on your navbar height */
+        margin-bottom: 18% !important;
+
+    }
+}

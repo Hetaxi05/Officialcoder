@@ -1,0 +1,30 @@
+/* body {
+    cursor: none; /* Hide the default cursor */
+/* } */
+/* 
+.custom-cursor {
+    position: fixed;
+    left: 0;
+    top: 0;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+}
+
+.cursor-dot {
+    width: 10px;
+    height: 10px;
+    background: rgb(76, 190, 196);
+    border-radius: 50%;
+    position: absolute;
+    left: -10px;
+    top: 50%;
+    transform: translateY(-50%);
+} */
+
+/* .cursor-arrow {
+    width: 23px;
+    height: 20px; */
+    /* background: rgb(223, 217, 217); */
+    /* clip-path: polygon(0 50%, 100% 0, 100% 100%); */
+/* } */

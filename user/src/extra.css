@@ -1,0 +1,282 @@
+/* Use Outfit Font */
+body {
+    font-family: "Outfit", sans-serif;
+  }
+  
+  /* Sidebar Base */
+  .sidebar {
+    width: 250px;
+    height: 100vh;
+    background-color: white;
+    color: white;
+    transition: width 0.3s ease-in-out;
+    overflow: hidden;
+  }
+  
+  /* Collapsed Sidebar */
+  .sidebar.collapsed {
+    width: 60px;
+  }
+  
+  /* Sidebar Header */
+  .sidebar-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 18px;
+  }
+  
+  .sidebar-logo {
+    font-size: 18px;
+    font-weight: bold;
+    color: #525252;
+  }
+  
+  /* Sidebar Logo Hidden in Collapsed Mode */
+  .sidebar.collapsed .sidebar-logo {
+    display: none;
+  }
+  
+  .sidebar-icon {
+    font-size: 22px;
+    cursor: pointer;
+    color: #525252;
+  }
+  
+  /* Sidebar Section Labels */
+  .sidebar-section {
+    padding: 8px 10px;
+  }
+  
+  .section-label {
+    display: inline-block;
+    font-size: 15px;
+    font-weight: bold;
+    background: white;
+    padding: 5px 12px;
+    border-radius: 4px;
+    color: #525252;
+    text-transform: uppercase;
+  }
+  
+  /* Sidebar Navigation */
+  .nav {
+    padding-left: 0;
+    margin-top: 5px;
+  }
+  
+  .nav-item {
+    list-style: none;
+  }
+  
+  /* Sidebar Buttons Instead of Links */
+  .nav-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: white;
+    font-size: 50px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    width: 100%;
+    text-align: left;
+    padding: 10px 20px;
+  }
+  
+  /* Only Show Icons in Collapsed Mode */
+  .sidebar.collapsed .menu-text,
+  .sidebar.collapsed .menu-right {
+    display: none;
+  }
+  
+  /* Adjust Icons for Collapsed Mode */
+  .sidebar.collapsed .menu-left i {
+    margin-right: 0;
+    text-align: center;
+    width: 100%;
+  }
+  
+  /* Submenu Hidden in Collapsed Mode */
+  .sidebar.collapsed .submenu {
+    display: none;
+  }
+  
+  /* Hover Effect in Collapsed Mode */
+  .sidebar.collapsed .nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  /* Active Main Menu */
+  .nav-item.active {
+    background-color: white;
+  }
+  
+  
+  .nav-item-padding {
+    padding-top: 8px;
+    padding-bottom: 8px;
+    justify-content: space-between;
+  }
+  
+  .sidebar.collapsed .nav-item-padding {
+    justify-content: center;
+  }
+  
+  /* Fix Icon Colors */
+  .nav-link i {
+    color: #525252;
+    
+  }
+  
+  /* Main Menu Text */
+  .menu-text {
+    font-weight: 600;
+    color: #525252;
+  }
+  
+  /* Menu Text & Icons Left */
+  .menu-left {
+    display: flex;
+    align-items: center;
+  }
+  
+  .menu-left i {
+    margin-right: 10px;
+  }
+  
+  /* Menu Icons Right (Dropdown Arrow) */
+  .menu-right {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .dropdown-icon {
+    color: #525252;
+    font-size: 14px;
+  }
+  
+  /* Active Main Menu */
+  .nav-link.active {
+    background-color: #525252;
+  }
+  
+  /* Hover Effects */
+  .nav-link:hover {
+    /* background-color: #525252; */
+    border-radius: 0px;
+  }
+  
+  /* Rotate dropdown arrow when menu expands */
+  .rotate {
+    transform: rotate(180deg);
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  /* Submenu */
+  .submenu {
+    list-style: none;
+    padding-left: 25px;
+    margin-top: 5px;
+    position: relative;
+    overflow: hidden;
+    height: 0;
+    transition: height 0.3s ease-in-out;
+  }
+  
+  /* When menu is open, expand smoothly */
+  .submenu.open {
+    height: auto;
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+  
+  /* Vertical Line Inside Main Menu */
+  .submenu::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 1px;
+    height: 100%;
+    background-color: #8f9bb3;
+  }
+  
+  /* Nested Submenu Items */
+  .submenu-item {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    color: darkgray;
+    cursor: pointer;
+    padding: 8px 0;
+    font-weight: 650;
+    position: relative;
+  }
+  
+  
+  /* Hover Effect: Change text color to white */
+  .submenu-item:hover {
+    color: black;
+  }
+  
+  /* Active Submenu Item */
+  .submenu-item.active {
+    font-weight: bold;
+    color: black;
+  }
+  
+  /* Ensure the dot color matches the text on hover */
+  .submenu-item:hover .line::after {
+    background-color: #525252;
+  }
+  
+  
+  /* Horizontal Line Connected to Vertical Line */
+  .submenu-item .line {
+    width: 16px; /* Short horizontal line */
+    height: 1px;
+    background-color: black;
+    display: inline-block;
+    margin-right: 8px;
+    position: relative;
+  }
+  
+  /* ✅ Dot Positioned Correctly Inside Line */
+  .submenu-item .line::after {
+    content: "";
+    width: 6px;
+    height: 6px;
+    background-color: #8f9bb3;
+    border-radius: 50%;
+    position: absolute;
+    right: -3px; /* Align dot to the right of the horizontal line */
+    top: -2px;
+  }
+  
+  /* Active Submenu Item */
+  .submenu-item.active {
+    font-weight: bold;
+    color: #525252
+  }
+  
+  .submenu-item.active .line::after {
+    background-color: #525252; /* Dot turns white when active */
+  }
+  
+  /* Sidebar Icon Animation */
+  .sidebar-icon {
+    font-size: 25px;
+    cursor: pointer;
+    color: #525252;
+    transition: transform 0.5s ease-in-out; /* Smooth animation */
+  }
+  
+  .sidebar-icon:hover {
+    transform: rotate(360deg);
+  }
+  
+
+ 

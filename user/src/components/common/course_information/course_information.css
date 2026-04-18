@@ -1,0 +1,55 @@
+
+
+
+
+
+
+/* CourseDetails.css */
+.course-rating {
+  font-size: 18px;
+  color: #f4b400;
+}
+
+.course-meta p {
+  font-size: 16px;
+  color: #555;
+}
+
+.card {
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.row{
+    padding: "30px";
+    border-radius:"15%"
+}
+
+.card ul li {
+    border-bottom: 1.5px dotted #aaa; /* Dotted line */
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .card ul li:last-child {
+    border-bottom: none; /* Remove border for last item */
+  }
+  
+
+  .dotted-line {
+    /* border: none; */
+    border-top: 1.5px dotted #747474;  /* Dotted Line */
+    
+    /* margin: 20px 0; */
+  }
+
+  .button{
+    background-color: #f2f4f7;
+    width: 100%;
+    justify-content: center;
+    color: #07a698;
+    border-radius: 5px;
+    font-weight: 600;
+    gap: "10px";
+    border: none;
+  }
+  

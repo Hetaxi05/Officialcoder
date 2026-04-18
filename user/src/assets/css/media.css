@@ -1,0 +1,33 @@
+@media (min-width: 744px) {
+    .course-list__item--certification {
+        padding-top: 24px;
+    }
+}
+
+.course-list__item--certification {
+    margin-top: auto;
+}
+.course-list__item {
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 500;
+    position: relative;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+li {
+    display: list-item;
+    text-align: -webkit-match-parent;
+    unicode-bidi: isolate;
+}
+.course-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}

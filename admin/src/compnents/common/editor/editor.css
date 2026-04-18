@@ -1,0 +1,27 @@
+/* Set height of ReactQuill editor */
+.custom-quill .ql-container {
+  height: 150% !important; /* Increased height by 50% */
+}
+
+.custom-quill .ql-editor {
+  min-height: 150px !important; /* Set a minimum height for the editor */
+}
+
+/* Custom styling for code blocks */
+pre.ql-syntax {
+  background:black;
+  padding: 10px;
+  border-radius: 4px;
+  overflow-x: auto;
+  color: gray;
+}
+
+
+  /* .ql-snow .ql-editor pre {
+    background-color: #f4f4f4;
+    color: #333;
+    padding: 10px;
+    border-radius: 5px;
+    font-family: 'Courier New', monospace;
+    white-space: pre-wrap;
+} */

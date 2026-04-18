@@ -1,0 +1,357 @@
+@import url("https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap");
+
+/* .certificate-right-column {
+    background-image: url('/public/assets/image/certificatebackground.jpg'); /* Update with the correct path */
+    /* background-size: cover; 
+    background-position: center;
+    background-repeat: no-repeat; 
+    padding-top: 299px;  */
+
+
+
+    /* background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+  
+  } */
+  /* .certificate-left-column {
+    background-image: url('/public/assets/image/certificateSidebarBackground.jpg'); */
+    /* background-size: cover; 
+    background-repeat: no-repeat; 
+    padding: 482px;
+    background-position: center;  */
+
+    /* background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+  
+  } */ 
+
+  /* certificate.css */
+
+/* Optional font import for cursive name, if you need it */
+
+@import url("https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap");
+
+/* ===== Container: fill the screen, no scroll ===== */
+.certificate-container {
+  width: 100%;
+  height: 100vh;        /* Full viewport height */
+  overflow: hidden;     /* Prevent scrolling */
+  background: #f0f0f0;  /* Light background behind the certificate */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+}
+
+/* ===== Certificate Frame (white box) ===== */
+.certificate-frame {
+  width: 90vw;          /* Responsive width */
+  max-width: 1200px;    /* Limit max width */
+  height: 95vh;         /* Occupies most of the screen height */
+  background: #fff;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  border: 8px solid #fff; /* Simple frame border */
+}
+
+/* ========== LEFT SECTION ========== */
+.certificate-left {
+  width: 30%;
+  background: url("/public/assets/image/certificateSidebarBackground.jpg")
+    no-repeat center center;
+  background-size: cover;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  
+  
+}
+
+/* Company info at the top */
+.company-info {
+  color: #fff;
+  margin-bottom: 40px;
+}
+
+
+
+/* Circular badge at bottom of left column */
+.quality-badge {
+  width: 80px;
+  height: 80px;
+  background: #fff;
+  color: #00bfff;
+  border-radius: 50%;
+  border: 2px solid #00bfff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: auto;  /* Push it down to bottom */
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+/* ========== RIGHT SECTION ========== */
+.certificate-right {
+  width: 70%;
+  background: url("/public/assets/image/certificatebackground.jpg")
+    no-repeat center center;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  justify-content: left;
+  padding: 40px;
+  /* text-align: center; */
+}
+
+/* Title & Subtitle */
+.titleq {
+  font-size: 3rem;
+  margin-top: 50px;
+  font-weight: bold;
+  color: #333;
+  font-family: Roboto, sans-serif;
+}
+.subtitle {
+  font-size: 2rem;
+  margin: 10px 0 20px;
+  color: #555;
+  font-family: Roboto, sans-serif;
+  text-transform: uppercase;
+}
+
+/* "This certificate is presented to" */
+.presented-to {
+  font-size: 1rem;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #555;
+  margin: 10px 0 20px;
+  font-family: Roboto, sans-serif;
+}
+
+/* Recipient Name in cursive */
+.recipient-name {
+  font-family: "Great Vibes", cursive;
+  font-size: 4rem;
+  color: #00bfff; /* Deepskyblue */
+  margin: 10px 0 30px;
+}
+
+/* Certificate text paragraph */
+.certificate-text {
+  font-size: 1rem;
+  color: #666;
+  max-width: 80%;
+  /* margin: 0 auto 40px auto; */
+  line-height: 1.5;
+  max-width: 100% !important;
+}
+
+/* Signatures section */
+.signatures {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  margin-top: 30px; /* Push down if needed */
+}
+
+/* Each signature */
+.signature {
+  text-align: center;
+}
+.sig-line {
+  width: 150px;
+  height: 2px;
+  background: #00bfff;
+  margin: 0 auto 5px auto;
+}
+.signature p {
+  margin: 0;
+  font-weight: bold;
+}
+.signature span {
+  color: #00bfff;
+  font-weight: 600;
+}
+
+/* ===== Responsive Adjustments ===== */
+@media (max-width: 768px) {
+  .title {
+    font-size: 2rem;
+  }
+  .subtitle {
+    font-size: 1.5rem;
+  }
+  .recipient-name {
+    font-size: 3rem;
+  }
+}
+
+
+@media (max-width: 768px) {
+  /* Keep certificate container properly spaced */
+  .certificate-frame {
+    width: 95%; 
+    max-width: 100%;
+    height: auto; /* Adjust height dynamically */
+    padding: 2px;
+    border: 5px solid #ccc;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: row; /* Ensure left & right stay side by side */
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  /* Left section - Sidebar styling */
+  .certificate-left {
+    width: 32%; /* Reduce size to fit better */
+    min-height: 598px; /* Ensure a good height */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    background-size: cover;
+    background-position: center;
+    padding: 10px;
+    border-right: 3px solid #00bfff; /* Modern separator */
+    position: relative;
+  }
+
+  /* Sidebar images adjustments */
+  .certificate-left-column img {
+    position: absolute !important;
+    top: 0 !important;
+    left: 10px !important;
+    width: 78px !important;
+    height: 355px !important;
+  }
+
+  /* Sidebar logo positioning */
+  .certificate-left-column .sidebar-logo {
+    position: absolute !important;
+        bottom: 10px !important;
+        left: 6px !important;
+        width: 97px !important;
+        height: 94px !important;
+        top: 416px !important;
+  }
+
+  /* Right section now takes more width */
+  .certificate-right {
+    width: 68%; /* Adjust for balance */
+    padding: 15px;
+    text-align: center;
+    background-color: #fff;
+    min-height: 598px; /* Ensure a good height */
+
+  }
+
+  /* Certificate Title & Subtitle */
+  .titleq {
+    font-size: 1.8rem; /* Slightly smaller for mobile */
+    color: #00bfff;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    margin-top: 5px;
+  }
+
+  .subtitle {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+  }
+
+  /* Adjust recipient name */
+  .recipient-name {
+    font-size: 2rem;
+    font-family: "Great Vibes", cursive;
+    color: #00bfff;
+    word-wrap: break-word; /* Prevent text overflow */
+  }
+
+  /* Certificate text */
+  .certificate-text {
+    font-size: 13px; /* Smaller text */
+    color: #444;
+    max-width: 90%;
+    margin: 10px auto;
+    line-height: 1.4;
+    text-align: left;
+
+  }
+
+  /* Signatures section - Responsive styling */
+  .signatures {
+    display: flex;
+    /* flex-direction: column; */
+    gap: 19px;
+    align-items: center;
+    margin-top: 57px;
+  }
+
+  /* Signature styling */
+  .signature {
+    text-align: center;
+  }
+
+  .sig-line {
+    width: 100px;
+    height: 2px;
+    background: #00bfff;
+    margin: 0 auto 5px;
+  }
+
+  .signature p {
+    font-weight: bold;
+    font-size: 13px;
+  }
+
+  .signature span {
+    font-size: 12px;
+    color: #00bfff;
+  }
+
+  
+}
+
+/* Styles specifically for PDF/print view */
+@media print {
+  .certificate-container {
+    width: 297mm;  /* A4 landscape width */
+    height: 210mm; /* A4 landscape height */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  /* Adjust inner elements to fill the page properly */
+  .certificate-frame {
+    width: 100%;
+    height: 100%;
+    position: relative;
+  }
+  /* You may need to adjust absolute positioning for images or text here */
+  .certificate-left,
+  .certificate-right {
+    position: absolute;
+  }
+  /* For example, reposition the logo or sidebar images if needed */
+}
+

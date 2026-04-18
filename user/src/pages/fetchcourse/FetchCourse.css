@@ -1,0 +1,46 @@
+
+@media (max-width: 768px) {
+    /* Mobile View */
+    .row-cols-3 {
+        grid-template-columns: repeat(1, 1fr);
+        gap: 15px;
+    }
+
+    .course-container {
+        padding: 15px;
+        margin: 10px;
+    }
+
+    .course-title {
+        font-size: 16px;
+        /* text-align: center; */
+    }
+
+    .course-meta {
+        /* flex-direction: column; */
+        align-items: flex-start;
+        gap: 10px;
+      }
+      
+    .course-meta1 p{
+        /* flex-direction: column; */
+        align-items: flex-start;
+        gap: 5px;
+        font-size: 14.5px;
+      }
+    .course-image img {
+        height: 140px;
+    }
+
+    .Instructor {
+        font-size: 13px;
+    }
+
+    .view-details-btn {
+        font-size: 14px;
+        padding: 8px 15px;
+        display: block;
+        text-align: center;
+        width: 100%;
+    }
+}

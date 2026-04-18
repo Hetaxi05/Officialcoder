@@ -1,0 +1,151 @@
+.button-customm {
+    background-color: #ffffff;
+    padding: 16px;
+    width: 214px;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: all 0.3s ease-in-out;
+    border:1px solid #ddd;
+    text-decoration: none;
+    color: black;
+   
+}
+
+.button-customm:hover {
+    transform: scale(1.1);
+    animation: bubbleEffect 0.6s ease-in-out infinite;
+    border-color: #ddd;
+    /* background-color: rgb(49, 181, 169); */
+    background: #07a698;
+    color: #fff;
+    
+}
+
+
+
+
+
+
+
+
+/* Ensure the dots container only applies inside Programize */
+.programize-container {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Dots Container */
+.dots-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Send it behind the content */
+    pointer-events: none; /* Prevents interaction */
+}
+
+/* Common Dot Style */
+.dot {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.8;
+    animation: moveRandomPath linear infinite;
+}
+
+/* Different Sizes */
+.dot-small {
+    width: 15px;
+    height: 15px;
+    animation-duration: 9s;
+}
+.dot-medium {
+    width: 15px;
+    height: 15px;
+    animation-duration: 35s;
+}
+.dot-large {
+    width: 15px;
+    height: 15px;
+    animation-duration: 45s;
+}
+
+/* Different Colors */
+.dot-color-1 { background-color: red; }
+.dot-color-2 { background-color: blue; }
+.dot-color-3 { background-color: green; }
+.dot-color-4 { background-color: yellow; }
+.dot-color-5 { background-color: purple; }
+
+/* Move Left to Right with Random Vertical Changes */
+@keyframes moveRandomPath {
+    0% {
+        transform: translate(-10vw, 0);
+    }
+    25% {
+        transform: translate(25vw, 10vh); /* Slight vertical shift */
+    }
+    50% {
+        transform: translate(50vw, -10vh); /* Another shift in the opposite direction */
+    }
+    75% {
+        transform: translate(75vw, 5vh); /* Smaller shift */
+    }
+    100% {
+        transform: translate(110vw, 0); /* Move past the right side */
+    }
+}
+
+
+
+
+
+
+
+/* -----------------------------------
+   Mobile Responsive Styles
+------------------------------------- */
+@media (max-width: 768px) {
+    /* Reduce overall container padding */
+    .programize-container {
+        padding: 20px 10px;
+    }
+    
+    /* Adjust the heading and paragraph text */
+    .programize-container h2 {
+        font-size: 1.8rem;
+        text-align: center;
+    }
+    
+    .programize-container p {
+        font-size: 1rem;
+        text-align: center;
+        padding: 0 10px;
+    }
+    
+    /* Adjust the flex container for compiler links */
+    .programize-container .col {
+        /* Make sure it takes full width */
+        width: 100%;
+    }
+    
+    /* For the buttons, reduce width and padding */
+    .button-customm {
+        width: 90%;
+        padding: 12px;
+        margin: 5px auto;
+    }
+    
+    /* Optionally, adjust the hover effect scale if needed */
+    .button-customm:hover {
+        transform: scale(1.05);
+    }
+    
+    /* Optionally adjust the dots size for mobile screens */
+    .dot-small,
+    .dot-medium,
+    .dot-large {
+        width: 12px;
+        height: 12px;
+    }
+}
