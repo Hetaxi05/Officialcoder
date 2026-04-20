@@ -76,15 +76,22 @@ function ExperienceSection() {
 
 
                     <p className="fw-bold" style={{ fontSize: "32px" }}>
-                        {/* Over 10 Years in Distant learning  for <span className=""  style={{color:"#07a698"}}>Skill Development</span> */}
+                        Learn smarter with{" "} <span className=""  style={{color:"#07a698"}}>Official Coder</span>
+                    </p>
+                    
+            <p className="text-muted my-4">
+              Official Coder is an interactive e-learning platform designed
+              to help students and learners build their knowledge through
+              structured courses, organized chapters, and step-by-step topic
+              based learning.
+            </p>
 
-                        A fresh start, powered by a decade of <span className=""  style={{color:"#07a698"}}> learning experience</span>
-                    </p>
-                    <p className="text-muted my-4">
-                        Complementary mission-critical pathways with integrated portals.
-                        Achieve massive ROI and best-practice improvements. Low-risk/high-yield
-                        metrics and plug-and-play potentialities.
-                    </p>
+            <p className="text-muted my-4">
+              Our platform makes learning simple, engaging, and accessible.
+              Users can explore courses, test their understanding through
+              quizzes, gain valuable skills, and enjoy a smooth digital
+              learning experience with secure access and inquiry support.
+            </p>
                     <div className="d-flex gap-4 stats-group mb-4">
                         <div className="icons">
                             <img src="./assets/image/about-1.png"></img>

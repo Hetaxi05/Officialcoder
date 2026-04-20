@@ -6,8 +6,6 @@
      /* Adjust as needed */
      background-repeat: no-repeat;
      /* Prevent repeating */
-
-
      background-size: cover;
      background-position: center;
      background-repeat: no-repeat;
@@ -117,10 +115,7 @@
      }
  
      .shape-1 {
-         top: 31%;
-         left: 13%;
-         width: 120px;
-         transform: translateX(-50%);
+         display: none;
      }
  }
 
@@ -134,7 +129,9 @@
     }
 
     .text-content {
-        padding: 20px;
+        margin-left: -33px;
+        margin-top: 30px;
+        padding: 20px !important;
         /* text-align: center; */
     }
     .highlight {
@@ -148,19 +145,14 @@
    }
     .text-content h2 {
         font-size: 2rem;
-
+        padding-left: 0px;
     }
-
     .text-content p {
         font-size: 1rem;
+          padding-left: 0px;
     }
 
     .shape-1 {
-        /* top: 39%; */
-        top: 19% !important;
-
-        left: 13%;
-        width: 120px;
-        transform: translateX(-50%);
+       display: none;
     }
 }

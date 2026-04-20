@@ -1,140 +1,192 @@
 import React from "react";
-// import '../Aboutus/Aboutus.css';
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { LiaPhoneVolumeSolid } from "react-icons/lia";
-import ExperienceSection from "../../../../pages/AboutUs/ExperienceSection";
+import "./Aboutus.css"
+
 function AboutUs() {
+  const navigate = useNavigate();
 
-    const navigate=useNavigate()
+  const handleFree = () => {
+    navigate("/mobilecategory");
+  };
 
+  const getmoreabout = () => {
+    navigate("/aboutus");
+  };
 
-    const handleFree= () => {
-        navigate("/mobilecategory"); // Aa route ne tamara project pramane update karo
-      };
-      const getmoreabout= () => {
-        navigate("/aboutus"); // Aa route ne tamara project pramane update karo
-      };
-    return (
-        <>
+  return (
+    <>
+      <div className="course-banner">
+        <div className="container">
+          <div className="shape-1">
+            <img src="/page-header-shape-1.png" alt="Shape" />
+          </div>
 
-            <div className="course-banner">
+          <div className="text-content" style={{ padding: "50px" }}>
+            <h2>About Us</h2>
+            <p>
+              <span style={{ fontWeight: "500" }}>Home</span> /{" "}
+              <span style={{ color: "#07a698", fontWeight: "500" }}>
+                AboutUs Page
+              </span>
+            </p>
+          </div>
+        </div>
+      </div>
 
-                <div className="container">
-                    {/* Floating Shape */}
-                    <div className="shape-1">
-                        <img src="/page-header-shape-1.png" alt="Shape" />
-                    </div>
+      <section className="experience-section py-5 ps-5 ms-5 me-5 pe-0">
+        <div className="row align-items-center gap-3">
+          {/* Left Column */}
+          <div className="col-lg-6">
+            <div className="about-img-wrap position-relative mb-4 mb-lg-0">
+              <div className="about-img-1 position-relative">
+                <img
+                  src="./assets/image/about-img-1.jpg"
+                  alt="Experience"
+                  className="img-fluid rounded"
+                />
+              </div>
 
-                    {/* Text Content */}
-                    <div className="text-content" style={{ padding: "50px" }}>
-                        <h2 style={{ color: "" }}>About Us</h2>
-                        <p>
-                            <span style={{ fontWeight: "500" }}>Home</span> / <span className="" style={{ color: "#07a698", fontWeight: "500" }}>AboutUs Page</span>
-                        </p>
-                    </div>
+              <div
+                className="about-img-2 position-absolute"
+                style={{ top: "58%", left: "45%" }}
+              >
+                <img
+                  src="./assets/image/about-img-2.jpg"
+                  alt="Experience"
+                  className="img-fluid rounded"
+                />
+              </div>
+
+              {/* Helpline box */}
+              <div className="about-contact d-flex align-items-center">
+                <div className="icon">
+                  <LiaPhoneVolumeSolid size={30} style={{ color: "#07a698" }} />
                 </div>
-
-
+                <div className="content">
+                  <span className="d-block fw-bold text-white">
+                    ONLINE SUPPORT
+                  </span>
+                  <h5 className="fw-bold mb-0 text-white">+258 152 3659</h5>
+                </div>
+              </div>
             </div>
-            {/* <ExperienceSection/> */}
+          </div>
 
+          {/* Right Column */}
+          <div className="col-lg-5 me-0">
+            <div className="d-flex">
+              <div className="getmoreabout pt-1 ps-1 pe-3 mb-3 pb-1 text-center">
+                <span className="pe-2" onClick={getmoreabout}>
+                  <img
+                    className="img"
+                    src="/assets/image/category-1.png"
+                    alt="courses category"
+                    width="27px"
+                    height="27px"
+                    style={{
+                      backgroundColor: "#f0f0f0",
+                      padding: "5px",
+                    }}
+                  />
+                </span>
+                Get More About Us
+              </div>
+            </div>
 
-            <section className="experience-section  py-5 ps-5 ms-5 me-5 pe-0">
-                <div className="row align-items-center gap-3">
-                    {/* Left Column */}
-                    <div className="col-lg-6">
+            <p className="fw-bold" style={{ fontSize: "32px" }}>
+                                  Learn smarter with{" "} <span className=""  style={{color:"#07a698"}}>Official Coder</span>
+                              </p>
 
-                        <div className=" about-img-wrap col-lg-6 mb-4 mb-lg-0">
-                            <div className=" about-img-1 position-relative" >
-                                {/* Example Image */}
-                                <img
-                                    src="./assets/image/about-img-1.jpg"
-                                    alt="Experience"
-                                    className="img-fluid rounded"
-                                />
+            <p className="text-muted my-4">
+              Official Coder is an interactive e-learning platform designed
+              to help students and learners build their knowledge through
+              structured courses, organized chapters, and step-by-step topic
+              based learning.
+            </p>
 
-                            </div>
-                            <div className=" about-img-2 position-relative" style={{ top: "94.2%", left: "28%" }} >
-                                {/* Example Image */}
-                                <img
-                                    src="./assets/image/about-img-2.jpg"
-                                    alt="Experience"
-                                    className="img-fluid rounded"
-                                />
+            <p className="text-muted my-4">
+              Our platform makes learning simple, engaging, and accessible.
+              Users can explore courses, test their understanding through
+              quizzes, gain valuable skills, and enjoy a smooth digital
+              learning experience with secure access and inquiry support.
+            </p>
 
-                            </div>
-
-                            <div className="about-contact mt-3">
-                                <div className="icon">
-                                    <LiaPhoneVolumeSolid size={30} style={{ color: "#07a698" }} />
-                                </div>
-                                <div className="content">
-                                    <span className="d-block fw-bold" style={{ color: "white" }}>ONLINE SUPPORT</span>
-                                    <h5 className="fw-bold" style={{ color: "white" }}>+258 152 3659</h5>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* Right Column */}
-                    <div className="col-lg-5 me-0">
-
-                        <div className=" d-flex">
-                            <div className="getmoreabout pt-1 ps-1 pe-3 mb-3 pb-1 text-center">
-                                <span className="pe-2 " onClick={getmoreabout}>
-                                    <img
-                                        className="img"
-                                        src="/assets/image/category-1.png"
-                                        alt="courses category"
-                                        width="27px"
-                                        height="27px"
-                                        style={{ backgroundColor: "#f0f0f0", padding: "5px" }}
-                                    />
-                                </span>
-                                Get More About Us
-                            </div>
-
-                        </div>
-
-
-
-                        <p className="fw-bold" style={{ fontSize: "32px" }}>
-                            {/* Over 10 Years in Distant learning  for <span className="" style={{ color: "#07a698" }}>Skill Development</span> */}
-                                                    A fresh start, powered by a decade of <span className=""  style={{color:"#07a698"}}> learning experience</span>
-                            
-                        </p>
-                        <p className="text-muted my-4">
-                            Complementary mission-critical pathways with integrated portals.
-                            Achieve massive ROI and best-practice improvements. Low-risk/high-yield
-                            metrics and plug-and-play potentialities.
-                        </p>
-                        <div className="d-flex gap-4 stats-group mb-4">
-                            <div className="icons">
-                                <img src="./assets/image/about-1.png"></img>
-                            </div>
-
-                            <div>
-                                <h2 className="fw-bold mb-0 " style={{ color: "#07a698" }}>9.5k+</h2>
-                                <small className="text-muted">
-                                    Total active teachers taking grad courses
-                                </small>
-                            </div>
-
-                            <div className="icons">
-                                <img src="./assets/image/about-2.png"></img>
-                            </div>
-                            <div>
-                                <h2 className="fw-bold mb-0 " style={{ color: "#07a698" }}>6.7k+</h2>
-                                <small className="text-muted">Total active courses available</small>
-                            </div>
-                        </div>
-                        <button className="btn btn-lg" onClick={handleFree}>Start Category</button>
-                    </div>
+            {/* Feature cards */}
+            <div className="feature-boxes">
+              <div className="feature-item">
+                <div className="feature-icon">📚</div>
+                <div className="feature-content">
+                  <h6>Structured Courses</h6>
+                  <p>Learn easily with organized chapters and topics.</p>
                 </div>
-            </section>
+              </div>
 
-        </>
-    )
+              <div className="feature-item">
+                <div className="feature-icon">📝</div>
+                <div className="feature-content">
+                  <h6>Interactive Quizzes</h6>
+                  <p>Test your knowledge with smart quiz modules.</p>
+                </div>
+              </div>
+
+              <div className="feature-item">
+                <div className="feature-icon">🎓</div>
+                <div className="feature-content">
+                  <h6>Certificates</h6>
+                  <p>Get recognition after completing learning modules.</p>
+                </div>
+              </div>
+
+              <div className="feature-item">
+                <div className="feature-icon">💬</div>
+                <div className="feature-content">
+                  <h6>Inquiry Support</h6>
+                  <p>Contact admin anytime using inquiry support.</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="d-flex gap-4 stats-group mb-4 mt-4 flex-wrap">
+              <div className="d-flex align-items-center gap-3">
+                <div className="icons">
+                  <img src="./assets/image/about-1.png" alt="Learners" />
+                </div>
+
+                <div>
+                  <h2 className="fw-bold mb-0" style={{ color: "#07a698" }}>
+                    2.5k+
+                  </h2>
+                  <small className="text-muted">
+                    Total active learners using our platform
+                  </small>
+                </div>
+              </div>
+
+              <div className="d-flex align-items-center gap-3">
+                <div className="icons">
+                  <img src="./assets/image/about-2.png" alt="Courses" />
+                </div>
+
+                <div>
+                  <h2 className="fw-bold mb-0" style={{ color: "#07a698" }}>
+                    2.7k+
+                  </h2>
+                  <small className="text-muted">
+                    Total active courses available
+                  </small>
+                </div>
+              </div>
+            </div>
+
+            <button className="btn start-btn btn-lg" onClick={handleFree}>
+              Start Learning
+            </button>
+          </div>
+        </div>
+      </section>
+    </>
+  );
 }
+
 export default AboutUs;
