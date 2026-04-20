@@ -142,7 +142,7 @@
 .stats-group {
   display: flex;
   gap: 20px;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
 }
 
 .stat-card {
