@@ -56,7 +56,7 @@ RouterPayment.post('/', async (req, res) => {
             "payment_method": "paypal"
         },
         "redirect_urls": {
-            "return_url": `http://localhost:3001/payment-success?price=${price}&currency=${currency}`,
+            "return_url": `http://localhost:3000/payment-success?price=${price}&currency=${currency}`,
                         "cancel_url": `http://localhost:3000/payment/failed?userId=${userId}&price=${price}&currency=${currency}`,
 
 

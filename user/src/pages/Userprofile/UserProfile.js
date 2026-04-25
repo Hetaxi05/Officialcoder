@@ -201,46 +201,6 @@ function UserProfile() {
         </Form>
       </div>
 
-      <div className="profile-container p-4 border rounded shadow-sm bg-white">
-        <h4 className="fw-bold mb-4" style={{ color: "#08A88A" }}>
-          Inquiry Replies
-        </h4>
-
-        {userInquiries.length > 0 ? (
-          userInquiries.map((item) => (
-            <Card key={item._id} className="mb-3 border-0 shadow-sm">
-              <Card.Body>
-                <p className="mb-2">
-                  <strong>Subject:</strong> {item.subject}
-                </p>
-
-                <p className="mb-2">
-                  <strong>Your Inquiry:</strong> {item.message}
-                </p>
-
-                <p className="mb-0">
-                  <strong>Admin Reply:</strong>{" "}
-                  {item.isMessageSent && item.adminReply
-                    ? item.adminReply
-                    : "No reply yet"}
-                </p>
-              </Card.Body>
-            </Card>
-          ))
-        ) : (
-          <div
-            style={{
-              background: "#f8f9fa",
-              padding: "20px",
-              borderRadius: "10px",
-              textAlign: "center",
-              color: "#666",
-            }}
-          >
-            No inquiries found.
-          </div>
-        )}
-      </div>
     </div>
   );
 }

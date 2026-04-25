@@ -74,7 +74,7 @@ const PaymentSuccess = () => {
           className="btn btn-primary mt-4 px-4 py-2"
           onClick={handleBackToWebsite}
         >
-          Back to Website
+          Back to Application
         </button>
       </div>
     </div>

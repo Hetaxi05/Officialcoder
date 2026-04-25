@@ -1,145 +1,166 @@
 import React, { useState } from "react";
 import { Form, InputGroup } from "react-bootstrap";
 import { Search, X } from "react-feather";
-import { useNavigate } from "react-router-dom"; 
+import { useNavigate } from "react-router-dom";
+import "./search.css";
 
 const SearchComponent = () => {
-    const [query, setQuery] = useState("");
-    const [filteredCourses, setFilteredCourses] = useState([]);
-    const [searched, setSearched] = useState(false);
-    const navigate = useNavigate();
+  const [query, setQuery] = useState("");
+  const [filteredCourses, setFilteredCourses] = useState([]);
+  const [searched, setSearched] = useState(false);
 
-    // Fetch courses only when a search is performed
-    const handleSearch = (e) => {
-        const value = e.target.value;
-        setQuery(value);
-        setSearched(true);
-    
-        if (!value) {
-            setFilteredCourses([]);
-            setSearched(false);
-        } else {
-            fetch(`${process.env.REACT_APP_API_URL}/cour`)
-                .then((response) => response.json())
-                .then((data) => {
-                    const filtered = data.filter((course) =>
-                        course.coursename.toLowerCase().includes(value.toLowerCase())
-                    );
-    
-                    // Fetch total topics for each course using .then()
-                    const coursesWithTopicsPromises = filtered.map((course) => {
-                        return fetch(`${process.env.REACT_APP_API_URL}/cour/lession/count/${course._id}`)
-                            .then((response) => response.json())
-                            .then((topicData) => {
-                                return { ...course, totalTopics: topicData.totalTopics }; 
-                            })
-                            .catch(() => ({ ...course, totalTopics: 0 })); // Handle errors
-                    });
-    
-                    // Wait for all fetch calls to complete
-                    Promise.all(coursesWithTopicsPromises).then((updatedCourses) => {
-                        setFilteredCourses(updatedCourses);
-                    });
-                })
-                .catch((err) => {
-                    alert("Error fetching: " + err);
-                });
-        }
-    };
-    
+  const navigate = useNavigate();
 
-    return (
-        <div className="container d-flex flex-column align-items-center justify-content-center vh-100 " >
-            {/* Search Bar */}
-            <div className="w-50 mb-4 p-4" style={{ marginTop: "-150px", width: "50%", border: "1px solid #d3dce6" }}>
-                <InputGroup className="custom-search-box" style={{
-                    overflow: "hidden",
-                    display: "flex",
-                    alignItems: "center",
-                    background: "white",
-                }}>
-                    <InputGroup.Text style={{ backgroundColor: "transparent", border: "none", padding: "8px" }}>
-                        <Search size={18} />
-                    </InputGroup.Text>
-                    <Form.Control
-                        type="text"
-                        placeholder="Search for courses"
-                        value={query}
-                        onChange={handleSearch}
-                        style={{ border: "none", boxShadow: "none", fontSize: "22px" }}
-                    />
-                    {query && (
-                        <InputGroup.Text
-                            style={{ cursor: "pointer", backgroundColor: "transparent", border: "none", padding: "8px" }}
-                            onClick={() => {
-                                setQuery("");
-                                setFilteredCourses([]);
-                                setSearched(false);
-                            }}
-                        >
-                            <X size={18} />
-                        </InputGroup.Text>
-                    )}
-                </InputGroup>
-            </div>
+  const handleSearch = (e) => {
+    const value = e.target.value;
+    setQuery(value);
+    setSearched(true);
 
-            {/* Search Results */}
-            <div className="w-50" style={{ marginTop: "55px" }}>
+    if (!value) {
+      setFilteredCourses([]);
+      setSearched(false);
+      return;
+    }
+
+    fetch(`${process.env.REACT_APP_API_URL}/cour`)
+      .then((response) => response.json())
+      .then((data) => {
+        const filtered = data.filter((course) =>
+          course.coursename.toLowerCase().includes(value.toLowerCase())
+        );
+
+        const promises = filtered.map((course) => {
+          return fetch(
+            `${process.env.REACT_APP_API_URL}/cour/lession/count/${course._id}`
+          )
+            .then((res) => res.json())
+            .then((topicData) => ({
+              ...course,
+              totalTopics: topicData.totalTopics,
+            }))
+            .catch(() => ({
+              ...course,
+              totalTopics: 0,
+            }));
+        });
+
+        Promise.all(promises).then((updatedCourses) =>
+          setFilteredCourses(updatedCourses)
+        );
+      })
+      .catch((err) => {
+        alert("Error fetching: " + err);
+      });
+  };
+
+  return (
+    <div className="search-page container">
+
+      {/* Search Bar */}
+      <div className="search-box-wrapper">
+
+        <InputGroup className="custom-search-box w-100">
+
+          <InputGroup.Text className="search-icon">
+            <Search size={18} />
+          </InputGroup.Text>
+
+          <Form.Control
+            type="text"
+            placeholder="Search for courses"
+            value={query}
+            onChange={handleSearch}
+            className="search-input"
+          />
+
+          {query && (
+            <InputGroup.Text
+              className="clear-icon"
+              onClick={() => {
+                setQuery("");
+                setFilteredCourses([]);
+                setSearched(false);
+              }}
+            >
+              <X size={18} />
+            </InputGroup.Text>
+          )}
+
+        </InputGroup>
+
+      </div>
+
+
+      {/* Search Results */}
+      <div className="search-results">
+
         {searched ? (
+
           filteredCourses.length > 0 ? (
+
             filteredCourses.map((course, index) => (
+
               <div
                 key={index}
-                className="d-flex align-items-center p-3 mb-3 border rounded"
-                style={{ backgroundColor: "#f8f9fa" }}
+                className="course-result-card"
                 onClick={() => navigate(`/course-details/${course._id}`)}
               >
+
                 <img
                   src={course.image}
                   alt="Course"
-                  style={{
-                    width: "80px",
-                    height: "80px",
-                    borderRadius: "8px",
-                    marginRight: "16px",
-                    objectFit: "cover",
-                  }}
+                  className="course-img"
                 />
-                <div className="d-flex flex-column">
-                  <h5 className="mb-1" style={{ fontWeight: "bold" }}>
-                    {course.coursename}
-                  </h5>
-                  <p className="mb-1 text-muted" style={{ fontSize: "14px" }}  
-                  dangerouslySetInnerHTML={{ __html:course.coursedetails || "Loading..." }} >
-                    {/* {course.coursedetails} */}
+
+                <div className="course-info">
+
+                  <h5>{course.coursename}</h5>
+
+                  <p
+                    className="course-desc"
+                    dangerouslySetInnerHTML={{
+                      __html: course.coursedetails || "Loading...",
+                    }}
+                  ></p>
+
+                  <p className="topic-count">
+                    Total Topics: {course.totalTopics || 0}
                   </p>
-                  <p className="fw-bold">Total Topics: {course.totalTopics || 0}</p>
+
                 </div>
+
               </div>
+
             ))
+
           ) : (
-            <p className="text-muted fw-bold" style={{ fontSize: "20px" }}>
+
+            <p className="no-course">
               No courses found
             </p>
+
           )
+
         ) : (
-          <div className="text-center">
+
+          <div className="text-center empty-search">
+
             <img
               src="/assets/lesson/review_1263938.png"
               alt="Search Icon"
               width={100}
             />
-            <p
-              className="text-muted fw-bold"
-              style={{ fontSize: "20px", marginTop: "15px" }}
-            >
-              Enter keyword to search
-            </p>
+
+            <p>Enter keyword to search</p>
+
           </div>
+
         )}
+
       </div>
-        </div>
-    );
+
+    </div>
+  );
 };
 
 export default SearchComponent;

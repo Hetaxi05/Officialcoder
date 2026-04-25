@@ -30,10 +30,13 @@ const Header = ({ onToggleSidebar }) => {
   const location = useLocation();
 
   const menuItems = [
+
     { name: "Home", icon: <FaHome />, to: "/" },
+    { name: "Search", icon: <FiSearch />, to: "/search-component" },
     { name: "Pricing", icon: <FaDollarSign />, to: "/pricing" },
     { name: "Contact Us", icon: <FaPhoneAlt />, to: "/contactus" },
     { name: "About Us", icon: <FaInfoCircle />, to: "/aboutus" },
+
   ];
 
   const toggleMobileMenu = () => {
@@ -51,7 +54,7 @@ const Header = ({ onToggleSidebar }) => {
       .then((data) => {
         setCategories(data);
       })
-      .catch(() => {});
+      .catch(() => { });
   }
 
   function getCourse() {
@@ -60,7 +63,7 @@ const Header = ({ onToggleSidebar }) => {
       .then((data) => {
         setcourse(data);
       })
-      .catch(() => {});
+      .catch(() => { });
   }
 
   const toggleUpdateDropdown = () => setUpdateDropdownOpen(!isUpdateDropdownOpen);
@@ -212,23 +215,6 @@ const Header = ({ onToggleSidebar }) => {
               style={{ width: "30px", height: "22px", marginLeft: "-11px" }}
             />
           </button>
-        </div>
-
-        <div className="d-flex align-items-center">
-          <button
-            className="btn btn-primary me-4 d-flex align-items-center"
-            style={{
-              background: "linear-gradient(180deg, #9327fe 17.05%, #6501e5)",
-              border: "none",
-              height: "25px",
-            }}
-          >
-            Go PRO <span className="ms-1"><FiArrowUpRight /></span>
-          </button>
-
-          <i className="bi bi-bell" style={{ minwidth: "744px" }}>
-            <GoBell />
-          </i>
         </div>
       </nav>
     );
@@ -486,7 +472,7 @@ const Header = ({ onToggleSidebar }) => {
                     </li>
                     <li>
                       <Link
-                        to="/inquiry-replies"
+                        to="/InquirySection"
                         className="dropdown-item"
                         onClick={toggleMobileMenu}
                       >

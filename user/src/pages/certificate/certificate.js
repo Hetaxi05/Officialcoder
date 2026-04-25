@@ -162,12 +162,12 @@ const Certificate = () => {
             <div className="signatures">
               <div className="signature">
                 <div className="sig-line"></div>
-                <p>John Smith</p>
+                <p>Mohit</p>
                 <span>Director</span>
               </div>
               <div className="signature">
                 <div className="sig-line"></div>
-                <p>Albert Smith</p>
+                <p>Gulfaraz</p>
                 <span>Manager</span>
               </div>
             </div>

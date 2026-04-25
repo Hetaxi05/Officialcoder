@@ -1,0 +1,171 @@
+.search-page {
+  min-height: 100vh;
+  padding-top: 100px;
+  padding-bottom: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+/* Search box container */
+
+.search-box-wrapper {
+  width: 50%;
+  padding: 12px 18px;
+  border: 1px solid #d3dce6;
+  background: #fff;
+  border-radius: 10px;
+}
+
+
+/* Fix InputGroup layout */
+
+.custom-search-box {
+  display: flex !important;
+  align-items: center !important;
+  flex-wrap: nowrap !important;
+  background: white;
+}
+
+
+.custom-search-box .form-control {
+  flex: 1 !important;
+  width: auto !important;
+}
+
+
+.search-icon,
+.clear-icon {
+  background: transparent !important;
+  border: none !important;
+  display: flex !important;
+  align-items: center !important;
+  padding: 6px !important;
+}
+
+
+.clear-icon {
+  cursor: pointer;
+}
+
+
+.search-input {
+  border: none !important;
+  box-shadow: none !important;
+  font-size: 18px !important;
+  height: 42px;
+}
+
+
+/* Search results container */
+
+.search-results {
+  width: 50%;
+  margin-top: 35px;
+}
+
+
+/* Course card */
+
+.course-result-card {
+  display: flex;
+  align-items: center;
+  padding: 14px;
+  margin-bottom: 14px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background: #f8f9fa;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+
+.course-result-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 14px rgba(0,0,0,0.1);
+}
+
+
+.course-img {
+  width: 70px;
+  height: 70px;
+  border-radius: 8px;
+  margin-right: 14px;
+  object-fit: cover;
+}
+
+
+.course-info h5 {
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+
+
+.course-desc {
+  font-size: 14px;
+  color: #6c757d;
+}
+
+
+.topic-count {
+  font-weight: bold;
+}
+
+
+.no-course,
+.empty-search p {
+  font-size: 20px;
+  font-weight: bold;
+  color: #6c757d;
+  margin-top: 15px;
+}
+
+
+/* Tablet */
+
+@media (max-width: 992px) {
+
+  .search-box-wrapper,
+  .search-results {
+    width: 75%;
+  }
+
+}
+
+
+/* Mobile */
+
+@media (max-width: 576px) {
+
+  .search-page {
+    padding-top: 80px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .search-box-wrapper,
+  .search-results {
+    width: 100%;
+  }
+
+  .custom-search-box {
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+  }
+
+  .search-input {
+    font-size: 15px !important;
+    height: 38px;
+  }
+
+  .course-result-card {
+    flex-direction: row;
+  }
+
+  .course-img {
+    width: 60px;
+    height: 60px;
+  }
+
+}
