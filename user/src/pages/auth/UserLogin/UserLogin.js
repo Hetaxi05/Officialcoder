@@ -12,20 +12,18 @@ function UserLogin() {
   const [formData, setFormData] = useState({ email: "", password: "" });
   const [errors, setErrors] = useState({ email: "", password: "" });
   const [passwordVisible, setPasswordVisible] = useState(false);
-  
 
-    const validateEmail = (email) => {
-      return /^[A-Za-z._\-0-9]+@[A-Za-z]+\.[a-z]{2,4}$/.test(email);
-    };
 
-    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/;
-
+  const validateEmail = (email) => {
+    return /^[A-Za-z._\-0-9]+@[A-Za-z]+\.[a-z]{2,4}$/.test(email);
+  };
+  const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/;
 
   // Handle input change
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
-    
+
     let newErrors = { ...errors };
     if (name === "email" && !validateEmail(value)) newErrors.email = "Please enter a valid email";
     else delete newErrors.email;
@@ -35,42 +33,34 @@ function UserLogin() {
     else delete newErrors.password;
 
     setErrors(newErrors);
-
-
   };
 
-  
+
   // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Run frontend validation before sending API request
-    // if (!validateForm()) return;
-
     if (Object.keys(errors).length > 0) {
-          message.error("Please fix all errors before submitting.");
-          return;
-        }
-    
+      message.error("Please fix all errors before submitting.");
+      return;
+    }
 
     try {
       const res = await axios.post(`${process.env.REACT_APP_API_URL}/user/login`, formData);
       message.success(res.data.message);
 
-
-      // ✅ Store JWT token in localStorage
+      //Store JWT token in localStorage
       localStorage.setItem("user", JSON.stringify(res.data.user));
-
 
       navigate("/");
     } catch (err) {
       const errorMessage = err.response?.data?.message || "Invalid email or password";
 
-    if (errorMessage === "Your account is deactivated. Please contact admin.") {
-      message.error("Your account is deactivated. Please contact admin.");
-    } else {
-      message.error(errorMessage);
-    }
+      if (errorMessage === "Your account is deactivated. Please contact admin.") {
+        message.error("Your account is deactivated. Please contact admin.");
+      } else {
+        message.error(errorMessage);
+      }
     }
   };
 
@@ -83,7 +73,7 @@ function UserLogin() {
           <Row className="mb-3">
             <InputGroup className="userlogin-input-group1">
               <Form.Control
-              className="userlogin-input"
+                className="userlogin-input"
                 type="email"
                 name="email"
                 placeholder="Your Email" value={formData.email}
@@ -99,18 +89,18 @@ function UserLogin() {
           {/* Password Input */}
           <Row className="mb-3">
             <InputGroup className="userlogin-input-group">
-              <Form.Control 
-                            className="userlogin-input"
+              <Form.Control
+                className="userlogin-input"
 
-              type={passwordVisible ? "text" : "password"} name="password" placeholder="Your Password" value={formData.password} onChange={handleChange} required isInvalid={!!errors.password} />
+                type={passwordVisible ? "text" : "password"} name="password" placeholder="Your Password" value={formData.password} onChange={handleChange} required isInvalid={!!errors.password} />
               <InputGroup.Text className="userlogin-icon">
                 {passwordVisible ? (
                   <AiFillEye onClick={() => setPasswordVisible(false)} style={{ cursor: "pointer" }} />
-                  ) : (
+                ) : (
                   <AiFillEyeInvisible onClick={() => setPasswordVisible(true)} style={{ cursor: "pointer" }} />
-                  )}
+                )}
               </InputGroup.Text>
-              <Form.Control.Feedback  className="pwd-error"  type="invalid">{errors.password}</Form.Control.Feedback>
+              <Form.Control.Feedback className="pwd-error" type="invalid">{errors.password}</Form.Control.Feedback>
             </InputGroup>
           </Row>
 

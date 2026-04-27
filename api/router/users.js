@@ -1,13 +1,10 @@
 const express = require("express");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
-const { body, validationResult } = require("express-validator"); // Validation Library
+const { body, validationResult } = require("express-validator");
 const User = require("../model/ModelUser");
-const Activity = require("../model/activity"); // make sure the path is correct
+const Activity = require("../model/activity");
 const nodemailer = require("nodemailer");
-// const bcrypt = require("bcrypt");
-
-
 
 const RouterUser = express.Router();
 const JWT_SECRET = "aneri";
@@ -36,9 +33,6 @@ RouterUser.get("/", async (req, res) => {
   }
 });
 
-
-
-
 //   Display Five Records in DB
 
 RouterUser.get("/last-five", async (req, res) => {
@@ -50,10 +44,8 @@ RouterUser.get("/last-five", async (req, res) => {
   }
 });
 
-//officialnaynesh@gmail thi register karo
-//mokli ?
 
-// ✅ User Registration with Validation
+// User Registration with Validation
 RouterUser.post("/register", async (req, res) => {
 
   const { name, email, password, location } = req.body;
@@ -65,16 +57,14 @@ RouterUser.post("/register", async (req, res) => {
       return res.status(400).json({ message: "User already exists. Please log in." });
     }
 
-    // console.log("New user registration:", { name, email, password, location });
-
     // Hash the password
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    // Step 4: Generate OTP
+    // Generate OTP
     const otp = Math.floor(100000 + Math.random() * 900000).toString();
     const hashedOtp = await bcrypt.hash(otp, 10);
 
-    // Step 5: Create new user with OTP
+    //Create new user with OTP
     user = new User({
       name,
       email,
@@ -87,30 +77,22 @@ RouterUser.post("/register", async (req, res) => {
 
     await user.save();
 
-    // Step 6: Send email
+    //Send email
     await sendMail(email, otp);
-
-    // Create new user
-    // user = new User({
-    //   name, email, password: hashedPassword, location, statusBar: req.body.statusBar !== undefined ? req.body.statusBar : 1
-    // });
-    // await user.save();
 
     // Generate JWT token
     const token = jwt.sign({ userId: user._id, email: user.email }, JWT_SECRET, { expiresIn: "1h" });
 
-    console.log("User registered successfully:", user); // ✅ Log successful registration
-    // res.json({ message: "Registration successful", token });
+    console.log("User registered successfully:", user);
     return res.status(200).json({ message: "User created & OTP sent successfully!", token });
 
   } catch (error) {
-    console.error("Registration failed:", error); // 🔥 Log full error
+    console.error("Registration failed:", error);
     res.status(500).json({ message: "Server error", error });
   }
 });
 
 // display statusbar of user
-
 RouterUser.put("/:id/status", async (req, res) => {
   try {
     const { statusBar } = req.body;
@@ -131,7 +113,6 @@ RouterUser.put("/:id/status", async (req, res) => {
 });
 
 // update payment status
-
 RouterUser.put("/:id/payment-status", async (req, res) => {
   try {
     const { isPremium } = req.body;
@@ -153,27 +134,23 @@ RouterUser.put("/:id/payment-status", async (req, res) => {
   }
 });
 
-
-
 // otp
-
 const transporter = nodemailer.createTransport({
 
   host: "smtp.gmail.com",
   port: 465,
   secure: true, // Use SSL
   auth: {
-    user: "hastimoradiya.bca.clg@gmail.com", // Replace with your email
-    pass: "ehubdoqpymmdhasy", // Replace with your email password
+    user: "mohitdihora14@gmail.com",
+    pass: "mohit@1234",
   },
   tls: {
-    // Do not fail on invalid certs
     rejectUnauthorized: false,
   },
 });
 
 
-// ✅ Send Email Function
+//Send Email Function
 async function sendMail(email, otp) {
   const mailOptions = {
     from: "hastimoradiya.bca.clg@gmail.com",
@@ -184,9 +161,9 @@ async function sendMail(email, otp) {
 
   try {
     const info = await transporter.sendMail(mailOptions);
-    console.log("✅ Email sent:", info.response);
+    console.log("Email sent:", info.response);
   } catch (error) {
-    console.error("❌ Email sending error:", error);
+    console.error("Email sending error:", error);
   }
 }
 
@@ -221,7 +198,7 @@ RouterUser.post("/send-otp", async (req, res) => {
   }
 });
 
-
+//Verify OTP
 RouterUser.post("/verify-otp", async (req, res) => {
   const { email, otp } = req.body;
 
@@ -231,13 +208,12 @@ RouterUser.post("/verify-otp", async (req, res) => {
       return res.status(400).json({ message: "User not found." });
     }
 
-    // Compare provided OTP with the hashed one in DB
     const isMatch = await bcrypt.compare(otp, record.otp);
     if (!isMatch) {
       return res.status(400).json({ message: "Invalid OTP or OTP expired." });
     }
 
-    // ✅ OTP is valid → mark email as verified
+    // OTP is valid then mark email as verified
     record.emailVerify = true;
     await record.save();
 
@@ -253,11 +229,7 @@ RouterUser.post("/verify-otp", async (req, res) => {
 });
 
 
-
-
-
-// ✅ User Login with Validation
-
+//User Login with Validation
 RouterUser.post(
   "/login",
   [
@@ -292,10 +264,10 @@ RouterUser.post(
       if (!isMatch) {
         return res.status(400).json({ message: "Invalid email or password" });
       }
-      // ✅ Store login activity in DB
+      //Store login activity in DB
       await Activity.create({
         userId: user._id,
-        timestamp: new Date(), // optional, since default is already Date.now
+        timestamp: new Date(),
       });
 
       // Generate JWT token
@@ -357,8 +329,8 @@ RouterUser.post("/update-profile", async (req, res) => {
 
     // Find user by email and update
     const updatedUser = await User.findOneAndUpdate(
-      { email: oldEmail }, // ← Use old email to find user
-      { name, email },     // ← Update both name and email
+      { email: oldEmail },
+      { name, email },
       { new: true }
     );
 
@@ -371,26 +343,5 @@ RouterUser.post("/update-profile", async (req, res) => {
     res.status(500).json({ message: "Error updating profile", error });
   }
 });
-
-
-
-// // Send Email Function
-// async function sendMail(email, otp) {
-//   const mailOptions = {
-//       from: "hastimoradiya.bca.clg@gmail.com",
-//       to: email,
-//       subject: "Your OTP Code",
-//       text: `Your OTP code is ${otp}. It will expire in 5 minutes.`,
-//   };
-//   await transporter.sendMail(mailOptions);
-//   try {
-//     const info = await transporter.sendMail(mailOptions);
-//     console.log("✅ Email sent:", info.response);
-//   } catch (error) {
-//     console.error("❌ Email sending error:", error);
-//   }
-
-// }
-
 
 module.exports = RouterUser;

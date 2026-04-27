@@ -3,9 +3,7 @@ const ModelUser = require('../model/ModelUser');
 const express = require('express')
 const RouterPayment = express.Router();
 const paypal = require('paypal-rest-sdk');
-const mongoose = require("mongoose"); // ✅ Add this line
-
-
+const mongoose = require("mongoose");
 
 paypal.configure({
     "mode": 'sandbox',
@@ -18,8 +16,6 @@ RouterPayment.get('/test', (req, res) => {
 
 
 RouterPayment.get('/all-payments', (req, res) => {
-    // console.log("/all-payments route hit");
-
     payment.find().populate("userId")
         .then((data) => {
             res.send(data);
@@ -28,17 +24,6 @@ RouterPayment.get('/all-payments', (req, res) => {
             console.log(error)
         })
 })
-
-// RouterPayment.get('/all-payments', async (req, res) => {
-//     try {
-//         const payments = await payment.find(); 
-//         res.json(payments); 
-//     } catch (error) {
-//         res.status(500).json({ error: 'Server error' });
-//     }
-// });
-
-
 
 
 RouterPayment.post('/', async (req, res) => {
@@ -49,29 +34,18 @@ RouterPayment.post('/', async (req, res) => {
     }
 
 
-
     let create_payment_json = {
         "intent": "sale",
         "payer": {
             "payment_method": "paypal"
         },
         "redirect_urls": {
-            "return_url": `http://localhost:3000/payment-success?price=${price}&currency=${currency}`,
-                        "cancel_url": `http://localhost:3000/payment/failed?userId=${userId}&price=${price}&currency=${currency}`,
-
-
-                        // "return_url": `http://localhost:3000/payment/success?price=${price}&currency=${currency}&userId=${userId}`,
-                        // "cancel_url": "http://localhost:3001/payment-failed",
-
-            // "return_url": `${process.env.REACT_APP_API_URL}/payment-success?price=${price}&currency=${currency}&userId=${userId}`,
-
-            // "cancel_url": `${process.env.REACT_APP_API_URL}/payment-failed`,
-
+            "return_url": `http://localhost:5000/payment/success?price=${price}&currency=${currency}&userId=${userId}`,
+            "cancel_url": `http://localhost:5000/payment/failed?userId=${userId}&price=${price}&currency=${currency}`,
         },
         "application_context": {
 
             "shipping_preference": 'NO_SHIPPING',
-            // "user_action":"PAY_NOW",
             "user_action": "commit",
             "brand_name": "programiz",
 
@@ -81,7 +55,7 @@ RouterPayment.post('/', async (req, res) => {
                 "items": [{
 
                     "name": item_name,
-                    "sku": "PLAN001",  // Add an SKU
+                    "sku": "PLAN001",
                     "price": parseFloat(price).toFixed(2),
                     "currency": currency.toUpperCase(),
                     "quantity": 1
@@ -107,8 +81,6 @@ RouterPayment.post('/', async (req, res) => {
             // console.log(payment);
             let data = payment
             res.json(data)
-            // res.redirect(payment.links[1].href);
-
         }
     })
 })
@@ -117,7 +89,6 @@ RouterPayment.get('/success', async (req, res) => {
 
     try {
         // console.log(req.query)
-
         const PayerId = req.query.PayerID;
         const PaymentId = req.query.paymentId;
         const price = req.query.price;
@@ -148,9 +119,7 @@ RouterPayment.get('/success', async (req, res) => {
 
             console.log(response)
 
-            // const payer = paymentResponse.payer.payer_info;
             const transaction = paymentResponse.transactions[0];
-            // ✅ Save to MongoDB
             const newPayment = new payment({
                 userId: new mongoose.Types.ObjectId(userId),
                 plan: transaction.item_list?.items[0]?.name || "Unknown Plan",
@@ -170,14 +139,12 @@ RouterPayment.get('/success', async (req, res) => {
                     console.log(error);
                 })
 
-                await ModelUser.updateOne(
-                    { _id: userId },
-                    { $set: { isPremium: true } }  
-                );
+            await ModelUser.updateOne(
+                { _id: userId },
+                { $set: { isPremium: true } }
+            );
 
-            return res.redirect(`${process.env.REACT_APP_API_URL}/payment-success?price=${transaction.amount.total}&currency=${transaction.amount.currency}&transactionId=${PaymentId}&userId=${userId}`);
-
-            // return res.redirect(`http://localhost:3001/payment-success?price=${transaction.amount.total}&currency=${transaction.amount.currency}&transactionId=${PaymentId}`);
+            return res.redirect(`http://localhost:3001/payment-success?price=${transaction.amount.total}&currency=${transaction.amount.currency}&transactionId=${PaymentId}&userId=${userId}`);
         })
     }
     catch (error) {
@@ -190,39 +157,7 @@ RouterPayment.get('/success', async (req, res) => {
 })
 
 RouterPayment.get('/failed', async (req, res) => {
-    // return res.redirect("http://localhost:3000/payment/failed")
     res.send('<h1>payment failed</h1><p>please try again!</p>')
 })
-
-// RouterPayment.get('/failed', async (req, res) => {
-//     try {
-//         const { userId, price, currency, PaymentId } = req.query;
-
-//         if (!userId) {
-//             console.error("User ID is missing in query params.");
-//             return res.redirect("http://localhost:3001/payment-failed");
-//         }
-
-//         const failedPayment = new payment({
-//             userId: new mongoose.Types.ObjectId(userId),
-//             plan: "Unknown Plan", // No item details available for failed payments
-//             price: parseFloat(price) || 0, // Ensure price is a valid number
-//             currency: currency ? currency.toUpperCase() : "USD",
-//             transactionId: PaymentId || null, // No transaction ID for failed payments
-//             status: "failed",
-//             createdAt: new Date()
-//         });
-
-//         await failedPayment.save();
-//         console.log("Failed payment saved:", failedPayment);
-
-//         return res.redirect("http://localhost:3001/payment-failed");
-//     } catch (error) {
-//         console.error("Error handling failed payment:", error);
-//         return res.redirect("http://localhost:3001/payment-failed");
-//     }
-// });
-
-
 
 module.exports = RouterPayment;

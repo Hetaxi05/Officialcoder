@@ -38,15 +38,10 @@ import "./Global.css";  // Import global styles
 import VerifyOtp from "./pages/auth/VerifyOtp/VerifyOtp.js";
 
 
-
-
-
-
-function App() {
-
-
+function App() 
+{
   
-const Layout = ({ children }) => {
+  const Layout = ({ children }) => {
   const location = useLocation();
   const hideHeaderFooter = [
     "/userlogin",
