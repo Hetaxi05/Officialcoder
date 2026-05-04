@@ -111,7 +111,7 @@ const ContactSection = () => {
                                                 type="text"
                                                 className="form-control ps-4"
                                                 placeholder="Your Email"
-                                                style={{ padding: "11px", fontFamily: "30px outfit, serif", fontSize: "15px" }} // Adjust padding to avoid overlap
+                                                style={{ padding: "11px", fontFamily: "30px outfit, serif", fontSize: "15px" }}
                                                 onChange={onchangeEmail}
                                             />
                                             <FaEnvelope

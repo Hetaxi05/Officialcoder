@@ -15,7 +15,6 @@ const Courses = () => {
   }, []);
 
   const handleCategoryClick = (categoryId) => {
-    // Redirect to the fetch-course page with the category ID
     navigate(`/fetch-courses/${categoryId}`);
   };
 

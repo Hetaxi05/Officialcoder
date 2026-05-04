@@ -4,25 +4,18 @@ p {
 
 .container-fluid {
     background-color: #F2F4F7;
-   /* background-color:rgb(240 241 242) */
 }
-/* .course-banner{
-    display: none !important;
-} */
+
 
 .heading-btn {
     background: #f8f9fa !important;
     border: 1px solid #ddd !important;
     border-radius: 70px !important;
-    /* padding: 7.5px 30px 7.5px 5px !important; */
-    /* margin: 8px !important; */
-    /* display: flex !important; */
-    /* align-items: center !important; */
+    
     transition: 0.3s ease-in-out !important;
     font-size: 15px !important;
     font-weight: 500 !important;
     color: #333 !important;
-    /* cursor: pointer !important; */
 }
 
 
@@ -54,14 +47,7 @@ p {
     padding: 20px;
 }
 
-/* .category-btn {
-    background: #f8f9fa;
-    border: 1px solid #ddd;
-    border-radius: 70px;
-    padding:7.5px 30px 7.5px 5px;
-    margin: 8px;
-    transition: 0.3s ease-in-out;
-} */
+
 .category-btn {
     background: #f8f9fa !important;
     border: 1px solid #ddd !important;
@@ -110,9 +96,9 @@ p {
 }
 
   .category-img {
-    background-color: #f0f0f0; /* Change this color as needed */
-    border-radius: 50%; /* Makes it circular */
-    padding: 10px; /* Adds spacing around the image */
+    background-color: #f0f0f0; 
+    border-radius: 50%; 
+    padding: 10px; 
    
     align-items: center;
     justify-content: center;
@@ -177,12 +163,10 @@ p {
         margin: 0 !important;
     }
 
-    /* Override Bootstrap padding and margin */
+    
     .container-fluid .category-list.ps-5,
     .container-fluid .category-list.pe-5
-    /* .container-fluid .category-list.me-3,
-    .container-fluid .category-list.ms-3,
-    .container-fluid .category-list.mb-4 { */
+    
     {
         padding: 26px !important;
         margin: 0 !important;
@@ -204,10 +188,7 @@ p {
         font-size: 14px !important;
     }
 
-    /* .category-img {
-        width: 25px;
-        height: 25px;
-    } */
+    
 
     .heading-btn {
         font-size: 14px !important;
@@ -222,7 +203,7 @@ display: none !important;
 }
 
     .mobilecategory-container {
-        padding-bottom: 50px !important;  /* Adjust this based on your navbar height */
+        padding-bottom: 50px !important;  
         padding-top: 0px !important;
     }
 

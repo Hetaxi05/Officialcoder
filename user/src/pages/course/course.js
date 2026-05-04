@@ -16,7 +16,6 @@ const Course = () => {
                 <div className="text-content" style={{padding:"50px"}}>
                     <h2 style={{color:""}}>Course Page</h2>
                     <p>
-                        {/* <span>Home</span> / <span className="highlight">Course Page</span> */}
                         <span style={{fontWeight:"500"}}>Home</span> / <span className="highlight" style={{color:"#07a698" ,fontWeight:"500"}}>Course Page</span>
 
                     </p>

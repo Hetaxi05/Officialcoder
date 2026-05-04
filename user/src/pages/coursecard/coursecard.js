@@ -27,13 +27,11 @@ function Coursecard({ selectedCategory }) {
       });
   }, [selectedCategory]);
 
-  // For each course, fetch its lesson count
   useEffect(() => {
     courses.forEach((course) => {
       fetch(`${process.env.REACT_APP_API_URL}/cour/lession/count/${course._id}`)
         .then((response) => response.json())
         .then((data) => {
-          // Update the lesson count for this course
           setLessonCounts((prevCounts) => ({
             ...prevCounts,
             [course._id]: data.totalTopics,
@@ -93,17 +91,7 @@ function Coursecard({ selectedCategory }) {
 
                   <hr className="my-1 pt-4" />
                   <div className="d-flex justify-content-end">
-                    {/* <Link
-                      to={`/course-details/${item._id}`}
-                      className="border ps-3 pe-3 ms-5 p-2"
-                      style={{
-                        borderRadius: "220px",
-                        textDecoration: "none",
-                        color: "black",
-                      }}
-                    >
-                      View Details
-                    </Link> */}
+                    
                     <Link
                       to={`/course-details/${item._id}`}
                       className="border ps-3 pe-3 ms-5 p-2"

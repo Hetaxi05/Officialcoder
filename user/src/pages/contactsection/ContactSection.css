@@ -1,10 +1,4 @@
 /* ContactSection.css */
-/* 
-.container {
-    max-width: 1310px;
-    margin-top: 40px;
-    margin-bottom: 40px;
-} */
 
 /* Contact Form */
 .contact-form {
@@ -17,20 +11,16 @@
 .contact-form h1 {
     color: black;
     font-size: 27px;
-    /* font-family: "Outfit", serif; */
     font-weight: 700;
 }
 
 .contact-form p {
     color: #605d5d;
     margin-top: 13px;
-    /* font-family: "Outfit", serif; */
 }
 
-/* Form Inputs */
 .contact-form .form-control {
     padding: 11px;
-    /* font-family: "Outfit", serif; */
     font-size: 15px;
 }
 
@@ -46,7 +36,6 @@
     background: #07A698;
     color: white;
     padding: 11px;
-    /* font-family: "Outfit", serif; */
     font-size: 15px;
     width: 100%;
     font-weight: bold;
@@ -63,14 +52,12 @@
 .office-info h2 {
     color: black;
     font-size: 25px;
-    /* font-family: "Outfit", serif; */
     font-weight: 700;
 }
 
 .office-info p {
     color: #6C706F;
     margin-bottom: 20px;
-    /* font-family: "Outfit", serif; */
 }
 
 /* Icons */

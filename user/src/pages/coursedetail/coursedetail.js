@@ -26,7 +26,6 @@ function CourseDetail() {
 
     useEffect(() => {
         getAllChapter();
-        // Check login status from localStorage
         const user = localStorage.getItem("user");
         if (user) {
             const userData = JSON.parse(user);
@@ -51,7 +50,6 @@ function CourseDetail() {
                 console.log(error)
             })
     }
-    // corsename base on particular course
 
     useEffect(() => {
         fetch(`${process.env.REACT_APP_API_URL}/cour/${courseId}`)
@@ -60,11 +58,11 @@ function CourseDetail() {
                 setCourseName(data.coursename);
                 setCourseDetails(data.coursedetails);
                 setCourseDuration(data.duration);
-            }) // Set course name in state
+            }) 
             .catch(error => console.error("Error fetching course:", error));
     }, [courseId]);
 
-    // Fetch all chapters for the course
+   
     function getAllChapter() {
         fetch(`${process.env.REACT_APP_API_URL}/chap/course/${courseId}`)
             .then((response) => {
@@ -99,23 +97,17 @@ function CourseDetail() {
         navigate("/pricing");
     };
 
-    // Handle topic click: if not logged in, redirect to login
+    
     const handleTopicClick = (e, callback) => {
         if (!isLoggedIn) {
             e.preventDefault();
             navigate("/userlogin");
         } else if (callback) {
-            callback(); // Call only if callback is defined
+            callback(); 
         }
-        // if (!isLoggedIn) {
-        //     e.preventDefault();
-        //     navigate("/userlogin");
-        // } else {
-        //     callback(); // handleOpenQuiz function call thase
-        // }
+        
     };
 
-    // Updated handleStartCourse using the isLoggedIn state (not a function)
     const handleStartCourse = () => {
         if (!isLoggedIn) {
             message.info("You must be logged in to start the course. Redirecting to login page...");
@@ -133,7 +125,6 @@ function CourseDetail() {
         }
     };
 
-    // Existing function to open quiz
     const handleOpenQuiz = () => {
         if (!isLoggedIn) {
             message.info("You must be logged in to claim certificate. Redirecting to login page...");
@@ -148,7 +139,6 @@ function CourseDetail() {
         window.open(`/quiz/${courseId}`);
     };
 
-    // NEW: Open/Close the Certificate Popup
     const handleCertificateClick = () => {
         setShowCertificatePopup(true);
     };
@@ -156,26 +146,7 @@ function CourseDetail() {
         setShowCertificatePopup(false);
     };
 
-    // useEffect(() => {
-    //     getAllChapter();
-    //     // Check login status from localStorage
-    //     const user = localStorage.getItem("user");
-    //     if (user) {
-    //         setIsLoggedIn(true);
-    //     }
-    // }, [courseId]);
-
-    // const handleStartCourse = () => {
-    //     if (chapters.length > 0 && chapters[0].topics && chapters[0].topics.length > 0) {
-    //         const firstChapterId = chapters[0]._id;
-    //         const firstTopicId = chapters[0].topics[0]._id;
-    //         message.success("Redirecting to the course content...");
-    //         navigate(`/topic-details/${courseId}/${firstChapterId}/${firstTopicId}`);
-    //     } else {
-    //         message.error("No topics available for this course.");
-    //     }
-    // };
-
+    
 
 
     return (
@@ -207,9 +178,7 @@ function CourseDetail() {
                                 }}
                                 dangerouslySetInnerHTML={{ __html: courseDetails || "Loading..." }}
                             >
-                                {/* Step into the world of programming with this beginner-friendly Python
-                                <br />
-                                course and build a strong programming foundation. */}
+                               
 
                             </p>
                             <div className="desktop-only">
@@ -416,12 +385,7 @@ function CourseDetail() {
                                             data-bs-target={`#flush-collapse-${index}`}
                                             aria-expanded="false"
                                             aria-controls={`flush-collapse-${index}`}
-                                            // onClick={() => {
-                                            //     if (isPaid) {
-                                            //         handleLockedChapterClick(chapter);
-                                            //     }
-                                            // }}
-                                            // style={{ color: isPaid ? "gray" : "blue" }}
+                                            
                                             onClick={() => {
                                                 if (!isPremium && isPaid) {
                                                     handleLockedChapterClick(chapter);
@@ -437,7 +401,6 @@ function CourseDetail() {
                                             <div className="d-flex align-items-center">
                                                 {!isPremium && isPaid && <GoLock className="ms-2" style={{ color: "gray" }} />}
 
-                                                {/* {isPaid && <GoLock className="ms-2" style={{ color: "gray" }} />} */}
                                             </div>
                                         </button>
                                     </h2>
@@ -713,9 +676,7 @@ function CourseDetail() {
                                                 {/* This wrapper ensures that P and Link stay at the bottom */}
                                                 <div className="mt-auto ">
                                                     <p className="mt-3 " style={{ color: "#25265e" }}>Chapters and Topics</p>
-                                                    {/* <Link to={`/course-details/${Courses._id}`} className="coursebtn border ps-2 pe-2 pt-1 pb-1">
-                                                View Detail
-                                            </Link> */}
+                                                    
                                                 </div>
                                             </div>
                                         </div>
