@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import confetti from 'canvas-confetti'; // <-- Import the confetti library
+import confetti from 'canvas-confetti';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useLocation, useNavigate } from 'react-router-dom';
 import './TopicQuiz.css';
@@ -16,9 +16,9 @@ function TopicQuiz() {
   const [showModal, setShowModal] = useState(false);
   const [showPaidModal, setShowPaidModal] = useState(false);
   const [isPremium, setIsPremium] = useState(false);
-  const [animationStatus, setAnimationStatus] = useState(""); // "correct" or "incorrect"
+  const [animationStatus, setAnimationStatus] = useState("");
 
-  // Labels for your quiz options
+  // Labels for my quiz options
   const optionLabels = ["A", "B", "C", "D", "E", "F"];
 
   useEffect(() => {
@@ -38,7 +38,6 @@ function TopicQuiz() {
       .then((res) => res.json())
       .then((data) => {
         if (Array.isArray(data) && data.length === 0) {
-          // No quiz data, navigate to next topic if available
           if (nextTopicId) {
             const targetChapterId = (nextChapterId && nextChapterId !== chapterId) ? nextChapterId : chapterId;
             navigate(`/topic-details/${courseId}/${targetChapterId}/${nextTopicId}`, { state: { initialSubtopicIndex: 0 } });
@@ -61,24 +60,20 @@ function TopicQuiz() {
   const currentQuestion = questionsData[currentQuestionIndex] || {};
   const selectedOption = selectedOptions[currentQuestionIndex] || "";
 
-  // 1) Define a helper function to launch confetti
   const fireConfetti = () => {
-    // This will fire a quick burst of confetti
     confetti({
-      particleCount: 80,     // number of confetti pieces
-      spread: 70,           // how wide the confetti goes
-      origin: { y: 0.6 },   // where on the page it starts (0 = top, 1 = bottom)
-      // you can add more settings here if you like
+      particleCount: 80,
+      spread: 70,
+      origin: { y: 0.6 },
     });
   };
 
-  // 2) Handle user option selection
+  // Handle user option selection
   const handleOptionChange = (selectedLabel) => {
     const updatedSelected = [...selectedOptions];
     updatedSelected[currentQuestionIndex] = selectedLabel;
     setSelectedOptions(updatedSelected);
 
-    // Determine the index from the selected letter
     const optionIndex = optionLabels.indexOf(selectedLabel);
     if (currentQuestion.option && currentQuestion.option[optionIndex]) {
       const chosenText = currentQuestion.option[optionIndex].text.trim();
@@ -86,12 +81,10 @@ function TopicQuiz() {
 
       if (chosenText === correctAnswer) {
         setAnimationStatus("correct");
-        fireConfetti(); // <--- Trigger the confetti when correct
+        fireConfetti();
       } else {
         setAnimationStatus("incorrect");
       }
-
-      // Reset animation after 1 second (so it can show again on next question)
       setTimeout(() => {
         setAnimationStatus("");
       }, 1000);
@@ -104,9 +97,8 @@ function TopicQuiz() {
       setCurrentQuestionIndex(newIndex);
       setProgress(((newIndex) / questionsData.length) * 100);
     } else {
-      // End of quiz questions
+
       if (nextTopicId) {
-        // There is a next topic, so decide if the chapter is paid.
         const targetChapterId =
           nextChapterId && nextChapterId !== chapterId ? nextChapterId : chapterId;
         if (targetChapterId !== chapterId) {
@@ -138,15 +130,12 @@ function TopicQuiz() {
               setShowPaidModal(true);
             });
         } else {
-          // Next topic is in the same chapter.
           navigate(
             `/topic-details/${courseId}/${targetChapterId}/${nextTopicId}`,
             { state: { initialSubtopicIndex: 0, hideContent: false } }
           );
         }
       } else {
-        // No next topic available (last chapter's quiz completed)
-        // Fetch course chapters and navigate to the first chapter's first topic.
         fetch(`${process.env.REACT_APP_API_URL}/chap/course/${courseId}`)
           .then((res) => res.json())
           .then((data) => {
@@ -169,7 +158,7 @@ function TopicQuiz() {
       }
     }
   };
-  
+
 
   const handleContinue = () => {
     if (!selectedOptions[currentQuestionIndex]) {
@@ -223,7 +212,7 @@ function TopicQuiz() {
                   const optionValue = option.text || "";
                   const isSelected = selectedOption === label;
 
-                  // Add modern or minimal highlight classes, if you like
+
                   let animationClass = "";
                   if (isSelected && animationStatus === "correct") {
                     animationClass = "correct-animation";
@@ -281,7 +270,6 @@ function TopicQuiz() {
           </div>
         </div>
       </div>
-      {/* Modal for missing answer */}
       {showModal && (
         <div className="custom-modal-overlay">
           <div className="custom-modal">
@@ -295,7 +283,7 @@ function TopicQuiz() {
           </div>
         </div>
       )}
-      {/* Modal for Paid Chapter */}
+
       {showPaidModal && (
         <div className="custom-modal-overlay">
           <div className="custom-modal">

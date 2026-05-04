@@ -147,7 +147,7 @@ body {
     margin-right: 10px;
   }
   
-  /* Menu Icons Right (Dropdown Arrow) */
+  /* Menu Icons Right Dropdown Arrow */
   .menu-right {
     display: flex;
     align-items: center;
@@ -166,7 +166,6 @@ body {
   
   /* Hover Effects */
   .nav-link:hover {
-    /* background-color: #525252; */
     border-radius: 0px;
   }
   
@@ -233,10 +232,8 @@ body {
     background-color: #525252;
   }
   
-  
-  /* Horizontal Line Connected to Vertical Line */
   .submenu-item .line {
-    width: 16px; /* Short horizontal line */
+    width: 16px; 
     height: 1px;
     background-color: black;
     display: inline-block;
@@ -244,7 +241,6 @@ body {
     position: relative;
   }
   
-  /* ✅ Dot Positioned Correctly Inside Line */
   .submenu-item .line::after {
     content: "";
     width: 6px;
@@ -252,7 +248,7 @@ body {
     background-color: #8f9bb3;
     border-radius: 50%;
     position: absolute;
-    right: -3px; /* Align dot to the right of the horizontal line */
+    right: -3px; 
     top: -2px;
   }
   
@@ -263,7 +259,7 @@ body {
   }
   
   .submenu-item.active .line::after {
-    background-color: #525252; /* Dot turns white when active */
+    background-color: #525252;
   }
   
   /* Sidebar Icon Animation */

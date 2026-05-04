@@ -1,16 +1,13 @@
-/* TopicQuiz.css */
-
-/* Overall container to center the card and set background */
 .topicquiz-container {
-  min-height: 100vh;              /* Full viewport height */
+  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-image: url('/public/assets/image/bg.jpg'); 
-  background-repeat: no-repeat; 
+  background-image: url('/public/assets/image/bg.jpg');
+  background-repeat: no-repeat;
   padding: 2rem;
-  /* position: absolute; */
 }
+
 .topicquiz-container::before {
   content: "";
   position: absolute;
@@ -22,28 +19,17 @@
   width: 260px;
 }
 
-/* .borderc {
-  border: solid 1px rgb(221, 221, 221);
-  border-left: 0;
-  border-right: 0;
-  padding-top: 30px;
-  padding-bottom: 30px;
-} */
-
-/* Small label for question number */
 .topicquiz-number-btn {
-   
-  color: black;              /* Text color */
-  border: none;             /* Remove default border */
-  border:solid 2px transparent;    /* Make it pill-shaped */
-  padding: 0.3rem 0.8rem;   /* Spacing inside the button */
-  font-size: 0.9rem;        /* Adjust font size as needed */
-  font-weight: bold;         /* Semi-bold text */
-  cursor: default;          /* You can use pointer if you want it clickable */
+  color: black; /* Text color */
+  border: none; /* Remove default border */
+  border: solid 2px transparent; 
+  padding: 0.3rem 0.8rem; 
+  font-size: 0.9rem; 
+  font-weight: bold;
+  cursor: default;
   border-radius: 4px;
 }
 
-/* Main question text styling */
 .topicquiz-title {
   font-size: 25px;
   font-weight: bold;
@@ -51,81 +37,49 @@
   margin-top: 1rem;
   margin-bottom: 1.5rem;
 }
-.borderc{
+
+.borderc {
   border: solid 1px rgb(221, 221, 221);
   border-left: 0;
   border-right: 0;
   padding-top: 20px;
   padding-bottom: 20px;
-
 }
 
-/* Wrap the multiple-choice options */
 .options-list {
   display: flex;
   flex-direction: column;
   gap: 1rem;
   position: relative;
-  /* display: grid;
-  align-content: center; */
   padding: 10px 20px 10px 10px;
-  /* border: solid 1px rgb(221, 221, 221); */
 }
 
-/* Each option item styling */
-/* .option-item {
-  position: relative;
-  display: flex;
-  align-items: center;
-  padding: 0.75rem 1rem;
-  background-color: #FFFFFF;
-  border: 1px solid #E0E0E0;
-  border:solid 2px transparent;
-  cursor: pointer;
-  transition: background-color 0.3s;
-} */
-
 .option-item {
-  position: relative;                /* So we can position the checkmark */
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: flex-start;
   background-color: #fff;
-  border: 2px solid transparent;     /* We'll color this on hover/selected */
+  border: 2px solid transparent;
   border-radius: 0;
   padding: 1rem;
-  margin-bottom: 0.2rem;               /* Spacing between options */
-  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  margin-bottom: 0.2rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   cursor: pointer;
   transition: border-color 0.3s, background-color 0.3s;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
 }
 
 .option-text {
-  flex: 1; /* Let the text take up remaining space */
+  flex: 1;
   color: #333;
   font-size: 1rem;
   font-weight: bold;
 }
 
-/* Hover effect on each option */
 .option-item:hover {
   background-color: #FAFAFA;
 }
-
-/* The round letter badge (A, B, C, D) */
-/* .option-letter {
-  display: inline-block;
-  width: 28px;
-  height: 28px;
-  background-color: #D3D3D3;
-  color: #FFFFFF;
-  font-weight: 600;
-  text-align: center;
-  line-height: 28px;
-  border-radius: 50%;
-  margin-right: 0.75rem;
-} */
 
 .option-letter {
   width: 28px;
@@ -143,22 +97,30 @@
   color: rgb(249, 183, 27);
   background-color: rgb(255, 244, 218);
 }
+
 .option-item[data-option="B"] .option-letter {
   color: rgb(72, 211, 128);
-  background-color: rgb(228, 254, 239); /* Pastel green (example) */
+  background-color: rgb(228, 254, 239);
+  /* Pastel green (example) */
 }
+
 .option-item[data-option="C"] .option-letter {
   color: rgb(136, 127, 180);
-  background-color: rgb(238, 236, 252); /* Pastel purple */
+  background-color: rgb(238, 236, 252);
+  /* Pastel purple */
 }
+
 .option-item[data-option="D"] .option-letter {
   color: rgb(16, 221, 249);
-  background-color: rgb(229, 251, 254); /* Pastel blue */
+  background-color: rgb(229, 251, 254);
+  /* Pastel blue */
 }
+
 .option-item[data-option="E"] .option-letter {
   color: rgb(103, 102, 102);
   background-color: rgb(243, 240, 234);
 }
+
 .option-item[data-option="F"] .option-letter {
   color: rgb(206, 113, 164);
   background-color: rgb(240, 223, 232);
@@ -166,7 +128,7 @@
 
 
 .option-item:hover {
-  border-color: #e0e0e0;  /* Light gray border on hover */
+  border-color: #e0e0e0;
   background-color: #fafafa;
 }
 
@@ -181,52 +143,46 @@
   align-items: center;
   justify-content: center;
   font-size: 16px;
-  opacity: 0;            /* Hidden by default */
+  opacity: 0;
   transition: opacity 0.3s;
-  pointer-events: none;  /* So it doesn't block clicks */
+  pointer-events: none;
 }
 
-
-
-/* Hide the native radio input */
 .option-item input[type="radio"] {
   display: none;
 }
 
-/* Style when an option is selected */
-
 .option-item.selected .option-check {
-  opacity: 1; /* Show the checkmark */
+  opacity: 1;
 }
+
 .option-item.selected[data-option="A"] {
   border-color: #F8C382;
-  /* background-color: #fff8f2; */
 }
+
 .option-item[data-option="A"].selected .option-check {
   border-color: #F8C382;
-  color:white;
+  color: white;
   background-color: rgb(249, 183, 27);
 }
 
-
 .option-item.selected[data-option="B"] {
   border-color: #AECFA3;
-  /* background-color: #f2fff8; */
 }
+
 .option-item[data-option="B"].selected .option-check {
   border-color: rgb(72, 211, 128);
   color: white;
   background-color: rgb(72, 211, 128);
 }
 
-
 .option-item.selected[data-option="C"] {
   border-color: #C2B8F3;
-  /* background-color: #f8f7ff; */
 }
+
 .option-item[data-option="C"].selected .option-check {
   border-color: #C2B8F3;
-  color:white;
+  color: white;
   background-color: rgb(136, 127, 180);
 }
 
@@ -235,6 +191,7 @@
   border-color: #9DD0F1;
   /* background-color: #f0faff; */
 }
+
 .option-item[data-option="D"].selected .option-check {
   border-color: #9DD0F1;
   color: white;
@@ -245,6 +202,7 @@
   border-color: #919082;
   /* background-color: #f2fff8; */
 }
+
 .option-item[data-option="E"].selected .option-check {
   border-color: #919082;
   color: white;
@@ -255,22 +213,15 @@
   border-color: #ce7eab;
   /* background-color: #f2fff8; */
 }
+
 .option-item[data-option="F"].selected .option-check {
   border-color: rgb(211, 134, 176);
   color: white;
   background-color: rgb(241, 191, 221);
 }
 
-
-/* Make the round letter badge use a highlight color if selected */
-/* .option-item.selected .option-letter {
-  background-color: #07a698;
-} */
-
-/* Continue button styling */
 .topic-continue-btn {
-  background-color:  #07a698 !important;       /* Match your highlight color */
-  /* border-color: #F8C382; */
+  background-color: #07a698 !important;
   color: rgb(236, 227, 227);
   font-weight: bold;
   padding: 0.5rem 1.5rem;
@@ -281,32 +232,21 @@
 }
 
 .topic-continue-btn:hover {
-  background-color: #07a698;       /* Slightly darker on hover */
+  background-color: #07a698;
   /* border-color: #07a698; */
-  color:  rgb(236, 227, 227);
+  color: rgb(236, 227, 227);
 }
+
 .skip-text {
   display: inline-block;
   padding: 0.5rem 1.5rem;
-  /* background-color: ; */
   border: none;
   border-radius: 4px;
-   /* Text color same as border */
   font-weight: 500;
 }
 
-/* .skip-text:hover {
-  background-color: #F8C382;
-  color: #fff;
-} */
-
-/* .skip-btn:hover{
-  background-color: #07a698;      
-  border-color: #07a698;
-  color:  rgb(236, 227, 227);
-} */
-.back-btn{
-  background-color: #ccc9c940 !important;    
+.back-btn {
+  background-color: #ccc9c940 !important;
   /* border-color: #F8C382; */
   color: #636a72;
   font-weight: bold;
@@ -317,6 +257,7 @@
   border: none;
   font-weight: 700;
 }
+
 .topicquiz-footer {
   display: flex;
   align-items: center;
@@ -325,86 +266,101 @@
   margin-right: 20px;
 
 }
-.footer-left{
+
+.footer-left {
   display: flex;
   align-items: center;
-  gap: 1rem; /* spacing between bar, label, and button */
+  gap: 1rem;
 }
-
-
 
 .small-progressbar-container {
   position: absolute;
-  bottom: 1rem;     /* Adjust as needed */
-  left: 2rem;       /* Adjust as needed */
-  width: 200px;     /* Overall width of container */
+  bottom: 1rem;
+  left: 2rem;
+  width: 200px;
   display: flex;
-  flex-direction: column; /* label above the bar */
+  flex-direction: column;
   align-items: flex-start;
 }
+
 .progress-label {
   font-size: 0.9rem;
   font-weight: bold;
   color: #333;
-  margin-bottom: 0.25rem; /* space between label and bar */
+  margin-bottom: 0.25rem;
 }
-
 
 .small-progressbar {
   position: relative;
   width: 100%;
-  height: 6px;            /* thickness of the bar */
-  background-color: #e0e0e0; /* track color */
+  height: 6px;
+  background-color: #e0e0e0;
   border-radius: 3px;
   overflow: hidden;
 }
 
 .small-progressbar-fill {
   height: 100%;
-  background-color: #07a698; /* Teal color for the fill */
-  width: 0;                  /* We'll set this inline with style={{ width: `${progress}%` }} */
+  background-color: #07a698;
+  width: 0;
   transition: width 0.3s ease;
 }
+
 p {
   align-items: center;
   /* margin-bottom: auto; */
 }
 
-/* ===== Modern Stylish Answer Feedback Animations ===== */
-
-/* Correct answer animation: Glow & Scale Bounce */
 .correct-animation {
   animation: glowBounce 0.8s ease-out;
 }
 
 @keyframes glowBounce {
-  0% { 
+  0% {
     transform: scale(1);
     box-shadow: 0 0 0px rgba(72, 211, 128, 0);
   }
-  50% { 
-    transform: scale(1.05); 
-    box-shadow: 0 0 15px rgba(72, 211, 128, 0.6); 
+
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(72, 211, 128, 0.6);
   }
-  100% { 
+
+  100% {
     transform: scale(1);
     box-shadow: 0 0 0px rgba(72, 211, 128, 0);
   }
 }
 
-/* Incorrect answer animation: Shake with subtle red overlay */
 .incorrect-animation {
   animation: shakeRed 0.8s ease-out;
   position: relative;
 }
 
 @keyframes shakeRed {
-  0% { transform: translateX(0); }
-  20% { transform: translateX(-8px); }
-  40% { transform: translateX(8px); }
-  60% { transform: translateX(-8px); }
-  80% { transform: translateX(8px); }
-  100% { transform: translateX(0); }
+  0% {
+    transform: translateX(0);
+  }
+
+  20% {
+    transform: translateX(-8px);
+  }
+
+  40% {
+    transform: translateX(8px);
+  }
+
+  60% {
+    transform: translateX(-8px);
+  }
+
+  80% {
+    transform: translateX(8px);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
 }
 
 .incorrect-animation::after {
@@ -414,15 +370,8 @@ p {
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(237, 83, 72, 0.644);  /* a subtle red overlay */
+  background: rgba(237, 83, 72, 0.644);
+  /* a subtle red overlay */
   border-radius: inherit;
   pointer-events: none;
-}
-
-
-@media (max-width: 767px) { 
-
-/* .skip-text {
-  margin-left: 130px !important;
-} */
 }

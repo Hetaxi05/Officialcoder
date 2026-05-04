@@ -28,16 +28,10 @@ const Outputscreen = () => {
         editorRef.current = editor;
         window.addEventListener("resize", () => {
             if (editorRef.current) {
-                editorRef.current.layout(); // Forces Monaco to re-layout
+                editorRef.current.layout();
             }
         });
     };
-
-    // useEffect(() => {
-    //     if (editorRef.current) {
-    //         editorRef.current.layout();
-    //     }
-    // }, [theme]);
 
     useEffect(() => {
         const savedFiles = JSON.parse(localStorage.getItem("files")) || [];
@@ -46,7 +40,7 @@ const Outputscreen = () => {
 
     useEffect(() => {
         localStorage.setItem("files", JSON.stringify(files));
-    }, [files]); 
+    }, [files]);
 
 
     // Execute Code
@@ -72,20 +66,11 @@ const Outputscreen = () => {
                 setOutput(`Error: ${data.message || "Execution failed."}`);
             }
 
-            
+
         } catch (error) {
             setOutput("Error executing the code.");
         }
     };
-
-    // File Operations
-    // const createNewFile = () => {
-    //     if (newFileName) {
-    //         setFiles([...files, { name: newFileName, type: "file" }]);
-    //         setNewFileName("");
-    //         setIsFileNameVisible(false);
-    //     }
-    // };
 
     const createNewFile = () => {
         if (newFileName) {
@@ -96,19 +81,6 @@ const Outputscreen = () => {
         }
     };
 
-    
-
-
-
-    // const createNewFolder = () => {
-    //     if (newFolderName) {
-    //         setFiles([...files, { name: newFolderName, type: "folder" }]);
-    //         setNewFolderName("");
-    //         setIsFolderNameVisible(false);
-    //     }
-    // };
-
-
     const createNewFolder = () => {
         if (newFolderName) {
             const updatedFiles = [...files, { name: newFolderName, type: "folder" }];
@@ -118,30 +90,16 @@ const Outputscreen = () => {
         }
     };
 
-
-
     const uploadFile = () => {
         alert("File uploaded successfully!");
         setIsUploadVisible(false);
     };
-
-    // const deleteFile = (fileName) => {
-    //     setFiles(files.filter((file) => file.name !== fileName));
-    // };
 
     const deleteFile = (fileName) => {
         const newFiles = files.filter((file) => file.name !== fileName);
         setFiles(newFiles);
         localStorage.setItem("files", JSON.stringify(newFiles));
     };
-
-    // const renameFile = (fileName) => {
-    //     const newName = prompt("Enter new name for the file/folder:", fileName);
-    //     if (newName) {
-    //         setFiles(files.map((file) => (file.name === fileName ? { ...file, name: newName } : file)));
-    //     }
-    // };
-
 
     const renameFile = (fileName) => {
         const newName = prompt("Enter new name for the file/folder:", fileName);
@@ -163,38 +121,38 @@ const Outputscreen = () => {
     return (
         <div style={{ display: 'flex', height: '100vh' }}>
             {/* Sidebar */}
-            <div   style={{ ...styles.sidebar, backgroundColor: theme === "dark" ? "#292929" : "#f4f4f4" }}>
+            <div style={{ ...styles.sidebar, backgroundColor: theme === "dark" ? "#292929" : "#f4f4f4" }}>
                 <div className="d-flex  " style={styles.explorerSection}>
                     <div className="border ps-1 pt-1 pb-1" style={styles.explorerHeader} onClick={() => setIsExplorerOpen(!isExplorerOpen)}>
-                    {isExplorerOpen ? <FaChevronUp style={styles.arrowIcon} /> : <FaChevronDown style={styles.arrowIcon} />}
-                    
+                        {isExplorerOpen ? <FaChevronUp style={styles.arrowIcon} /> : <FaChevronDown style={styles.arrowIcon} />}
+
 
                         <span className=" ps-3 pe-4 me-4" style={styles.explorerTitle}>Explorer</span>
 
                         {isExplorerOpen && (
-                        <div style={styles.actionsContainer}>
-                            <button
-                                style={styles.actionButton}
-                                onClick={() => setIsFileNameVisible(!isFileNameVisible)}
-                            >
-                                <FaFile style={styles.icon} /> 
-                            </button>
-                            <button
-                                style={styles.actionButton}
-                                onClick={() => setIsFolderNameVisible(!isFolderNameVisible)}
-                            >
-                                <FaFolder style={styles.icon} /> 
-                            </button>
-                            <button
-                                style={styles.actionButton}
-                                onClick={() => setIsUploadVisible(!isUploadVisible)}
-                            >
-                                <FaUpload style={styles.icon} /> 
-                            </button>
-                        </div>
-                    )}
+                            <div style={styles.actionsContainer}>
+                                <button
+                                    style={styles.actionButton}
+                                    onClick={() => setIsFileNameVisible(!isFileNameVisible)}
+                                >
+                                    <FaFile style={styles.icon} />
+                                </button>
+                                <button
+                                    style={styles.actionButton}
+                                    onClick={() => setIsFolderNameVisible(!isFolderNameVisible)}
+                                >
+                                    <FaFolder style={styles.icon} />
+                                </button>
+                                <button
+                                    style={styles.actionButton}
+                                    onClick={() => setIsUploadVisible(!isUploadVisible)}
+                                >
+                                    <FaUpload style={styles.icon} />
+                                </button>
+                            </div>
+                        )}
                     </div>
-                    
+
                 </div>
 
                 {/* File Creation Input */}
@@ -245,36 +203,7 @@ const Outputscreen = () => {
                         </div>
                     ))}
                 </div>
-
-
-
-                {/* <div className="border " style={styles.explorerSection} >
-                    <div style={styles.ReactProjectheader} onClick={() => setReactProjectOpen(!isReactProjectOpen)}>
-                        <span style={styles.explorerTitle}>RECENT PROJECTS</span>
-                        {isReactProjectOpen ? <FaChevronUp style={styles.arrowIcon} /> : <FaChevronDown style={styles.arrowIcon} />}
-                    </div>
-                    {isReactProjectOpen && (
-
-                        <div style={styles.ReactactionsContainer}>
-
-                            <p  className="justify-content-center align-items-center " style={{fontSize:"19px",color:"white",paddingLeft:"10px"}}>hhh</p>
-
-                        </div>
-
-
-                    )}
-                </div> */}
-
-
-
-
-
             </div>
-
-
-
-
-
 
             {/* Main Content (Editor & Output) */}
             <div className="pt-0 " style={{ flex: 1, paddingLeft: "2px", width: "90%" }}>
@@ -320,45 +249,33 @@ const Outputscreen = () => {
                     </div>
                     <pre className="" style={styles.outputBox}>{output}</pre>
                 </div>
-
-
-
-
-
-
             </div>
         </div>
     );
 };
 
-
-
-
 const styles = {
-    
+
     sidebar: {
         width: '300px',
-        // padding: '20px',
         height: '100vh',
         overflowY: 'auto',
         borderRadius: '8px',
         transition: 'background-color 0.3s ease',
         background: "rgb(52, 52, 52)",
-        // #444
     },
     explorerSection: {
         marginBottom: '20px',
     },
     explorerHeader: {
         display: 'flex',
-        // justifyContent: 'space-between',
         alignItems: 'center',
         cursor: 'pointer',
         padding: '10px',
         backgroundColor: '#444',
         borderRadius: '5px',
-        width:"100%",
-        height:"50px",
+        width: "100%",
+        height: "50px",
     },
     ReactProjectheader: {
         display: 'flex',
@@ -372,12 +289,8 @@ const styles = {
 
     ReactProjectheaderinside: {
         display: 'flex',
-        // justifyContent: 'space-between',
-        // alignItems: 'center',
         cursor: 'pointer',
-        // padding: '10px',
         backgroundColor: '#444',
-        // borderRadius: '5px',
         width: "245px",
         height: "100vh",
     },
@@ -387,20 +300,19 @@ const styles = {
     },
     arrowIcon: {
         fontSize: '18px',
-        
+
     },
     actionsContainer: {
         display: 'flex',
-        // flexDirection: 'column',
         marginTop: '10px',
     },
-    ReactactionsContainer:{
+    ReactactionsContainer: {
         display: 'flex',
         flexDirection: 'column',
         marginTop: '10px',
-        height:"80.1vh",
+        height: "80.1vh",
     },
-    
+
     actionButton: {
         background: '#444 ',
         color: '#fff',
@@ -459,7 +371,7 @@ const styles = {
         padding: '10px',
         marginBottom: '10px',
         borderRadius: '5px',
-        color:"rgba(255, 255, 255, 0.81)",
+        color: "rgba(255, 255, 255, 0.81)",
     },
     fileActions: {
         display: 'flex',
@@ -492,7 +404,7 @@ const styles = {
         border: "none",
         borderRadius: "5px",
         cursor: "pointer"
-        
+
     },
     dropdown: {
         position: "relative"

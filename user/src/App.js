@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Routes, useLocation } from "react-router-dom";
 import Header from "./components/common/layout/footer/sidebar/header/header.js";
 import Footer from "./components/common/layout/footer/footer.js";
@@ -38,40 +38,37 @@ import "./Global.css";  // Import global styles
 import VerifyOtp from "./pages/auth/VerifyOtp/VerifyOtp.js";
 
 
-function App() 
-{
-  
+function App() {
+
   const Layout = ({ children }) => {
-  const location = useLocation();
-  const hideHeaderFooter = [
-    "/userlogin",
-    "/register",
-    "/changepassword",
-    "/userprofile",
-    "/payment-success",
-    "/payment-failed",
-    "/language-compiler",
-    "/java-compiler",
-    "/php-compiler",
-    "/header-compiler",
-    "/topicquiz",
-  ].some(path => location.pathname.startsWith(path)) ||
-    location.pathname.startsWith("/quiz") ||
-    location.pathname.startsWith("/topic-details") ||
-    location.pathname.startsWith("/quiz-thankyou") ||
-    location.pathname.startsWith("/quiz-result") ||
-    location.pathname.startsWith("/certificate");
+    const location = useLocation();
+    const hideHeaderFooter = [
+      "/userlogin",
+      "/register",
+      "/changepassword",
+      "/userprofile",
+      "/payment-success",
+      "/payment-failed",
+      "/language-compiler",
+      "/java-compiler",
+      "/php-compiler",
+      "/header-compiler",
+      "/topicquiz",
+    ].some(path => location.pathname.startsWith(path)) ||
+      location.pathname.startsWith("/quiz") ||
+      location.pathname.startsWith("/topic-details") ||
+      location.pathname.startsWith("/quiz-thankyou") ||
+      location.pathname.startsWith("/quiz-result") ||
+      location.pathname.startsWith("/certificate");
 
-    // location.pathname.startsWith("/contactus");
-
-  return (
-    <>
-      {!hideHeaderFooter && <Header />}
-      <main>{children}</main>
-      {!hideHeaderFooter &&!isMobile && <Footer />}
-    </>
-  );
-};
+    return (
+      <>
+        {!hideHeaderFooter && <Header />}
+        <main>{children}</main>
+        {!hideHeaderFooter && !isMobile && <Footer />}
+      </>
+    );
+  };
   const [isSidebarVisible, setIsSidebarVisible] = useState(true);
   const toggleSidebar = () => setIsSidebarVisible(prev => !prev);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
@@ -85,7 +82,7 @@ function App()
   }, []);
   return (
     <Router>
-      <ScrollToTop/>
+      <ScrollToTop />
       <Layout>
         <Routes>
           <Route path="/" element={<Home />} />
@@ -100,9 +97,9 @@ function App()
           <Route path="/userprofile" element={<UserProfile />} />
           <Route path="/lesson-completed" element={<LessonCompleted />} />
           <Route path="/search-component" element={<SearchComponent />} />
-          <Route 
-            path="/topic-details/:courseId/:chapterId/:topicId" 
-            element={<Details isSidebarVisible={isSidebarVisible} onToggleSidebar={toggleSidebar} />} 
+          <Route
+            path="/topic-details/:courseId/:chapterId/:topicId"
+            element={<Details isSidebarVisible={isSidebarVisible} onToggleSidebar={toggleSidebar} />}
           />
           <Route path="/language-compiler" element={<PythonCodeEditor />} />
           <Route path="/java-compiler" element={<JavaCodeEditor />} />
@@ -119,25 +116,18 @@ function App()
           <Route path="/quiz-thankyou/:courseId" element={<ThankYou />} />
           <Route path="/quiz-result/:courseId" element={<Result />} />
           <Route path="/certificate/:courseId" element={<Certificate />} />
-          <Route path="/aboutus" element={<AboutUs />}/>
-          <Route path="/contactus" element={<Contactus/>}/>
-          <Route path="/verify-otp/:email" element={<VerifyOtp/>}/>
+          <Route path="/aboutus" element={<AboutUs />} />
+          <Route path="/contactus" element={<Contactus />} />
+          <Route path="/verify-otp/:email" element={<VerifyOtp />} />
 
           {/* mobile pages */}
-          <Route path="/mobilecategory" element={<Category/>}/>
-          <Route path="/mobilecourse" element={<Coursenav/>}/>
-
-          
-
-
+          <Route path="/mobilecategory" element={<Category />} />
+          <Route path="/mobilecourse" element={<Coursenav />} />
         </Routes>
       </Layout>
 
-{/* when open mobile is visible */}
-  {/* {isMobile && <MobileNav/>} */}
-  {isMobile && <MobileNav />}
-
-
+      {/* when open mobile is visible */}
+      {isMobile && <MobileNav />}
     </Router>
   );
 }

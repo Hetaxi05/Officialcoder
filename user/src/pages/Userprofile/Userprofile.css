@@ -1,56 +1,17 @@
-
-.profile-container  h4 {
+.profile-container h4 {
     /* font-size: 20px; */
     text-align: center;
     margin-bottom: 19px;
 }
-/* 📱 Mobile View (Up to 768px) */
+
+/* Mobile View 768px */
 
 @media (max-width: 768px) {
-    /* .container {
+    .userProfile-container {
         width: 95% !important;
         padding: 15px !important;
     }
 
-    .profile-container {
-        width: 100%;
-        padding: 20px;
-        border-radius: 12px;
-    }
-
-    h4 {
-        font-size: 20px;
-        text-align: center;
-        margin-bottom: 19px;
-    }
-
-    .profile-container input {
-        font-size: 14px;
-        padding: 12px;
-        border-radius: 5px !important;
-        
-    }
-
-    .input-group-text {
-        padding: 10px;
-        border-radius: 8px;
-    }
-
-    .update-btn {
-        font-size: 14px;
-        padding: 12px;
-        border-radius: 8px;
-        transition: 0.3s ease-in-out;
-    }
-
-    .update-btn:hover {
-        background: #067d68 !important;
-        box-shadow: 0px 3px 8px rgba(6, 125, 104, 0.2);
-    } */
-    .userProfile-container  {
-        width: 95% !important;
-        padding: 15px !important;
-    }
     .userprofile-input-group {
         display: flex !important;
         flex-direction: row;
@@ -58,11 +19,12 @@
         width: 100%;
         flex-wrap: nowrap !important;
     }
+
     .userprofile-input-group .form-control {
         flex-grow: 1;
         min-width: 0;
         border-right: none;
-        border-radius: 5px 0 0 5px; /* Rounded corners only on left */
+        border-radius: 5px 0 0 5px;
     }
 
     .userprofile-input-group .userprofile-icon {
@@ -73,8 +35,9 @@
         justify-content: center;
         border-left: none;
         width: 40px;
-        border-radius: 0 5px 5px 0; /* Rounded corners only on right */
+        border-radius: 0 5px 5px 0;
     }
+
     .userprofile-input-group {
         flex-direction: row;
     }
@@ -88,18 +51,19 @@
 
     .userprofile-input-group .userprofile-icon {
         width: 45px;
-        background: #e9ecef; 
+        background: #e9ecef;
         /* padding: 8px; */
         height: 38.5px;
 
     }
+
     .userprofile-input-group .invalid-feedback {
         display: block !important;
         width: 100%;
         font-size: 14px;
         color: red;
         position: absolute;
-        bottom: -15px; 
+        bottom: -15px;
         left: 0;
         text-align: left;
         padding-left: 12px;
