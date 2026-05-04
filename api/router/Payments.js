@@ -62,12 +62,9 @@ RouterPayment.post('/', async (req, res) => {
                 }]
             },
             "amount": {
-                // "currency": "USD",
-                // "total": "1.00",
                 "currency": currency.toUpperCase(),
                 "total": parseFloat(price).toFixed(2)
             },
-            // "description": "payment description",
             "description": `${item_name} subscription for ${duration}`
         }]
 
@@ -148,11 +145,9 @@ RouterPayment.get('/success', async (req, res) => {
         })
     }
     catch (error) {
-
         console.log(error)
         return res.redirect(`${process.env.REACT_APP_API_URL}/payment-failed`);
         // res.send("failed")
-
     }
 })
 

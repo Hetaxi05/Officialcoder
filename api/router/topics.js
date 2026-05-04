@@ -78,6 +78,4 @@ RouterTopic.delete('/del/:id', (req, res) => {
         })
 })
 
-
-
 module.exports=RouterTopic;

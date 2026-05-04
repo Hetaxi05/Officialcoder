@@ -13,25 +13,23 @@ RouterChapter.get('/course/:courseId', (req, res) => {
         .then((chapters) => {
             // console.log("Chapters Found:", chapters.length); // Debugging
 
-            // For each chapter, fetch topics and then subtopics for each topic
             const chapterPromises = chapters.map((chapter) => {
                 return Topic.find({ chapterid: chapter._id })
                     .then((topics) => {
                         // console.log(`Topics for Chapter ${chapter._id}:`, topics.length); // Debugging
 
-                        // For each topic, fetch its subtopics
                         const topicPromises = topics.map((topic) => {
                             return subTopic.find({ topicid: topic._id })
                                 .then((subtopics) => {
                                     console.log(`Subtopics for Topic ${topic._id}:`, subtopics.length); // Debugging
-                                    // Return topic object with nested subtopics array
+
                                     return { ...topic.toObject(), subtopics };
                                 });
                         });
 
                         return Promise.all(topicPromises)
                             .then((topicsWithSubtopics) => {
-                                // Return chapter object with topics (each with nested subtopics)
+                                // Return chapter object with topics 
                                 return { ...chapter.toObject(), topics: topicsWithSubtopics };
                             });
                     });
@@ -128,4 +126,4 @@ RouterChapter.delete('/del/:id', (req, res) => {
             res.send(err)
         })
 })
-module.exports = RouterChapter;
+module.exports = RouterChapter;

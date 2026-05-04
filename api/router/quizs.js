@@ -114,7 +114,6 @@ RouterQuiz.put("/:id", (req, res) => {
         });
 });
 
-// This must be LAST
 RouterQuiz.get('/:id', (req, res) => {
     quiz.findById(req.params.id)
         .then((data) => {

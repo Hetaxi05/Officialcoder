@@ -2,7 +2,6 @@ const role = require('../model/role');
 const express = require('express');
 const RouterRole = express.Router();
 
-
 RouterRole.get('/', (req, res) => {
     role.find()
         .then((data) => {
@@ -25,9 +24,6 @@ RouterRole.get('/:id', (req, res) => {
             res.send(err)
         })
 })
-
-
-
 
 RouterRole.post("/", (req, res) => {
     const Role = new role({

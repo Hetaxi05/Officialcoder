@@ -5,12 +5,12 @@ const { body, validationResult } = require("express-validator");
 
 RouterActivity.get("/all", async (req, res) => {
     try {
-      const activityLogs = await Activity.find().populate("userId", "email"); // populate email from User
-      res.json(activityLogs);
+        const activityLogs = await Activity.find().populate("userId", "email"); // populate email from User
+        res.json(activityLogs);
     } catch (error) {
-      res.status(500).json({ message: "Error fetching activity logs", error });
+        res.status(500).json({ message: "Error fetching activity logs", error });
     }
-  });
+});
 
 //Get activity count grouped by date
 RouterActivity.get("/status", async (req, res) => {

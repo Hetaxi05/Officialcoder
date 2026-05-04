@@ -15,7 +15,7 @@ RouterSubject.get('/', (req, res) => {
 })
 
 RouterSubject.post('/add', (req, res) => {
-    let { subjecttitle,courseid, icon, tag, status, date } = req.body;
+    let { subjecttitle, courseid, icon, tag, status, date } = req.body;
     // subjecttitle
     if (!subjecttitle || subjecttitle === '') {
         return res.json('Subject title must be required.')
@@ -26,8 +26,7 @@ RouterSubject.post('/add', (req, res) => {
     if (subjecttitle.length < 3 || subjecttitle.length > 100) {
         return res.json("Subject title should be between 3 and 100 characters.");
     }
-    if(!courseid || courseid==='')
-    {
+    if (!courseid || courseid === '') {
         return res.json('Courseid must be required')
     }
     //icon
@@ -39,13 +38,6 @@ RouterSubject.post('/add', (req, res) => {
     if (!tag || tag === '') {
         return res.json('Tag must be required.')
     }
-    // status validation
-    // if (!status || status === '') {
-    //     return res.json('Status must be required.')
-    // }
-    // if (!status || (status !== 'active' && status !== 'inactive')) {
-    //     return res.json("Status must be either 'active' or 'inactive'.");
-    // }
 
     // date validation
     if (!date || date === '') {

@@ -3,7 +3,6 @@ const Chapter = require('../model/chapter')
 
 const express = require('express');
 const Topic = require('../model/topic');
-// const chapter=require('../model/chapter')
 const RouterCourse = express.Router();
 
 RouterCourse.get('/', (req, res) => {
@@ -36,9 +35,6 @@ RouterCourse.get('/count/total', async (req, res) => {
 });
 
 
-
-
-
 // Get courses by category ID
 RouterCourse.get('/category/:categoryId', (req, res) => {
     Course.find({ category: req.params.categoryId })
@@ -63,28 +59,26 @@ RouterCourse.get('/checkcoursecode/:coursecode', (req, res) => {
 });
 RouterCourse.get('/lession/count/:id', async (req, res) => {
     try {
-        // 1. Find all chapters for the given course
+        // Find all chapters for the given course
         const chapters = await Chapter.find({ courseid: req.params.id });
 
-        // 2. Loop through each chapter and fetch topics
+        //Loop through each chapter and fetch topics
         let totalTopics = 0;
         for (const chapter of chapters) {
             const topics = await Topic.find({ chapterid: chapter._id });
             totalTopics += topics.length;
         }
 
-        
         Course.find({ _id: req.params.id })
             .then((data) => {
                 // res.send(data[0])
-                res.json({ totalTopics:totalTopics,course: data[0]});
+                res.json({ totalTopics: totalTopics, course: data[0] });
             })
             .catch((err) => {
                 res.send(err)
-        })
+            })
 
-        // 3. Send total topics
-      
+        // Send total topics
     } catch (err) {
         console.error("Error counting topics:", err);
         res.status(500).json({ success: false, message: err.message });
@@ -95,7 +89,6 @@ RouterCourse.get('/lession/count/:id', async (req, res) => {
 // insert
 
 RouterCourse.post('/add', (req, res) => {
-
     // console.log(req.body)
     const course = new Course({
         'coursename': req.body['coursename'],
@@ -104,10 +97,11 @@ RouterCourse.post('/add', (req, res) => {
         'coursedetails': req.body['coursedetails'],
         'tag': req.body['tag'],
         'image': req.body['image'],
-        'category': req.body['category']  // <-- Field is "category"
+        'category': req.body['category']
     })
     course.save().then(() => { res.json("Course Added Successfully") }).catch((err) => { res.send(err) })
 })
+
 // update
 RouterCourse.put('/update/:id', (req, res) => {
     // console.log(req.body)
@@ -115,7 +109,6 @@ RouterCourse.put('/update/:id', (req, res) => {
         { _id: req.params['id'] },
         { $set: req.body }
     )
-
         .then(() => {
             res.send('Course updated sucessfully')
         })
@@ -125,7 +118,6 @@ RouterCourse.put('/update/:id', (req, res) => {
 })
 
 // delete
-
 RouterCourse.delete('/del/:id', (req, res) => {
     Course.deleteOne(
         { _id: req.params['id'] }
@@ -137,6 +129,5 @@ RouterCourse.delete('/del/:id', (req, res) => {
             res.send(err)
         })
 })
-
 
 module.exports = RouterCourse;

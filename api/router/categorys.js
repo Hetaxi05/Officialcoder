@@ -23,9 +23,6 @@ RouterCategory.get('/count/total', async (req, res) => {
     }
 });
 
-
-
-
 // Get a category by ID
 RouterCategory.get('/:id', (req, res) => {
     Category.findById(req.params.id)
