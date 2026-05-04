@@ -7,7 +7,6 @@
   align-items: center;
 }
 
-
 /* Search box container */
 
 .search-box-wrapper {
@@ -57,14 +56,12 @@
   height: 42px;
 }
 
-
 /* Search results container */
 
 .search-results {
   width: 50%;
   margin-top: 35px;
 }
-
 
 /* Course card */
 
@@ -121,7 +118,6 @@
   margin-top: 15px;
 }
 
-
 /* Tablet */
 
 @media (max-width: 992px) {
@@ -132,7 +128,6 @@
   }
 
 }
-
 
 /* Mobile */
 

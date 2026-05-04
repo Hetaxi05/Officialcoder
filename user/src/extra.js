@@ -1,11 +1,3 @@
-
-
-
-// complite side bar inside a editor 
-
-
-
-
 import React, { useState, useEffect } from "react";
 import MonacoEditor from "@monaco-editor/react";
 import menu from './image/menu.svg';
