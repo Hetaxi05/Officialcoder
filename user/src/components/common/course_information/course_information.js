@@ -1,5 +1,5 @@
 import React, { useState,useEffect } from "react";
-import { Modal, Button } from "react-bootstrap"; // Import Modal & Button
+import { Modal, Button } from "react-bootstrap"; 
 import "./course_information.css";
 import { BsFillPersonFill } from "react-icons/bs";
 import { AiOutlineFileText } from "react-icons/ai";
@@ -11,7 +11,6 @@ import { useParams } from "react-router-dom";
 
 
 const Courseinformation = ({ courseId }) => {
-    // const { id } = useParams(); // Get course ID from URL
     const [showModal, setShowModal] = useState(false);
     const [courseDetails, setCourseDetails] = useState(null);
     const [lessionCount, setLessionCount] = useState(0);
@@ -19,26 +18,26 @@ const Courseinformation = ({ courseId }) => {
 
     useEffect(() => {
        
-        fetch(`${process.env.REACT_APP_API_URL}/cour/lession/count/${courseId}`) // Replace with your API URL
+        fetch(`${process.env.REACT_APP_API_URL}/cour/lession/count/${courseId}`) 
         
-            .then((response) => response.json()) // Convert response to JSON
+            .then((response) => response.json()) 
             
             .then((data) => {
                 console.log("Fetched Course Data:", data);
-                setCourseDetails(data.course); // Store course details in state
-                setLessionCount(data.totalTopics); // Store course details in state
+                setCourseDetails(data.course);
+                setLessionCount(data.totalTopics); 
             })
             .catch((error) => {
                 console.error("Error fetching course details:", error);
             });
-    }, [courseId]); // Runs when ID changes
+    }, [courseId]); 
 
     const handleShow = () => setShowModal(true);
     const handleClose = () => setShowModal(false);
 
     const handleCopy = () => {
         navigator.clipboard.writeText(courseUrl)
-            .then(() => handleClose()) // Close modal after copying
+            .then(() => handleClose()) 
             .catch(err => console.error("Copy failed: ", err));
     };
 
@@ -92,7 +91,7 @@ const Courseinformation = ({ courseId }) => {
                 </div>
             </div>
 
-            {/* Bootstrap Modal */}
+          
             <Modal show={showModal} onHide={handleClose} centered>
                 {/* <Modal.Header closeButton>
                     <Modal.Title>Start This Course</Modal.Title>

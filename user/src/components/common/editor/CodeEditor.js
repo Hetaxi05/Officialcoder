@@ -59,7 +59,6 @@ print(languages[-4])   # Error
 
     return (
         <div className="" style={theme === "dark" ? styles.darkContainer : styles.lightContainer}>
-            {/* Toolbar */}
             <div style={styles.toolbar}>
                 <button style={styles.runbutton} onClick={executeCode}>▶ Run Code</button>
                 <div style={styles.dropdown}>
