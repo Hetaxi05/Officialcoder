@@ -10,7 +10,7 @@ const JavaCodeEditor = () => {
     const executeCode = async () => {
         const payload = {
             language: "java",
-            version: "15.0.2", // Ensure this version is available in Piston API
+            version: "15.0.2", 
             files: [{ name: "Main.java", content: code }]
         };
 

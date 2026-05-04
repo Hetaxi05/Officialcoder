@@ -1,8 +1,5 @@
 import React, { useState, useEffect } from "react";
 import MonacoEditor from "@monaco-editor/react";
-// import menu from '../../image/menu.svg';
-// import menu from './menu.svg'
-
 
 const CodeEditor = () => {
     const [code, setCode] = useState(`# access items of a list

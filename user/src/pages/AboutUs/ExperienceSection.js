@@ -9,10 +9,10 @@ import { useNavigate } from "react-router-dom";
 function ExperienceSection() {
     const navigate = useNavigate()
     const handleFree = () => {
-        navigate("/mobilecategory"); // Aa route ne tamara project pramane update karo
+        navigate("/mobilecategory"); 
     };
     const getmoreabout = () => {
-        navigate("/aboutus"); // Aa route ne tamara project pramane update karo
+        navigate("/aboutus"); 
     };
     return (
         <section className="experience-section  py-5 ps-5 ms-5 me-5 pe-0">
