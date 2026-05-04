@@ -3,9 +3,6 @@ import '../sidebar/sidebar.css';
 import { Link, useNavigate } from "react-router-dom";
 import { PiLightbulbFilament } from "react-icons/pi";
 import { PiUsersThreeDuotone } from "react-icons/pi";
-// import { useNavigate } from "react-router-dom";
-
-
 
 const Sidebar = () => {
 
@@ -52,34 +49,16 @@ const Sidebar = () => {
         setIsCollapsed((prev) => !prev);
     };
 
-    // const toggleMenu = (menu) => {
-    //     setOpenMenus((prev) => {
-    //         const isOpening = !prev[menu];
-
-    //         if (submenuRefs[menu].current) {
-    //             submenuRefs[menu].current.style.height = isOpening
-    //                 ? submenuRefs[menu].current.scrollHeight + "px"
-    //                 : "0px";
-    //         }
-
-    //         return { ...prev, [menu]: isOpening };
-    //     });
-
-    //     setActiveMenu(menu);
-    // };
-
     const toggleMenu = (menu) => {
         setOpenMenus((prev) => {
             const isOpening = !prev[menu];
-            // Create new state: close all menus
             const newState = Object.keys(prev).reduce((acc, key) => {
                 acc[key] = false;
                 return acc;
             }, {});
-            // Set the clicked menu to toggled value
+
             newState[menu] = isOpening;
 
-            // Update each submenu's height based on its open/closed state
             Object.keys(submenuRefs).forEach((key) => {
                 if (submenuRefs[key].current) {
                     submenuRefs[key].current.style.height = newState[key]
@@ -97,7 +76,7 @@ const Sidebar = () => {
     const handleSubmenuClick = (submenu) => {
         setActiveSubmenu(submenu);
         if (isCollapsed) {
-            setIsCollapsed(true); // Collapse the sidebar again on submenu click
+            setIsCollapsed(true);
         }
     };
 
@@ -115,8 +94,6 @@ const Sidebar = () => {
             return false
         }
     }
-
-
 
     const handleLogout = () => {
         localStorage.removeItem("admin");
@@ -186,28 +163,22 @@ const Sidebar = () => {
                                 )}
                             </div>
                         </button>
-
-
                     </Link>
 
 
                     {/* Category */}
-
                     <li
                         className={`nav-item ${activeMenu === "category" ? "active" : ""}`}
                         onMouseEnter={() => isCollapsed && setOpenMenus({ category: true })}
                         onMouseLeave={() => isCollapsed && setOpenMenus({ category: false })}
                     >
                         <button className="nav-link"
-
                             onClick={() => {
                                 if (checkPermission("category")) {
                                     toggleMenu("category")
                                 }
-
                             }}
                         >
-
                             <div className="d-flex w-100 nav-item-padding">
                                 <div className="menu-left">
                                     <i class="bi bi-ui-checks-grid" style={{ fontSize: "24px" }}></i>
@@ -231,10 +202,7 @@ const Sidebar = () => {
                             onClick={() => handleSubmenuClick("Add Category")}>
                             <span className="line"></span> {!isCollapsed && "Add Category"}
                         </Link>
-
                     </ul>
-
-
 
                     {/* Courses */}
 
@@ -515,13 +483,12 @@ const Sidebar = () => {
                         onMouseLeave={() => isCollapsed && setOpenMenus({ inquiry: false })}
                         onClick={(e) => {
                             if (!checkPermission("inquiry")) {
-                                e.preventDefault(); // Stop navigation if no permission
+                                e.preventDefault();
                                 return;
                             }
                             toggleMenu("inquiry");
                         }}
                     >
-                        {/* <button className="nav-link" onClick={() => toggleMenu("Inquiry")}> */}
                         <button className="nav-link" >
 
                             <div className="d-flex w-100 nav-item-padding">
@@ -551,17 +518,8 @@ const Sidebar = () => {
                             </div>
                         </button>
                     </li>
-
-
-
-
-
-
                 </ul>
-
             </div>
-
-
         </>
 
     );

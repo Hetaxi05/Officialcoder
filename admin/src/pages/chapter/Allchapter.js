@@ -8,16 +8,13 @@ import { Table, Modal, Tag, Space, message } from "antd";
 import { SearchOutlined } from '@ant-design/icons';
 import { Input } from 'antd';
 
-
-
-// const users = Array(3).fill();
 function Allchapter() {
 
     const navigate = useNavigate()
     const [getchapter, setGetChapter] = useState([]);
     const [messageApi, contextHolder] = message.useMessage();
     const [searchText, setSearchText] = useState("");
-    const { confirm } = Modal; // extract confirm from Modal
+    const { confirm } = Modal;
 
     const filteredData = getchapter.filter((item) =>
         (item.chaptertitle?.toLowerCase()?.includes(searchText.toLowerCase()) || '') ||
@@ -41,7 +38,6 @@ function Allchapter() {
             })
     }
     function deleteChapter(id) {
-        // Ask for confirmation before deletion
         message.loading({ content: "deleting...", key: "deleteChapter" })
         return new Promise((resolve) => {
             setTimeout(() => {
@@ -52,7 +48,7 @@ function Allchapter() {
                         if (!response.ok) {
                             throw new Error("Failed to delete the chapter");
                         }
-                        // Remove the course from UI without re-fetching
+
                         setGetChapter(getchapter.filter(chapter => chapter._id !== id));
                         message.success({ content: "Chapter deleted successfully", key: "deleteChapter" });
                         resolve();
@@ -119,16 +115,6 @@ function Allchapter() {
                 </Tag>
             ),
         },
-        // {
-        //     title: <span style={{ fontWeight: "bold", fontSize: "16px" }}>Status</span>,
-        //     dataIndex: 'status',
-        //     key: 'status',
-        //     render: (status) => (
-        //         <span className={`badge ${status === 'Active' ? 'bg-success' : 'bg-danger'}`}>
-        //             {status}
-        //         </span>
-        //     ),
-        // },
         {
             title: <span style={{ fontWeight: "bold", fontSize: "16px" }}>Action</span>,
             key: 'action',
@@ -142,12 +128,11 @@ function Allchapter() {
                     <FontAwesomeIcon
                         icon={faTrash}
                         style={{ color: "red", cursor: "pointer", fontSize: "15px" }}
-                        onClick={() => showDeleteConfirm(record._id)} // ✅ FIXED: now shows modal confirmation
+                        onClick={() => showDeleteConfirm(record._id)}
                     />
                 </Space>
             ),
         }
-
     ];
 
     const dataSource = getchapter.map((item, index) => ({

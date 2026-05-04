@@ -29,10 +29,10 @@ function Contact() {
       .then((data) => {
         const updatedData = Array.isArray(data)
           ? data.map((item) => ({
-              ...item,
-              adminReply: item.adminReply || "",
-              isMessageSent: item.isMessageSent || false,
-            }))
+            ...item,
+            adminReply: item.adminReply || "",
+            isMessageSent: item.isMessageSent || false,
+          }))
           : [];
         setUsers(updatedData);
       })

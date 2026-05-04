@@ -134,12 +134,12 @@ function Dashboard() {
     fetchActivityData();
   }, []);
 
-  // 1) Get the current date and the date 7 days ago
+  //Get the current date and the date 7 days ago
   const today = new Date();
   const lastWeek = new Date();
   lastWeek.setDate(lastWeek.getDate() - 7);
 
-  // 2) Filter the activity data to only include items from the last 7 days
+  //Filter the activity data to only include items from the last 7 days
   const filteredActivityData = activityData.filter((item) => {
     const [month, day] = item._id.split("-");
     // Create a new Date using current year, month, and day
@@ -147,7 +147,7 @@ function Dashboard() {
     return itemDate >= lastWeek && itemDate <= today;
   });
 
-  // 3) Sort the filtered data if needed (ascending by date)
+  //Sort the filtered dat
   filteredActivityData.sort((a, b) => {
     const [monthA, dayA] = a._id.split("-");
     const [monthB, dayB] = b._id.split("-");
@@ -156,9 +156,9 @@ function Dashboard() {
     return dateA - dateB;
   });
 
-  // 4) Build the chart data using the filtered list
+  //Build the chart data using the filtered list
   const chartData = {
-    labels: filteredActivityData.map((item) => item._id), // "MM-DD" labels
+    labels: filteredActivityData.map((item) => item._id),
     datasets: [
       {
         label: "Active Users",

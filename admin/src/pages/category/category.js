@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import ReactQuill from "react-quill";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import { message,  Spin } from "antd";
+import { message, Spin } from "antd";
 import { LoadingOutlined, ExclamationCircleOutlined } from '@ant-design/icons';
 
 
@@ -40,25 +40,25 @@ function Addcategory() {
     }
     function ValidFormFiled() {
         let newErrors = {};
-    
+
         // Regular expression to check if categoryname contains numbers
-        const numberRegex = /\d/; 
-    
+        const numberRegex = /\d/;
+
         if (!categoryname.trim()) {
             newErrors.categoryname = "Category Name must be required";
-        } 
-    
+        }
+
         if (!tag.trim()) {
             newErrors.tag = "Tag must be required";
         }
-         
-        if(!icon.trim()){
-            newErrors.icon="Icon must be required"
+
+        if (!icon.trim()) {
+            newErrors.icon = "Icon must be required"
         }
         setErrors(newErrors);
         return Object.keys(newErrors).length === 0;
     }
-    
+
     function AddCategory(e) {
         e.preventDefault();
         if (!ValidFormFiled()) return;
@@ -88,8 +88,8 @@ function Addcategory() {
                 console.error(err);
             });
     }
-    
-    
+
+
     function UpdateCategory(e) {
         e.preventDefault();
         setLoading(true);
@@ -117,44 +117,24 @@ function Addcategory() {
                 console.error(err);
             });
     }
-// for reset the value in cancel button(bydefault remove)
 
-function handleCancel() {
-    // Clear form fields
-    setCategoryName("");
-    setTag("");
-    setIcon("");
-    setErrors({});
+    // for reset the value in cancel button
 
-    // Reset file input value manually
-    if (fileInputRef.current) {
-        fileInputRef.current.value = null;
+    function handleCancel() {
+        // Clear form fields
+        setCategoryName("");
+        setTag("");
+        setIcon("");
+        setErrors({});
+
+        // Reset file input value manually
+        if (fileInputRef.current) {
+            fileInputRef.current.value = null;
+        }
     }
 
-    // Navigate to All Category page
-    // navigate('/all-category');
-}
-
-    
-
     function onChangeCategoryName(e) {
-        // const value=e.target.value; 
-        // setCategoryName(value)
-
-        // if(!/^[A-Za-z\s]*$/.test(value)){
-        //     setErrors((prevErrors)=>({
-        //         ...prevErrors,
-        //         categoryname:"Category Name must contains the letters."
-        //     }));
-        // }
-        // else{
-        //     setErrors((prevErrors)=>{
-        //         const {categoryname,...rest}=prevErrors;
-        //         return rest;
-        //     });  
-        // }
-    
-    setCategoryName(e.target.value)
+        setCategoryName(e.target.value)
     }
 
     function onChangeTag(e) {
@@ -166,7 +146,7 @@ function handleCancel() {
             const reader = new FileReader();
             reader.readAsDataURL(file);
             reader.onloadend = () => {
-                setIcon(reader.result); // Store Base64 string in state
+                setIcon(reader.result); 
             };
         }
     }
@@ -178,7 +158,7 @@ function handleCancel() {
                         <span>{categoryId === "" ? "Add" : "Edit"} Category</span>
                     </div>
                     <ol className="breadcrumb d-flex justify-content-between align-items-center mt-3 p-3 main" style={{ fontFamily: "sans-serif" }}>
-                        <Link to="/all-category" className="breadcrumb-item" style={{ textDecoration: "none",color:"#07a698" }}>Category</Link>
+                        <Link to="/all-category" className="breadcrumb-item" style={{ textDecoration: "none", color: "#07a698" }}>Category</Link>
                         <Link to="/category" className="breadcrumb-item active" style={{ color: "#07a698", textDecoration: "none" }} aria-current="page">Add Category </Link>
                     </ol>
                 </div>
@@ -188,34 +168,34 @@ function handleCancel() {
                     </div>
                 </div>
                 <Spin spinning={loading} indicator={<LoadingOutlined style={{ fontSize: 24 }} spin />}>
-                <div className="card border-0 mt-1">
-                    <div className="card-body">
-                        <form onSubmit={categoryId ? UpdateCategory : AddCategory}>
-                            <div className="row mb-3">
-                                <div className="col-md-6 ">
-                                    <label for="categoryName" className="form-label">Category Name</label>
-                                    <input type="text" value={categoryname} className="form-control" id="categoryName" placeholder="Category Name" onChange={onChangeCategoryName} />
-                                    {errors.categoryname && <p className="text-danger">{errors.categoryname}</p>}
+                    <div className="card border-0 mt-1">
+                        <div className="card-body">
+                            <form onSubmit={categoryId ? UpdateCategory : AddCategory}>
+                                <div className="row mb-3">
+                                    <div className="col-md-6 ">
+                                        <label for="categoryName" className="form-label">Category Name</label>
+                                        <input type="text" value={categoryname} className="form-control" id="categoryName" placeholder="Category Name" onChange={onChangeCategoryName} />
+                                        {errors.categoryname && <p className="text-danger">{errors.categoryname}</p>}
+                                    </div>
+                                    <div className="col-md-6">
+                                        <label for="categorytag" className="form-label">Category Tag</label>
+                                        <input type="text" value={tag} className="form-control" id="categoryTag" placeholder="Category Tag" onChange={onChangeTag} />
+                                        {errors.tag && <p className="text-danger">{errors.tag}</p>}
+                                    </div>
                                 </div>
-                                <div className="col-md-6">
-                                    <label for="categorytag" className="form-label">Category Tag</label>
-                                    <input type="text" value={tag} className="form-control" id="categoryTag" placeholder="Category Tag"  onChange={onChangeTag} />
-                                    {errors.tag && <p className="text-danger">{errors.tag}</p>}
+                                <div className="mb-3">
+                                    <label for="categoryIcon" className="form-label">Category Icon</label>
+                                    <input type="file" className="form-control" id="categorIcon" onChange={handleIconChange} ref={fileInputRef} />
+                                    {icon && <img src={icon} alt="category" style={{ width: "150px", marginTop: "10px" }} />}
+                                    {errors.icon && <p className="text-danger">{errors.icon}</p>}
                                 </div>
-                            </div>
-                            <div className="mb-3">
-                                <label for="categoryIcon" className="form-label">Category Icon</label>
-                                <input type="file" className="form-control" id="categorIcon"  onChange={handleIconChange} ref={fileInputRef}/>
-                                {icon && <img src={icon} alt="category" style={{ width: "150px", marginTop: "10px" }} />}
-                                {errors.icon && <p className="text-danger">{errors.icon}</p>}
-                            </div>
-                            <div className="d-flex gap-2">
-                                <button type="submit" className="btn btn-primary" >{categoryId === "" ? "Add" : "Update"}</button>
-                                <button type="button" className="btn btn-danger" onClick={handleCancel}>Cancel</button>
-                            </div>
-                        </form>
+                                <div className="d-flex gap-2">
+                                    <button type="submit" className="btn btn-primary" >{categoryId === "" ? "Add" : "Update"}</button>
+                                    <button type="button" className="btn btn-danger" onClick={handleCancel}>Cancel</button>
+                                </div>
+                            </form>
+                        </div>
                     </div>
-                </div>
                 </Spin>
             </div>
         </>

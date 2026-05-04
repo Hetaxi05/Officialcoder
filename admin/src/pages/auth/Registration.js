@@ -26,7 +26,6 @@ function Registration() {
     })
   };
 
-
   return (
     <>
       <div className="container mt-5" style={{ width: "50%", padding: "80px" }}>

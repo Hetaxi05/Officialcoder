@@ -11,10 +11,10 @@ const Extra = () => {
     const allowedModules = JSON.parse(localStorage.getItem("allowedModules"));
 
     if (role !== "Staff") {
-      navigate("/login"); // Redirect if not staff
+      navigate("/login"); 
     }
 
-    setModules(allowedModules || {}); // Load assigned modules
+    setModules(allowedModules || {});
   }, []);
 
   return (

@@ -5,26 +5,18 @@ import { Input } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
 import { ExclamationCircleOutlined } from '@ant-design/icons';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTrash,faPenToSquare } from "@fortawesome/free-solid-svg-icons";
-
-// const users = Array(3).fill();
-
+import { faTrash, faPenToSquare } from "@fortawesome/free-solid-svg-icons";
 
 function Allcategory() {
     const navigate = useNavigate()
     const [getcategory, setgetCategory] = useState([]);
     const [messageApi, contextHolder] = message.useMessage();
     const [searchText, setSearchText] = useState("");
-
-
-    const { confirm } = Modal; // extract confirm from Modal
-
+    const { confirm } = Modal;
     const filteredData = getcategory.filter((item) =>
         item.categoryname.toLowerCase().includes(searchText.toLowerCase()) ||
         item.tag.toLowerCase().includes(searchText.toLowerCase())
     );
-
-
 
     useEffect(() => {
         getCategory()
@@ -43,7 +35,6 @@ function Allcategory() {
             })
     }
     function deleteCategory(id) {
-        // Ask for confirmation before deletion
         message.loading({ content: "deleting...", key: "deleteCategory" })
         return new Promise((resolve) => {
             setTimeout(() => {
@@ -54,7 +45,7 @@ function Allcategory() {
                         if (!response.ok) {
                             throw new Error("Failed to delete the course");
                         }
-                        // Remove the course from UI without re-fetching
+
                         setgetCategory(getcategory.filter(category => category._id !== id));
                         message.success({ content: "Category deleted successfully", key: "deleteTopic" });
                         resolve();
@@ -139,7 +130,7 @@ function Allcategory() {
             title: <span style={{ fontWeight: "bold", fontSize: "16px" }}>Action</span>,
             key: 'action',
             render: (_, record) => (
-                <Space size={16}> {/* Adds spacing */}
+                <Space size={16}>
 
                     <FontAwesomeIcon
                         icon={faPenToSquare}
@@ -186,8 +177,6 @@ function Allcategory() {
                         <div className="card shadow-sm border-0">
                             <div className="card-body">
                                 <div className="d-flex justify-content-between align-items-center mb-4" >
-
-                                    {/* <Link to="/add-course" style={{textdecoration:"none"}}><button className="btn btn-outline-primary">Create Course</button></Link> */}
                                 </div>
                                 <div style={{ marginBottom: 16 }}>
                                     <Input

@@ -1,14 +1,11 @@
 import React from 'react';
 import './certificate.css';
 const Certificate = () => {
+
     return (
         <div className="container-fluid" style={{ height: "80vh" }}>
-            {/* <div className="container"> */}
             <div className="row align-items-center">
-                {/* Left Column - Image */}
                 <div className="col-3 position-relative certificate-left-column">
-                    {/* <img src="/assets/certificate/1.png" alt="Certificate" className="img-fluid" /> */}
-
                     <img style={{ position: "absolute", top: "0px", left: "60px" }} src='/assets/certificate/leftcolumn.png'
                         width="180px" height="520px" />
                     <img style={{ position: "absolute", bottom: "50px", left: "72px" }} src='/assets/certificate/HASTI SBL.png'
@@ -17,22 +14,8 @@ const Certificate = () => {
 
                 {/* Right Column - Text */}
                 <div className="col-9 certificate-right-column">
-                    {/* <div>
-                        <img style={{ position: "absolute", top: "20px", left: "390px", marginBottom: "-5px" }}
-                            src='/assets/certificate/company logo.jpg' width="130px" height="100px" />
-
-                        <p className="mb-0" style={{ color: "deepskyblue", fontWeight: "700" }}>
-                            Company <span style={{ fontWeight: "400" }}>Name</span>
-                        </p>
-                        <p style={{ color: "deepskyblue", fontWeight: "400" }}>Slogan Here</p>
-                    </div> */}
-
                     hello
                     <div className="mb-4 mt-10" >
-
-
-
-
                         <h1 className='mb-3' style={{ fontSize: "60px" }}>
                             <strong style={{ color: "#000000", fontFamily: "Roboto", margin: "25px" }}>CERTIFICATE</strong> <br />
                             <span style={{ fontWeight: "normal", color: "#4A4A4A", fontFamily: "Roboto", margin: "25px" }}>OF APPRECIATION</span>
@@ -64,7 +47,6 @@ const Certificate = () => {
 
                 </div>
             </div>
-            {/* </div> */}
         </div>
     );
 };

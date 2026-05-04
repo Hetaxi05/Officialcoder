@@ -5,7 +5,7 @@ import { FaEnvelope, FaLock } from "react-icons/fa";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai"; // Eye icons
 
 import { useNavigate } from "react-router-dom";
-import { message } from "antd"; // Import Ant Design message component
+import { message } from "antd"; // Import Ant Design
 
 function Login() {
   const navigate = useNavigate();

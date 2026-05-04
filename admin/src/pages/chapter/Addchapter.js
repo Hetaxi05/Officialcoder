@@ -4,31 +4,24 @@ import Select from "react-select";
 import { message, Spin } from "antd";
 import { LoadingOutlined, ExclamationCircleOutlined } from '@ant-design/icons';
 
-
 function Addchapter() {
 
     const [chaptertitle, setChapterTitle] = useState("")
     const [courseid, setCourseId] = useState("")
     const [tag, setTag] = useState("")
-    // const [status, setStatus] = useState("")
     const [paid, setPaid] = useState("")
-    // const [date, setDate] = useState("")
     const [chapterid, setChapterId] = useState("")
     const [selectedOptions, setSelectedOptions] = useState([]);
     const [course, setCourse] = useState([]);
     const [errors, setErrors] = useState({});
     const [loading, setLoading] = useState(false);
-
-
     const navigate = useNavigate()
-
     const { id } = useParams()
 
     useEffect(() => {
         getCourse()
         if (id) {
             setChapterId(id)
-            // getchapterbyId(id);
         }
 
     }, [id])
@@ -66,10 +59,7 @@ function Addchapter() {
                 console.log(data)
                 setChapterTitle(data.chaptertitle)
                 setCourseId(data.courseid)
-                // setSelectedOptions("hello")
                 setTag(data.tag)
-                // setStatus(data.status)
-                // setDate(data.date)
                 setChapterId(data.chapterid)
                 setPaid(data.paid)
 
@@ -96,10 +86,6 @@ function Addchapter() {
             errors.courseid = "Topic selection is required.";
         }
 
-        // if (!status) {
-        //     errors.status = "Status is required.";
-        // }
-
         setErrors(errors);
         return Object.keys(errors).length === 0;
     }
@@ -119,9 +105,7 @@ function Addchapter() {
                 "chaptertitle": chaptertitle,
                 "courseid": courseid,
                 "tag": tag,
-                // "status": status,
                 "paid": paid
-                // "date": date
             })
         })
             .then((response) => response.json())
@@ -153,9 +137,7 @@ function Addchapter() {
                 "chaptertitle": chaptertitle,
                 "courseid": courseid,
                 "tag": tag,
-                // "status": status,
                 "paid": paid
-                // "date": date
             })
         })
 
@@ -173,7 +155,7 @@ function Addchapter() {
             });
     }
 
-    // for reset the value in cancel button(by default remove)
+    // for reset the value in cancel button
 
     function handleCancel() {
         // Clear form fields
@@ -182,9 +164,6 @@ function Addchapter() {
         setCourse("");
         // setStatus("");
         setErrors({});
-
-        // Navigate to All Chapter page
-        // navigate('/all-chapter');
     }
 
 
@@ -205,21 +184,14 @@ function Addchapter() {
         }
 
     }
-    // function onchangeCourseId(e) {
-    //     setCourseId(e.target.value)
-    // }
+
     function onchangeTag(e) {
         setTag(e.target.value)
     }
-    // function onchangeStatus(e) {
-    //     setStatus(e.target.value)
-    // }
+
     function onChangePaid(e) {
         setPaid(e.target.value)
     }
-    // function onchangeDate(e) {
-    //     setDate(e.target.value)
-    // }
 
     return (
         <>
@@ -269,52 +241,7 @@ function Addchapter() {
                                     />
                                     {errors.courseid && <div className="text-danger">{errors.courseid}</div>}
                                 </div> &nbsp;
-                                {/* <div className="col-md" style={{ marginBottom: "25px" }}>
-                                    <label htmlFor="status" className="form-label">Status</label>
-                                    {id ? (
-                                        // Dropdown when updating
-                                        <select className="form-select form-select-md" value={status} onChange={onchangeStatus}>
-                                            <option value="">Select The Status</option>
-                                            <option value="Active">Active</option>
-                                            <option value="Deactive">Deactive</option>
-                                        </select>
-                                    ) : (
-                                        // Text input when adding
-                                        <input
-                                            type="text"
-                                            className="form-control"
-                                            placeholder="Enter Status"
-                                            value={status}
-                                            onChange={onchangeStatus}
-                                        />
-                                    )}
-                                    {errors.courseid && <div className="text-danger">{errors.courseid}</div>}
-                                </div> */}
-                                
-                                {/* <div className="col-md" style={{ marginBottom: "25px" }}>
-                                    <label htmlFor="status" className="form-label">Status</label>
-                                    {id ? (
-                                        // Dropdown when updating
-                                        <select className="form-select form-select-md" value={status} onChange={onchangeStatus}>
-                                            <option value="">Select The Status</option>
-                                            <option value="Active">Active</option>
-                                            <option value="Deactive">Deactive</option>
-                                        </select>
-                                    ) : (
-                                        // Text input when adding
-                                        <input
-                                            type="text"
-                                            className="form-control"
-                                            placeholder="Enter Status"
-                                            value={status}
-                                            onChange={onchangeStatus}
-                                        />
-                                    )}
-                                    {errors.status && <div className="text-danger">{errors.status}</div>}
-                                </div> */}
-
-
-                                {/* <div className="col-md">
+                                <div className="col-md">
                                     <label className="form-label d-block" style={{ marginRight: "50px" }}>Paid</label>
                                     <div className="form-check form-check-inline" style={{ paddingLeft: "35px" }}>
                                         <input
@@ -323,7 +250,7 @@ function Addchapter() {
                                             name="paymentType"
                                             id="paid"
                                             value="true"
-                                            checked={String(paid) === "true"}  // ✅ Ensures correct comparison
+                                            checked={String(paid) === "true"}
                                             onChange={onChangePaid}
                                         />
                                         <label className="form-check-label" htmlFor="paid" style={{ marginRight: "45px" }}>
@@ -337,53 +264,7 @@ function Addchapter() {
                                             name="paymentType"
                                             id="free"
                                             value="false"
-                                            checked={String(paid) === "false"}  // ✅ Ensures correct comparison
-                                            onChange={onChangePaid}
-                                        />
-                                        <label className="form-check-label" htmlFor="free">
-                                            Free
-                                        </label>
-                                    </div>
-                                </div>
-
-                                {/* <div className="col-md">
-                                <label for="status" class="form-label">Status</label>
-                                <select class="form-select form-select-md" value={status} onChange={onchangeStatus} aria-label=".form-select-lg example">
-                                    <option selected>Select The Status</option>
-                                    <option value="Active">Active</option>
-                                    <option value="Deactive">Deactive</option>
-                                </select>
-                                {errors.status && <div className="text-danger">{errors.status}</div>}
-                            </div> &nbsp; */}
-                                {/* <div class="col-md">
-                                <label for="startDate" class="form-label">Start Form</label>
-                                <input type="date" value={date} class="form-control" id="startDate" onChange={onchangeDate} />
-                                {errors.date && <div className="text-danger">{errors.date}</div>}
-                            </div>  &nbsp; */}
-                            <div className="col-md">
-                                    <label className="form-label d-block" style={{ marginRight: "50px" }}>Paid</label>
-                                    <div className="form-check form-check-inline" style={{ paddingLeft: "35px" }}>
-                                        <input
-                                            className="form-check-input border-dark"
-                                            type="radio"
-                                            name="paymentType"
-                                            id="paid"
-                                            value="true"
-                                            checked={String(paid) === "true"}  // ✅ Ensures correct comparison
-                                            onChange={onChangePaid}
-                                        />
-                                        <label className="form-check-label" htmlFor="paid" style={{ marginRight: "45px" }}>
-                                            Paid
-                                        </label>
-                                    </div>
-                                    <div className="form-check form-check-inline">
-                                        <input
-                                            className="form-check-input border-dark"
-                                            type="radio"
-                                            name="paymentType"
-                                            id="free"
-                                            value="false"
-                                            checked={String(paid) === "false"}  // ✅ Ensures correct comparison
+                                            checked={String(paid) === "false"}
                                             onChange={onChangePaid}
                                         />
                                         <label className="form-check-label" htmlFor="free">

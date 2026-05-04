@@ -1,21 +1,14 @@
 .certificate-right-column {
-  background-image: url('/public/assets/certificate/col2background.jpg'); /* Update with the correct path */
-  background-size: cover; /* Ensures the image covers the full div */
-  background-position: center; /* Centers the background */
-  background-repeat: no-repeat; /* Prevents image from repeating */
-  /* padding: 118px;  */
-  padding-top: 299px; /* Add some padding to make the text look better */
-
+  background-image: url('/public/assets/certificate/col2background.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  padding-top: 299px;
 }
-.certificate-left-column{
+
+.certificate-left-column {
   background-image: url('/public/assets/certificate/1.png');
-  background-size: cover; /* Ensures the image covers the full div */
-  background-repeat: no-repeat; /* Prevents image from repeating */
-  /* padding: 450px; */
+  background-size: cover;
+  background-repeat: no-repeat;
   padding: 482px;
-
-  background-position: center; /* Centers the background */
-
+  background-position: center;
 }
-
-

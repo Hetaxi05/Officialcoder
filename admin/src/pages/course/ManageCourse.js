@@ -27,7 +27,6 @@ function ManageCourse() {
     useEffect(() => {
         if (id) {
             setCourseId(id);
-            // fetchCourseDetails(id);
         }
         getCategory()
     }, [id]);
@@ -38,8 +37,6 @@ function ManageCourse() {
             fetchCourseDetails(courseId);
         }
     }, [courseId, category]);
-
-
 
     function getCategory() {
         fetch(`${process.env.REACT_APP_API_URL}/category/`)
@@ -53,7 +50,6 @@ function ManageCourse() {
                     label: cat.categoryname,
                 }));
                 setCategory(formattedCategories);
-
                 // setCategory(data)
             })
             .catch((err) => {
@@ -62,7 +58,6 @@ function ManageCourse() {
     }
 
     function fetchCourseDetails(courseId) {
-        // console.log(`http://localhost:3000/cour/${courseId}`);
         fetch(`${process.env.REACT_APP_API_URL}/cour/${courseId}`)
             .then((response) => response.json())
             .then((data) => {
@@ -107,8 +102,6 @@ function ManageCourse() {
             newErrors.image = "Image must be required."
         }
         setErrors(newErrors);
-
-        // Return true if there are no errors
         return Object.keys(newErrors).length === 0;
     }
 
@@ -174,9 +167,6 @@ function ManageCourse() {
     }
     function updatecourse(e) {
         e.preventDefault();
-        // if (!validateForm()) {
-        //     return; // Stop form submission if there are errors
-        // }
         const categoryString = selectedOptions.map(option => option.value).join(",");
         fetch(`${process.env.REACT_APP_API_URL}/cour/update/${id}`,
             {
@@ -208,8 +198,7 @@ function ManageCourse() {
             });
     }
 
-    // for reset the value in cancel button(bydefault remove)
-
+    // for reset the value in cancel button
     function handleCancel() {
         // Clear form fields
         setCourseName("");
@@ -224,9 +213,6 @@ function ManageCourse() {
         if (fileInputRef.current) {
             fileInputRef.current.value = null;
         }
-
-        // Navigate to All Category page
-        // navigate('/all-category');
     }
 
 
@@ -239,19 +225,19 @@ function ManageCourse() {
         setCourseCode(value);
 
         if (!value.trim()) {
-            // If input is empty, remove the error
+            // If input is empty then remove the error
             setErrors((prevErrors) => {
                 const { courseCode, ...rest } = prevErrors;
                 return rest;
             });
         } else if (!/^\d{3,10}$/.test(value)) {
-            // If invalid, show error
+            // If invalid then show error
             setErrors((prevErrors) => ({
                 ...prevErrors,
                 courseCode: "Course code must be numeric and between 3 and 10 characters.",
             }));
         } else {
-            // If valid, remove the error
+            // If valid then remove the error
             setErrors((prevErrors) => {
                 const { courseCode, ...rest } = prevErrors;
                 return rest;
@@ -272,7 +258,7 @@ function ManageCourse() {
         const value = e.target.value
         setDuration(value);
         if (!value.trim()) {
-            // If input is empty, remove the error
+            // If input is empty then remove the error
             setErrors((prevErrors) => {
                 const { Duration, ...rest } = prevErrors;
                 return rest;
@@ -297,7 +283,7 @@ function ManageCourse() {
             const reader = new FileReader();
             reader.readAsDataURL(file);
             reader.onloadend = () => {
-                setImage(reader.result); // Store Base64 string in state
+                setImage(reader.result);
             };
         }
     }
@@ -338,14 +324,8 @@ function ManageCourse() {
                                 </div>
                                 <div className="mb-3">
                                     <label for="courseDetails" className="form-label">Course Details</label>
-                                    {/* <RichTextEditor onChange={onchangeCourseDetail}  /> */}
-                                    {/* <RichTextEditor
-                                            value={coursedetail}
-                                            onChange={(value) => setCourseDetail(value)}
-                                        /> */}
                                     <RichTextEditor value={courseDetails} onChangeContent={onChangeContent} />
                                     {errors.courseDetails && <p className="text-danger">{errors.courseDetails}</p>}
-                                    {/* <textarea className="form-control" id="courseDetails" style={{height:"7rem"}} placeholder="Course Details" required></textarea> */}
                                 </div>
                                 <label for="category" className="form-label">Category</label>
                                 <Select
