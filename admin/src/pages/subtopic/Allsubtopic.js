@@ -7,10 +7,6 @@ import { faPenToSquare } from "@fortawesome/free-solid-svg-icons";
 import { SearchOutlined, ExclamationCircleOutlined } from "@ant-design/icons";
 import { Table, Input, message, Modal, Space } from "antd";
 
-
-// const users = Array(3).fill();
-
-
 function Allsubtopic() {
 
   const navigate = useNavigate()
@@ -18,9 +14,7 @@ function Allsubtopic() {
   const [messageApi, contextHolder] = message.useMessage();
   const [searchText, setSearchText] = useState("");
 
-  const { confirm } = Modal; // extract confirm from Modal
-
-
+  const { confirm } = Modal;
 
   useEffect(() => {
     displaysubtopic();
@@ -38,7 +32,6 @@ function Allsubtopic() {
       })
       .catch((err) => {
         alert(err);
-        // console.log(err)
       })
   }
 
@@ -98,15 +91,11 @@ function Allsubtopic() {
     });
   }
 
-  // const filteredData = subtopic.filter(
-  //   (item) =>
-  //     item.subtopictitle.toLowerCase().includes(searchText.toLowerCase())
-  // );
   const filteredData = subtopic?.filter(
     (item) =>
       item?.subtopictitle?.toLowerCase().includes(searchText?.toLowerCase())
   ) || [];
-  
+
 
   const columns = [
     {
@@ -155,10 +144,6 @@ function Allsubtopic() {
     ...item,
     key: item._id || index,
   }));
-
-
-
-
 
   return (
     <>

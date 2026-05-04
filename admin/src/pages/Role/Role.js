@@ -4,9 +4,6 @@ import { useParams, Link, useNavigate } from "react-router-dom";
 import { message, Spin } from "antd";
 import { LoadingOutlined, ExclamationCircleOutlined } from '@ant-design/icons';
 
-
-
-// import Select from "react-select/base";
 function Role() {
 
     const { id } = useParams();
@@ -26,13 +23,13 @@ function Role() {
 
         setPermission((prevPermissions) =>
             checked
-                ? [...prevPermissions, value] // Add permission when checked
-                : prevPermissions.filter((p) => p !== value) // Remove when unchecked
+                ? [...prevPermissions, value]
+                : prevPermissions.filter((p) => p !== value)
         );
     };
 
     useEffect(() => {
-        if (id) { // Ensure ID is valid
+        if (id) {
             fetchrole(id);
         }
     }, [id]);
@@ -45,7 +42,7 @@ function Role() {
         } else if (!/^[A-Za-z\s]+$/.test(username)) {
             newErrors.username = "Username must contain only letters.";
         }
-        
+
 
         if (!email.trim()) {
             newErrors.email = "Email is required.";
@@ -77,7 +74,6 @@ function Role() {
                 setusername(data.username)
                 setemail(data.email)
                 setpassword(data.password)
-                // Ensure permission is an array of strings
                 if (Array.isArray(data.permission)) {
                     setPermission(data.permission.map(perm => typeof perm === "object" ? perm.text : perm));
                 } else {
@@ -133,7 +129,6 @@ function Role() {
                 username: username,
                 password: password,
                 email: email,
-                // permission: permission.map((perm) => ({ text: perm }))
                 permission: permission
             })
         })
@@ -174,7 +169,7 @@ function Role() {
             setErrors((prev) => ({ ...prev, username: "" }));
         }
     };
-    
+
 
 
     const onChangeemail = (e) => {
@@ -292,7 +287,7 @@ function Role() {
                                 <div className="mb-3">
                                     <label className="form-label">Manage</label>
 
-                                    {["category", "course", "chapter", "topic", "subtopic", "quiz","role","payment","inquiry"].map((perm) => (
+                                    {["category", "course", "chapter", "topic", "subtopic", "quiz", "role", "payment", "inquiry"].map((perm) => (
                                         <div className="form-check mb-2" key={perm}>
                                             <input
                                                 className="form-check-input"

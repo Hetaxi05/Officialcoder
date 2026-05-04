@@ -1,5 +1,3 @@
-
-
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -9,19 +7,13 @@ import { SearchOutlined } from "@ant-design/icons";
 import { Input } from 'antd';
 import { ExclamationCircleOutlined } from '@ant-design/icons';
 
-
-
-
 function AllRole() {
     const navigate = useNavigate();
 
     const [role, setrole] = useState([]);
     const [searchText, setSearchText] = useState("");
     const [messageApi, contextHolder] = message.useMessage();
-
-    const { confirm } = Modal; // extract confirm from Modal
-
-
+    const { confirm } = Modal;
     useEffect(() => {
         getallrole();
     }, [])
@@ -39,7 +31,6 @@ function AllRole() {
             })
     }
 
-
     function deleteRole(id) {
         message.loading({ content: "Deleting role...", key: "deleteRole" });
 
@@ -52,7 +43,7 @@ function AllRole() {
                         if (!response.ok) {
                             throw new Error("Failed to delete the role");
                         }
-                        // Remove the role from UI without re-fetching
+                       
                         setrole((prevRoles) => prevRoles.filter((roleItem) => roleItem._id !== id));
 
                         message.success({ content: "Role deleted successfully", key: "deleteRole" });
@@ -163,21 +154,10 @@ function AllRole() {
         },
     ];
 
-    // Prepare dataSource
     const dataSource = role.map((item, index) => ({
         ...item,
         key: item._id || index,
     }));
-
-    // const [users, setUsers] = useState(staticUserData);
-
-    // const handleDelete = (id) => {
-    //     setUsers(users.filter((user) => user._id !== id));
-    // };
-
-    // const handleEdit = (user) => {
-    //     navigate(`/edit-user/${user._id}`, { state: user });
-    // };
 
     return (
         <>

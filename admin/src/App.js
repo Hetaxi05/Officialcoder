@@ -11,7 +11,7 @@ import ManageCourse from "./pages/course/ManageCourse";
 import Addchapter from "./pages/chapter/Addchapter";
 import Allchapter from "./pages/chapter/Allchapter";
 import ManageTopic from "./pages/topic/ManageTopic";
-import Alltopic from "./pages/topic/Alltopic"; 
+import Alltopic from "./pages/topic/Alltopic";
 import Addsubtopic from "./pages/subtopic/Addsubtopic";
 import Allsubtopic from "./pages/subtopic/Allsubtopic";
 import Certificate from "./pages/certificate/certificate"
@@ -36,10 +36,7 @@ function Layout() {
     <div style={{ display: "flex" }}>
       {/* Show Sidebar only if not on Login Page */}
       {!hidesidebar && <Sidebar />}
-      {/* <Certificate/> */}
 
-      {/* Adjust content width dynamically */}
-      {/* <div className="content" style={{ width: isLoginPage ? "100%" : "calc(100% - 250px)" }}> */}
       <Routes>
 
         <Route path="/dashboard" element={<Dashboard />} />
@@ -60,21 +57,16 @@ function Layout() {
         <Route path="/edit-subtopic/:id" element={<Addsubtopic />} />
         <Route path="/all-subtopic" element={<Allsubtopic />} />
 
-        <Route path="/quiz" element={<Quiz/>}/>
-          <Route path="/edit-quiz/:id" element={<Quiz/>}/>
-          <Route path="/all-quiz" element={<AllQuiz/>}/>
-          {/* <Route path="/quiz/add/:topicId" element={<Quiz/>} />*/}
-          <Route path="/quiz/add/:contextType/:id" element={<Quiz />} />
-          {/* <Route path="/quiz/add/:id" element={<Quiz />} /> */}
+        <Route path="/quiz" element={<Quiz />} />
+        <Route path="/edit-quiz/:id" element={<Quiz />} />
+        <Route path="/all-quiz" element={<AllQuiz />} />
+        <Route path="/quiz/add/:contextType/:id" element={<Quiz />} />
+        <Route path="/all-role" element={<AllRole />} />
+        <Route path="/role" element={<Role />} />
+        <Route path="/edit-role/:id" element={<Role />} />
 
-
-
-          <Route path="/all-role" element={<AllRole/>}/>
-          <Route path="/role" element={<Role/>}/>
-          <Route path="/edit-role/:id" element={<Role/>}/>
-
-          <Route path="/payment" element={<Payment/>}/>
-          <Route path="/inquiry" element={<Contact/>}/>
+        <Route path="/payment" element={<Payment />} />
+        <Route path="/inquiry" element={<Contact />} />
 
       </Routes>
     </div>
