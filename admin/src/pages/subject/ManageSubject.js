@@ -14,8 +14,6 @@ function ManageSubject() {
     useEffect(() => {
         if (id) {
             setSubjectId(id);
-            // getCourseById(id)
-            // fetchCourseDetails(id); 
         }
     }, []);
     function addSubject(e) {
@@ -42,18 +40,15 @@ function ManageSubject() {
             })
             .then((data) => {
                 alert(data)
-                // navigate('/all-course')
             })
             .catch((err) => {
                 alert(err)
-                // navigate('/add-course')
-                // console.log(err);
             })
 
     }
-    function updateSubject(e){
+    function updateSubject(e) {
         e.preventDefault();
-         const formattedDate = formatDate(date);
+        const formattedDate = formatDate(date);
         fetch("http://localhost:3000/sub/add/", {
             method: "PUT",
             headers: {
@@ -73,12 +68,9 @@ function ManageSubject() {
             })
             .then((data) => {
                 alert(data)
-                // navigate('/all-course')
             })
             .catch((err) => {
                 alert(err)
-                // navigate('/add-course')
-                // console.log(err);
             })
 
     }
@@ -176,13 +168,6 @@ function ManageSubject() {
                 </div>
             </div>
         </>
-
-
-
-
-
-
-
     );
 }
 export default ManageSubject;

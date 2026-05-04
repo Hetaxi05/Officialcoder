@@ -18,7 +18,8 @@
   font-weight: 600;
   border-radius: 5px;
 }
-.details-page_header{
+
+.details-page_header {
   display: flex;
   height: 50px;
   padding: 0 24px;
@@ -29,29 +30,14 @@
   background: #fff;
   position: relative;
 }
-/* li{
-  display: flex
-  ;
-      flex-direction: column;
-      gap: 12px;
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      max-width: 169px;
-      height: 100%;
 
-} */
-
-ul li{
+ul li {
   color: #423f3f;
 }
-/* Make sure to add this CSS in a file like Navbar.css */
 
-/* The overlay */
 .dropdown-container {
   position: fixed;
   top: 56px;
-  /* Adjust to your sticky header height */
   left: 0;
   width: 100%;
   height: 100vh;
@@ -61,51 +47,36 @@ ul li{
   justify-content: center;
   align-items: flex-start;
   opacity: 0;
-  /* Initial opacity */
   transition: opacity 0.3s ease;
 }
 
-
-
-
-
-
-/* This is to show the dropdown */
+/* how the dropdown */
 .dropdown-container.open {
   display: flex;
   opacity: 1;
   /* Fade in effect */
 }
 
-/* The dropdown content */
+/* dropdown content */
 .dropdown-content {
   width: 80%;
   margin: 0 auto;
   flex-direction: column;
-
   background-color: white;
   padding: 20px;
   border-radius: 10px;
   overflow-y: auto;
   max-height: 80vh;
-  /* Ensure it doesn't exceed the screen */
   position: relative;
   transform: translateY(-20px);
-  /* Start the animation slightly above */
   transition: transform 0.3s ease-out, max-height 0.3s ease-out;
 }
 
-/* The dropdown content is in its final position */
+
 .dropdown-container.open .dropdown-content {
   transform: translateY(0);
-  /* Move down */
   max-height: 80vh;
-  /* Make it fully visible */
 }
-
-
-
-
 
 /* Dashboard Section */
 .dashboard-container {
@@ -184,9 +155,7 @@ ul li{
   background-color: #0044cc;
 }
 
-
 /* where to start */
-
 .whereto-start-image {
   width: "707";
   height: "251";
@@ -227,24 +196,23 @@ ul li{
   justify-content: center;
 }
 
-  .whereto-start__browse .language-card-wrapper {
-      width: calc(25% - 9px);
-  }
+.whereto-start__browse .language-card-wrapper {
+  width: calc(25% - 9px);
+}
 
-
-
-  .whereto-start {
-      padding: 6rem 0;
-  }
+.whereto-start {
+  padding: 6rem 0;
+}
 
 .whereto-start {
   background: #f0f4ff;
   padding: 89px 0 4.5rem;
 }
-  .container {
-      padding-left: 32px;
-      padding-right: 32px;
-  }
+
+.container {
+  padding-left: 32px;
+  padding-right: 32px;
+}
 
 
 .whereto-start.container {
@@ -252,14 +220,16 @@ ul li{
   padding-left: 24px;
   padding-right: 24px;
 }
+
 .whereto-start__heading {
   font-size: 36px;
   line-height: 45px;
   margin-bottom: 0;
   text-align: center;
-    font-weight: 600;
-    
+  font-weight: 600;
+
 }
+
 .whereto-start__sub-heading {
   margin-bottom: 5rem;
   font-size: 18px;
@@ -269,11 +239,13 @@ ul li{
   margin-bottom: 91px;
   color: rgba(37, 38, 94, .67);
   height: 84px;
- height: fit-content;
+  height: fit-content;
 }
+
 .whereto-start__browse-wrapper {
   position: relative;
 }
+
 .whereto-start__image {
   position: absolute;
   pointer-events: none;
@@ -282,22 +254,20 @@ ul li{
   width: 235px;
   height: 84px;
 }
+
 .whereto-start__browse {
   margin-bottom: 3.5rem;
   display: flex;
-    gap: 12px;
-    flex-wrap: wrap;
-    padding: 0;
-    list-style: none;
-    row-gap: 12px;
+  gap: 12px;
+  flex-wrap: wrap;
+  padding: 0;
+  list-style: none;
+  row-gap: 12px;
 }
+
 .whereto-start__browse .language-card-wrapper {
-      width: calc(25% - 9px);
-  }
-
-
-
-  /* mobileHeader.css */
+  width: calc(25% - 9px);
+}
 
 /* Mobile Header */
 .mobile-header {
@@ -316,16 +286,12 @@ ul li{
 .mobile-sidebar {
   position: fixed;
   top: 0;
-   left: 0;  transform: translateX(-100%);  
-
+  left: 0;
+  transform: translateX(-100%);
   width: 280px;
   height: 100%;
   background-color: #ffffff;
   box-shadow: -4px 0 12px rgba(0, 0, 0, 0.1);
-  /* right: 0;
-
-  transform: translateX(100%);  */
-
   transition: transform 0.3s ease-in-out;
   z-index: 9999;
   display: flex;
@@ -359,9 +325,7 @@ ul li{
   top: 0;
   right: 0;
   cursor: pointer;
-  /* color: #4e73df;
-   */
-   color: rgb(8, 168, 138);
+  color: rgb(8, 168, 138);
 }
 
 .user-info {
@@ -371,7 +335,7 @@ ul li{
 }
 
 .user-avatar {
-  margin-left:10px;
+  margin-left: 10px;
   font-size: 21px;
   margin-right: 10px;
   color: rgb(8, 168, 138);
@@ -386,7 +350,6 @@ ul li{
 /* Sidebar Menu */
 .sidebar-menu {
   flex-grow: 1;
-  /* overflow-y: auto; */
 }
 
 .nav {
@@ -450,10 +413,7 @@ ul li{
 
 /* Update Dropdown */
 .dropdown-toggle {
-  /* background: #4e73df; */
-  /* color: #333; */
   color: rgb(8, 168, 138);
-  /* margin-left: 10px; */
   border: none;
   padding: 10px 16px;
   width: 100%;
@@ -484,10 +444,12 @@ ul li{
   border-radius: 8px;
   overflow: hidden;
 }
+
 .dropdown-menu.show {
   display: block;
   width: 87.3% !important;
 }
+
 .dropdown-item {
   padding: 12px 16px;
   color: #333;
@@ -503,22 +465,21 @@ ul li{
 
 }
 
-
 /* Responsive adjustments */
 @media (max-width: 480px) {
   .mobile-sidebar {
     width: 80%;
   }
-  
+
   .nav-link {
     font-size: 16px;
     padding: 10px 14px;
   }
-  
+
   .user-name {
     font-size: 19px;
   }
-  
+
   .logout-btn {
     font-size: 14px;
     padding: 10px;

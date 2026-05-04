@@ -7,7 +7,6 @@ import { LoadingOutlined, ExclamationCircleOutlined } from '@ant-design/icons';
 
 
 function Addsubtopic() {
-    // const [subtopicName, setSubtopicName] = useState("");
     const [subtopictitle, setSubtopicTitle] = useState("");
     const [topicid, setTopicId] = useState("");
     const [content, setContent] = useState("");
@@ -25,7 +24,6 @@ function Addsubtopic() {
 
         if (id) {
             setSubtopicId(id);
-            // fetchSubtopic(id);
         }
     }, [id]);
 
@@ -50,19 +48,6 @@ function Addsubtopic() {
             .catch((err) => alert("Error fetching topics: " + err));
     }
 
-    // function fetchSubtopic(id) {
-    //     fetch(`http://localhost:3000/subtopic/${id}`)
-    //         .then((response) => response.json())
-    //         .then((data) => {
-    //             // setSubtopicName(data.name || "");
-    //             setTopicId(data.topicid);
-    //             setContent(data.content);
-    //             setSelectedOptions(topic.filter(t => data.topicid.includes(t.value)));
-    //         })
-    //         .catch((err) => console.log("Fetch error:", err));
-    // }
-
-
     function fetchSubtopic(id) {
         fetch(`${process.env.REACT_APP_API_URL}/subtopics/${id}`)
             .then((response) => response.json())
@@ -70,16 +55,12 @@ function Addsubtopic() {
                 setTopicId(data.topicid);
                 setContent(data.content);
                 setSubtopicTitle(data.subtopictitle)
-
-                // Only set selected options when topics are available
                 if (topic.length > 0) {
                     setSelectedOptions(topic.filter(t => data.topicid.split(",").includes(t.value)));
                 }
             })
             .catch((err) => console.log("Fetch error:", err));
     }
-
-
 
     function validateFormFields() {
         let newErrors = {};
@@ -153,7 +134,6 @@ function Addsubtopic() {
                 console.error(err);
             });
     }
-    // for reset the value in cancel button(by default remove)
 
     function handleCancel() {
         // Clear form fields
@@ -161,17 +141,11 @@ function Addsubtopic() {
         setSelectedOptions("");
         setContent("");
         setErrors({});
-
-        // Navigate to All Chapter page
-        // navigate('/all-chapter');
     }
-
-
-
     return (
         <div className="container-fluid" style={{ backgroundColor: '#f5f5f5' }}>
             <div className="d-flex justify-content-between align-items-center mt-4 p-3 main" style={{ height: '53px', width: '100%', background: 'white' }}>
-                <div style={{ color:"#07a698", fontFamily: "sans-serif", fontSize: "20px" }}>
+                <div style={{ color: "#07a698", fontFamily: "sans-serif", fontSize: "20px" }}>
                     <span>{subtopicid ? "Edit" : "Add"} SubTopic</span>
                 </div>
                 <ol className="breadcrumb d-flex align-items-center mt-3 p-3" style={{ fontFamily: "sans-serif" }}>
@@ -180,41 +154,35 @@ function Addsubtopic() {
                 </ol>
             </div>
             <Spin spinning={loading} indicator={<LoadingOutlined style={{ fontSize: 24 }} spin />}>
-            <div className="card border-0 mt-1">
-                <div className="card-body">
-                    <form onSubmit={subtopicid ? updateSubTopic : addSubTopic}>
-                        {/* <div className="mb-3">
-                            <label className="form-label">SubTopic Name</label>
-                            <input type="text" className="form-control" value={subtopicName}
-                                onChange={(e) => setSubtopicName(e.target.value)} />
-                            {errors.subtopicName && <p className="text-danger">{errors.subtopicName}</p>}
-                        </div> */}
-                        <div className="mb-3">
-                            <label className="form-label">SubTopic Title</label>
-                            <input type="text" value={subtopictitle} className="form-control" placeholder="Topic Title" onChange={(e) => setSubtopicTitle(e.target.value)} />
-                            {errors.subtopictitle && <small className="text-danger">{errors.subtopictitle}</small>}
-                        </div>
-                        <div className="mb-3">
-                            <label className="form-label">Select Topic</label>
-                            <Select options={topic} isMulti value={selectedOptions}
-                                onChange={setSelectedOptions} classNamePrefix="select" />
-                            {errors.topicid && <p className="text-danger">{errors.topicid}</p>}
-                        </div>
+                <div className="card border-0 mt-1">
+                    <div className="card-body">
+                        <form onSubmit={subtopicid ? updateSubTopic : addSubTopic}>
+                            <div className="mb-3">
+                                <label className="form-label">SubTopic Title</label>
+                                <input type="text" value={subtopictitle} className="form-control" placeholder="Topic Title" onChange={(e) => setSubtopicTitle(e.target.value)} />
+                                {errors.subtopictitle && <small className="text-danger">{errors.subtopictitle}</small>}
+                            </div>
+                            <div className="mb-3">
+                                <label className="form-label">Select Topic</label>
+                                <Select options={topic} isMulti value={selectedOptions}
+                                    onChange={setSelectedOptions} classNamePrefix="select" />
+                                {errors.topicid && <p className="text-danger">{errors.topicid}</p>}
+                            </div>
 
-                        <div className="mb-3">
-                            <label className="form-label">Content</label>
-                            <RichTextEditor value={content} onChangeContent={setContent} />
-                            {errors.content && <p className="text-danger">{errors.content}</p>}
-                        </div>
+                            <div className="mb-3">
+                                <label className="form-label">Content</label>
+                                <RichTextEditor value={content} onChangeContent={setContent} />
+                                {errors.content && <p className="text-danger">{errors.content}</p>}
+                            </div>
 
-                        <div className="d-flex gap-2">
-                            <button type="submit" className="btn btn-primary">{subtopicid ? "Update" : "Add"}</button>
-                            <button type="button" className="btn btn-danger" onClick={handleCancel}>Cancel</button>
-                        </div>
-                    </form>
+                            <div className="d-flex gap-2">
+                                <button type="submit" className="btn btn-primary">{subtopicid ? "Update" : "Add"}</button>
+                                <button type="button" className="btn btn-danger" onClick={handleCancel}>Cancel</button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
-            </div>
-        </Spin>
+            </Spin>
         </div>
     );
 }

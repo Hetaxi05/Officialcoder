@@ -131,20 +131,15 @@ function ManageTopic() {
             });
     }
 
-    // for reset the value in cancel button(by default remove)
-
-function handleCancel() {
-    // Clear form fields
-    setTopicTitle("");
-    setTopicTag("");
-    setTopicContent("");
-    setReadingTime("");
-    setSelectedOptions("");
-    setErrors({});
-
-    // Navigate to All Topic page
-    // navigate('/all-topic');
-}
+    function handleCancel() {
+        // Clear form fields
+        setTopicTitle("");
+        setTopicTag("");
+        setTopicContent("");
+        setReadingTime("");
+        setSelectedOptions("");
+        setErrors({});
+    }
 
 
     return (
@@ -153,7 +148,7 @@ function handleCancel() {
                 <div className="" style={{ color: "#07a698", fontSize: "20px" }} >
                     <span>{topicId === "" ? "Add" : "Edit"} Topic</span>
                 </div>
-                <ol className="breadcrumb d-flex justify-content-between align-items-center mt-3 p-3 main" style={{ color: "#0d6efd"}}>
+                <ol className="breadcrumb d-flex justify-content-between align-items-center mt-3 p-3 main" style={{ color: "#0d6efd" }}>
                     <Link to="/all-topic" className="breadcrumb-item" style={{ color: "#07a698", textDecoration: "none" }}>Topic</Link>
                     <Link to="/add-topic" className="breadcrumb-item active" style={{ color: "#07a698", textDecoration: "none" }} aria-current="page">Add Topic</Link>
                 </ol>
@@ -162,45 +157,45 @@ function handleCancel() {
                 <div className="" style={{ color: "black", fontSize: "20px" }} >
                     <span>Topic Details</span>
                 </div>
-            </div>    
-            <Spin spinning={loading} indicator={<LoadingOutlined style={{ fontSize: 24 }} spin />}>
-            <div className="card border-0 mt-1">
-                <div className="card-body">
-                    <form onSubmit={topicId ? updateTopic : addTopic}>
-                        <div className="row mb-3">
-                            <div className="col-md-6">
-                                <label className="form-label">Topic Title</label>
-                                <input type="text" value={topicTitle} className="form-control" placeholder="Topic Title" onChange={(e) => setTopicTitle(e.target.value)} />
-                                {errors.topicTitle && <small className="text-danger">{errors.topicTitle}</small>}
-                            </div>
-                            <div className="col-md-6">
-                                <label className="form-label">Topic Tag</label>
-                                <input type="text" value={topicTag} className="form-control" placeholder="Topic Tag" onChange={(e) => setTopicTag(e.target.value)} />
-                                {errors.topicTag && <small className="text-danger">{errors.topicTag}</small>}
-                            </div>
-                        </div>
-                        <div className="col-md">
-                            <label className="form-label">Select The Chapter</label>
-                            <Select options={chapter} isMulti value={selectedOptions} onChange={setSelectedOptions} classNamePrefix="select" />
-                            {errors.chapter && <small className="text-danger">{errors.chapter}</small>}
-                        </div>
-                        <div className="col-md">
-                            <label className="form-label">Content</label>
-                            <RichTextEditor value={topicContent} onChangeContent={setTopicContent} />
-                            {errors.topicContent && <p className="text-danger">{errors.topicContent}</p>}
-                        </div>
-                        <div className="col-md">
-                            <label className="form-label">Reading Time</label>
-                            <input type="text" value={readingTime} className="form-control" placeholder="Reading Time" onChange={(e) => setReadingTime(e.target.value)} />
-                            {errors.readingTime && <small className="text-danger">{errors.readingTime}</small>}
-                        </div>
-                        <div className="d-flex gap-2 mt-3">
-                            <button type="submit" className="btn btn-primary">{topicId ? "Update" : "Add"}</button>
-                            <button type="button" className="btn btn-danger" onClick={handleCancel}>Cancel</button>
-                        </div>
-                    </form>
-                </div>
             </div>
+            <Spin spinning={loading} indicator={<LoadingOutlined style={{ fontSize: 24 }} spin />}>
+                <div className="card border-0 mt-1">
+                    <div className="card-body">
+                        <form onSubmit={topicId ? updateTopic : addTopic}>
+                            <div className="row mb-3">
+                                <div className="col-md-6">
+                                    <label className="form-label">Topic Title</label>
+                                    <input type="text" value={topicTitle} className="form-control" placeholder="Topic Title" onChange={(e) => setTopicTitle(e.target.value)} />
+                                    {errors.topicTitle && <small className="text-danger">{errors.topicTitle}</small>}
+                                </div>
+                                <div className="col-md-6">
+                                    <label className="form-label">Topic Tag</label>
+                                    <input type="text" value={topicTag} className="form-control" placeholder="Topic Tag" onChange={(e) => setTopicTag(e.target.value)} />
+                                    {errors.topicTag && <small className="text-danger">{errors.topicTag}</small>}
+                                </div>
+                            </div>
+                            <div className="col-md">
+                                <label className="form-label">Select The Chapter</label>
+                                <Select options={chapter} isMulti value={selectedOptions} onChange={setSelectedOptions} classNamePrefix="select" />
+                                {errors.chapter && <small className="text-danger">{errors.chapter}</small>}
+                            </div>
+                            <div className="col-md">
+                                <label className="form-label">Content</label>
+                                <RichTextEditor value={topicContent} onChangeContent={setTopicContent} />
+                                {errors.topicContent && <p className="text-danger">{errors.topicContent}</p>}
+                            </div>
+                            <div className="col-md">
+                                <label className="form-label">Reading Time</label>
+                                <input type="text" value={readingTime} className="form-control" placeholder="Reading Time" onChange={(e) => setReadingTime(e.target.value)} />
+                                {errors.readingTime && <small className="text-danger">{errors.readingTime}</small>}
+                            </div>
+                            <div className="d-flex gap-2 mt-3">
+                                <button type="submit" className="btn btn-primary">{topicId ? "Update" : "Add"}</button>
+                                <button type="button" className="btn btn-danger" onClick={handleCancel}>Cancel</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </Spin>
         </div>
     );

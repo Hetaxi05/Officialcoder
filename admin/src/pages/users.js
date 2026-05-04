@@ -10,7 +10,6 @@ function User() {
   const [searchText, setSearchText] = useState("");
   const [messageApi, contextHolder] = message.useMessage();
 
-
   useEffect(() => {
     fetchUsers();
   }, []);
@@ -64,35 +63,12 @@ function User() {
         </div>
       ),
     },
-    // {
-    //   title: <span style={{ fontWeight: "bold", fontSize: "16px" }}>Login Type</span>,
-    //   dataIndex: "loginType",
-    //   key: "loginType",
-    //   render: (type) => (
-    //     <Tag color="green" style={{ fontSize: "13px", padding: "2px 10px" }}>
-    //       {type || "Unknown"}
-    //     </Tag>
-    //   ),
-    // },
-    // {
-    //   title: <span style={{ fontWeight: "bold", fontSize: "16px" }}>Location</span>,
-    //   dataIndex: "location",
-    //   key: "location",
-    //   render: (location) => location || "N/A",
-    // },
     {
       title: <span style={{ fontWeight: "bold", fontSize: "16px" }}>Date</span>,
       dataIndex: "createdAt",
       key: "createdAt",
       render: (date) => new Date(date).toLocaleDateString(),
     },
-    // {
-    //   title: <span style={{ fontWeight: "bold", fontSize: "16px" }}>Primium</span>,
-    //   dataIndex: "isPremium",
-    //   key: "isPremium",
-    //   render: (isPremium)=>isPremium,
-    // },
-    
     {
       title: <span style={{ fontWeight: "bold", fontSize: "16px" }}>Premium</span>,
       dataIndex: "isPremium",

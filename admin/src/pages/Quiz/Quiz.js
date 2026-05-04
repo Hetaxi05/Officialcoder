@@ -9,13 +9,13 @@ function Quiz() {
   const { contextType, id } = useParams();
   const navigate = useNavigate();
   const [question, setquestion] = useState("");
-  const [options, setOptions] = useState([""]); // Initialize with one option
+  const [options, setOptions] = useState([""]);
   const [answer, setanswer] = useState("");
   const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState({});
 
   useEffect(() => {
-    // If contextType is undefined, assume we are editing and fetch the quiz
+
     if (!contextType && id) {
       fetchquiz(id);
     }
@@ -65,7 +65,7 @@ function Quiz() {
       newErrors.question = "Question is required.";
     }
 
-    // Validate options: ensure at least two non-empty options exist
+    // ensure at least two non-empty options exist
     const filledOptions = options.filter((opt) => opt.trim() !== "");
     if (filledOptions.length < 2) {
       newErrors.options = "At least two options must be entered.";
