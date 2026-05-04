@@ -1,21 +1,19 @@
 import React from "react";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
-import "./Quiz.css"; // Reuse your Quiz styles for consistency
+import "./Quiz.css";
 import Swal from "sweetalert2";
 
 function Result() {
     const { courseId } = useParams();
     const location = useLocation();
     const navigate = useNavigate();
+
     const { score, total } = location.state || { score: 0, total: 0 };
 
-    // const handleGoHome = () => {
-    //     navigate("/certificate"); // Change this route if you want a different action
-    // };
+    const percentage = total > 0 ? score / total : 0;
+
     const handleGoHome = () => {
-        // Check if score is at least 60% of total
-        if (score / total < 0.5) {
-            // Show popup if the user hasn't reached 60%
+        if (percentage < 0.6) {
             Swal.fire({
                 title: "Certificate Unavailable",
                 text: "You did not score enough to get a certificate. Please try again.",
@@ -27,10 +25,7 @@ function Result() {
                 buttonsStyling: false,
             });
         } else {
-            // Navigate to certificate page if 60% or higher
-            navigate(`/certificate/${courseId}`); // Change this route if you want a different action
-
-            // navigate("/certificate");
+            navigate(`/certificate/${courseId}`);
         }
     };
 

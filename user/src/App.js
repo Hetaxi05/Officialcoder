@@ -113,7 +113,7 @@ function App()
           <Route path="/payment-failed" element={<PaymentFailed />} />
           <Route path="/inquirySection" element={<InquirySection />} />
 
-          {/* ✅ Quiz Routes */}
+          {/* Quiz Routes */}
           <Route path="/quiz/:courseId" element={<Quiz />} />
           <Route path="/topicquiz" element={<TopicQuiz />} />
           <Route path="/quiz-thankyou/:courseId" element={<ThankYou />} />

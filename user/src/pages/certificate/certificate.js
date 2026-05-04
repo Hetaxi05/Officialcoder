@@ -132,18 +132,7 @@ const Certificate = () => {
 
           {/* ===== RIGHT SECTION ===== */}
           <div className="certificate-right">
-            <img
-              style={{
-                position: "absolute",
-                top: "10px",
-                left: "390px",
-                marginBottom: "-5px",
-              }}
-              src="/assets/image/certificatelogo-removebg-preview.png"
-              width="100px"
-              height="60px"
-              alt="top-logo"
-            />
+            
 
             <h2 className="titleq">CERTIFICATE</h2>
             <h3 className="subtitle">OF APPRECIATION</h3>
