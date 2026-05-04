@@ -89,7 +89,7 @@ function Footer() {
 
             <div className="mb-4 " style={{width:"100%", backgroundColor:"rgba(255, 255, 255, 0.1)",height:"0.1px"}}>
             </div>
-            <p style={{ display: "flex",justifyContent: "center"}}>Copyright © 2025 codinghouse. All Rights Reserved.</p>
+            <p style={{ display: "flex",justifyContent: "center"}}>Copyright © 2026 codinghouse. All Rights Reserved.</p>
         </div>
     );
 }
