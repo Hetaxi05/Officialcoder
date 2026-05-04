@@ -26,9 +26,8 @@ function ChangePassword() {
 
 
 
-  // Retrieve user email from localStorage on mount
   useEffect(() => {
-    const storedUser = localStorage.getItem("user"); // assuming user is stored as JSON string
+    const storedUser = localStorage.getItem("user");
     if (storedUser) {
       try {
         const parsedUser = JSON.parse(storedUser);
@@ -99,7 +98,7 @@ function ChangePassword() {
         }
       );
       message.success(res.data.message);
-      navigate("/"); // redirect after successful password change
+      navigate("/"); 
     } catch (err) {
       message.error(err.response?.data?.message || "Error changing password");
     }

@@ -1,5 +1,5 @@
 import React from "react";
-import { IoPlayCircleOutline } from "react-icons/io5"; // Example icon
+import { IoPlayCircleOutline } from "react-icons/io5"; 
 import "./ExperienceSection.css";
 import { LiaPhoneVolumeSolid } from "react-icons/lia";
 import { color } from "framer-motion";

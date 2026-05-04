@@ -20,10 +20,8 @@ const Certificate = () => {
       return;
     }
 
-     // Detect if it's a mobile device
   const isMobile = window.innerWidth <= 768;
 
-  // Apply mobile-friendly adjustments before capturing
   if (isMobile) {
     certificateRef.current.style.width = "100%";  // Ensure full width on mobile
     certificateRef.current.style.transform = "scale(1)"; // Prevent scaling issues
@@ -32,13 +30,11 @@ const Certificate = () => {
   
     try {
       // 1) Capture the certificate area
-      // const canvas = await html2canvas(certificateRef.current, { scale: 2 });
       const canvas = await html2canvas(certificateRef.current, { scale: isMobile ? 3 : 2 });
 
       const imgData = canvas.toDataURL("image/png");
 
       // 2) Create a PDF in A4 landscape
-      // const pdf = new jsPDF("landscape", "mm", "a4");
       const pdf = new jsPDF(isMobile ? "portrait" : "landscape", "mm", "a4");
 
 
@@ -48,7 +44,6 @@ const Certificate = () => {
 
        // Resize image to fit properly in the PDF
     const imgWidth = isMobile ? pageWidth - 20 : pageWidth;
-    // const imgHeight = (canvas.height * imgWidth) / canvas.width;
 
       // 4) Fill the entire page with the screenshot
       pdf.addImage(imgData, "PNG", 0, 0, pageWidth, pageHeight);
@@ -84,7 +79,6 @@ const Certificate = () => {
       });
   };
   useEffect(() => {
-    // Get user data from localStorage (adjust the key if needed)
     const userData = JSON.parse(localStorage.getItem("user"));
 
     if (userData && userData.name) {
@@ -94,7 +88,6 @@ const Certificate = () => {
 
   useEffect(() => {
     fetchCourseDetails();
-    // Show loader for 2 seconds, then download PDF & hide loader
     const timer = setTimeout(() => {
       downloadCertificate();
       setLoading(false);
@@ -105,7 +98,6 @@ const Certificate = () => {
 
   return (
     <div style={{ position: "relative", minHeight: "100vh" }}>
-      {/* The certificate design (to be captured) */}
       <div className="certificate-container" ref={certificateRef}>
         <div className="certificate-frame">
           {/* ===== LEFT SECTION ===== */}
@@ -140,10 +132,7 @@ const Certificate = () => {
             <h1 className="recipient-name">{userName || "Recipient Name"}</h1>
 
             <p className="certificate-text">
-              {/* Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry’s standard dummy text
-              ever since the 1500s. industry’s standard dummy text ever since
-              the 1500s. Ipsum is simply dummy text. */}
+              
 
               This certificate acknowledges excellence in completing <b style={{ color:"#00bfff"}}>{courseName || "Course Name"}</b> . Through dedication and commitment, essential skills and knowledge have been acquired, contributing to both professional and personal development. This milestone marks a step toward continued growth and success.
             </p>
@@ -164,7 +153,6 @@ const Certificate = () => {
         </div>
       </div>
 
-      {/* Loader overlay while generating PDF */}
       {loading && (
         <div
           style={{

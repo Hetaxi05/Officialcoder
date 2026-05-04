@@ -41,7 +41,7 @@ const RichTextEditor = ({ onChangeContent }) => {
                 formats={formats}
                 onChange={handleChange}
                 value={comments}
-                className="custom-quill" // Apply custom class for height control
+                className="custom-quill" 
             />
         </div>
     );

@@ -8,7 +8,6 @@ import "../UserLogin/UserLogin.css";
 
 function VerifyOtp() {
   const navigate = useNavigate();
-  // const [email, setEmail] = useState("");
   const [otp, setOtp] = useState("");
 
 
@@ -33,11 +32,8 @@ function VerifyOtp() {
       });
 
       message.success(res.data.message);
-      // Clear the stored email after verification
-      // localStorage.removeItem("userEmail");
-
-      // Navigate after successful verification
-      navigate("/userlogin"); // or navigate("/reset-password") if using password reset flow
+      
+      navigate("/userlogin");
     } catch (err) {                                                         
       const errorMessage = err.response?.data?.message || "OTP verification failed";
       message.error(errorMessage);
@@ -52,20 +48,7 @@ function VerifyOtp() {
       OTP has been sent to <strong>{email}</strong>
     </div>
         <Form onSubmit={handleSubmit}>
-          {/* Email Input */}
-          {/* <Row className="mb-3">
-            <InputGroup className="userlogin-input-group1">
-              <Form.Control
-                className="userlogin-input"
-                type="email"
-                placeholder="Your Email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-              />
-              <InputGroup.Text className="userlogin-icon"><FaEnvelope /></InputGroup.Text>
-            </InputGroup>
-          </Row> */}
+     
 
           {/* OTP Input */}
           <Row className="mb-3">

@@ -1,53 +1,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap");
 
-/* .certificate-right-column {
-    background-image: url('/public/assets/image/certificatebackground.jpg'); /* Update with the correct path */
-    /* background-size: cover; 
-    background-position: center;
-    background-repeat: no-repeat; 
-    padding-top: 299px;  */
-
-
-
-    /* background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    height: 100vh; 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 40px;
-  
-  } */
-  /* .certificate-left-column {
-    background-image: url('/public/assets/image/certificateSidebarBackground.jpg'); */
-    /* background-size: cover; 
-    background-repeat: no-repeat; 
-    padding: 482px;
-    background-position: center;  */
-
-    /* background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 40px;
-  
-  } */ 
-
-  /* certificate.css */
-
-/* Optional font import for cursive name, if you need it */
 
 @import url("https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap");
 
 /* ===== Container: fill the screen, no scroll ===== */
 .certificate-container {
   width: 100%;
-  height: 100vh;        /* Full viewport height */
-  overflow: hidden;     /* Prevent scrolling */
+  height: 100vh;        
+  overflow: hidden;     
   background: #f0f0f0;  /* Light background behind the certificate */
   display: flex;
   align-items: center;
@@ -56,17 +16,16 @@
   padding: 0;
 }
 
-/* ===== Certificate Frame (white box) ===== */
 .certificate-frame {
   width: 90vw;          /* Responsive width */
-  max-width: 1200px;    /* Limit max width */
-  height: 95vh;         /* Occupies most of the screen height */
+  max-width: 1200px;    
+  height: 95vh;         
   background: #fff;
   box-shadow: 0 0 10px rgba(0,0,0,0.2);
   display: flex;
   overflow: hidden;
   position: relative;
-  border: 8px solid #fff; /* Simple frame border */
+  border: 8px solid #fff;
 }
 
 /* ========== LEFT SECTION ========== */
@@ -102,7 +61,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: auto;  /* Push it down to bottom */
+  margin-top: auto;  
   margin-bottom: 20px;
   font-weight: bold;
 }
@@ -170,7 +129,7 @@
   width: 100%;
   display: flex;
   justify-content: space-around;
-  margin-top: 30px; /* Push down if needed */
+  margin-top: 30px; 
 }
 
 /* Each signature */
@@ -223,8 +182,8 @@
 
   /* Left section - Sidebar styling */
   .certificate-left {
-    width: 32%; /* Reduce size to fit better */
-    min-height: 598px; /* Ensure a good height */
+    width: 32%; 
+    min-height: 598px; 
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -232,7 +191,7 @@
     background-size: cover;
     background-position: center;
     padding: 10px;
-    border-right: 3px solid #00bfff; /* Modern separator */
+    border-right: 3px solid #00bfff; 
     position: relative;
   }
 
@@ -257,17 +216,17 @@
 
   /* Right section now takes more width */
   .certificate-right {
-    width: 68%; /* Adjust for balance */
+    width: 68%; 
     padding: 15px;
     text-align: center;
     background-color: #fff;
-    min-height: 598px; /* Ensure a good height */
+    min-height: 598px; 
 
   }
 
   /* Certificate Title & Subtitle */
   .titleq {
-    font-size: 1.8rem; /* Slightly smaller for mobile */
+    font-size: 1.8rem; 
     color: #00bfff;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
     margin-top: 5px;
@@ -279,17 +238,17 @@
     color: #333;
   }
 
-  /* Adjust recipient name */
+  
   .recipient-name {
     font-size: 2rem;
     font-family: "Great Vibes", cursive;
     color: #00bfff;
-    word-wrap: break-word; /* Prevent text overflow */
+    word-wrap: break-word; 
   }
 
   /* Certificate text */
   .certificate-text {
-    font-size: 13px; /* Smaller text */
+    font-size: 13px; 
     color: #444;
     max-width: 90%;
     margin: 10px auto;
@@ -301,7 +260,6 @@
   /* Signatures section - Responsive styling */
   .signatures {
     display: flex;
-    /* flex-direction: column; */
     gap: 19px;
     align-items: center;
     margin-top: 57px;
@@ -341,17 +299,14 @@
     padding: 0;
     box-sizing: border-box;
   }
-  /* Adjust inner elements to fill the page properly */
   .certificate-frame {
     width: 100%;
     height: 100%;
     position: relative;
   }
-  /* You may need to adjust absolute positioning for images or text here */
   .certificate-left,
   .certificate-right {
     position: absolute;
   }
-  /* For example, reposition the logo or sidebar images if needed */
 }
 

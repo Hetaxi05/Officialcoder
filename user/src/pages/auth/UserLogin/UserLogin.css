@@ -34,16 +34,7 @@
         border-radius: 5px 0 0 5px; /* Rounded corners only on left */
     }
 
-    /* .userlogin-input-group .userlogin-icon {
-        background: #f8f9fa;
-        padding: 10px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-left: none;
-        width: 40px;
-        border-radius: 0 5px 5px 0; 
-    } */
+    
     .userlogin-input-group {
         flex-direction: row;
     }
