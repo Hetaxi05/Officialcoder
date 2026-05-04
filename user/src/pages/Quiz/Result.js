@@ -35,22 +35,11 @@ function Result() {
                 className="container d-flex align-items-center justify-content-center"
                 style={{ minHeight: "80vh" }}
             >
-                <div
-                    className="thankyou-inner"
-                    
-                >
-                    {/* Replace the image source with your result image if available */}
-                    {/* <img 
-                        src="./assets/image/result.png" 
-                        width="80px" 
-                        height="80px" 
-                        style={{ left:"100px", marginLeft:"470px", marginTop:"50px" }}
-                        alt="Quiz Result" 
-                    /> */}
-                    <h2 className="mb-3" style={{ marginTop: "1px" }}>Quiz Results</h2>
-                    {/* <p className="mb-4">
-                        You scored {score} out of {total}!
-                    </p> */}
+                <div className="thankyou-inner">
+                    <h2 className="mb-3" style={{ marginTop: "1px" }}>
+                        Quiz Results
+                    </h2>
+
                     <p style={{ fontSize: "18px", marginBottom: "30px", color: "#495057" }}>
                         You scored{" "}
                         <strong style={{ fontSize: "22px", color: "#07a698" }}>
