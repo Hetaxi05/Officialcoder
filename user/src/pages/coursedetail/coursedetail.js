@@ -58,11 +58,11 @@ function CourseDetail() {
                 setCourseName(data.coursename);
                 setCourseDetails(data.coursedetails);
                 setCourseDuration(data.duration);
-            }) 
+            })
             .catch(error => console.error("Error fetching course:", error));
     }, [courseId]);
 
-   
+
     function getAllChapter() {
         fetch(`${process.env.REACT_APP_API_URL}/chap/course/${courseId}`)
             .then((response) => {
@@ -97,15 +97,15 @@ function CourseDetail() {
         navigate("/pricing");
     };
 
-    
+
     const handleTopicClick = (e, callback) => {
         if (!isLoggedIn) {
             e.preventDefault();
             navigate("/userlogin");
         } else if (callback) {
-            callback(); 
+            callback();
         }
-        
+
     };
 
     const handleStartCourse = () => {
@@ -146,7 +146,7 @@ function CourseDetail() {
         setShowCertificatePopup(false);
     };
 
-    
+
 
 
     return (
@@ -178,177 +178,177 @@ function CourseDetail() {
                                 }}
                                 dangerouslySetInnerHTML={{ __html: courseDetails || "Loading..." }}
                             >
-                               
+
 
                             </p>
                             <div className="desktop-only">
-                                 <div className="row row-cols-3 gy-3">
-                                <div className="col">
-                                    <div
-                                        className="d-flex justify-content-center align-items-center gap-3 border border-warning"
-                                        style={{
-                                            height: "48px",
-                                            width: "100%",
-                                            background: "#ffecd7",
-                                            borderRadius: "5px",
-                                        }}
-                                    >
-                                        <img
-                                            src="/assets/image/book.png"
-                                            style={{ width: "30px", height: "30px" }}
-                                            alt="book"
-                                        />
-                                        <span
+                                <div className="row row-cols-3 gy-3">
+                                    <div className="col">
+                                        <div
+                                            className="d-flex justify-content-center align-items-center gap-3 border border-warning"
                                             style={{
-                                                fontSize: "15px",
-                                                fontWeight: "500",
-                                                color: "rgb(37 38 94 / 75%)",
+                                                height: "48px",
+                                                width: "100%",
+                                                background: "#ffecd7",
+                                                borderRadius: "5px",
                                             }}
                                         >
-                                            Level: Beginner
-                                        </span>
+                                            <img
+                                                src="/assets/image/book.png"
+                                                style={{ width: "30px", height: "30px" }}
+                                                alt="book"
+                                            />
+                                            <span
+                                                style={{
+                                                    fontSize: "15px",
+                                                    fontWeight: "500",
+                                                    color: "rgb(37 38 94 / 75%)",
+                                                }}
+                                            >
+                                                Level: Beginner
+                                            </span>
+                                        </div>
                                     </div>
-                                </div>
-                                <div className="col">
-                                    <div
-                                        className="d-flex justify-content-center align-items-center gap-3 border border-warning"
-                                        style={{
-                                            height: "48px",
-                                            width: "100%",
-                                            background: "#ffecd7",
-                                            borderRadius: "5px",
-                                        }}
-                                    >
-                                        <img
-                                            src="/assets/image/history1.png"
-                                            style={{ width: "30px", height: "30px" }}
-                                            alt="history"
-                                        />
-                                        <span
+                                    <div className="col">
+                                        <div
+                                            className="d-flex justify-content-center align-items-center gap-3 border border-warning"
                                             style={{
-                                                fontSize: "15px",
-                                                fontWeight: "500",
-                                                color: "rgb(37 38 94 / 75%)",
+                                                height: "48px",
+                                                width: "100%",
+                                                background: "#ffecd7",
+                                                borderRadius: "5px",
                                             }}
                                         >
-                                            Duration:  {courseDuration || "Loading..."}
-                                        </span>
+                                            <img
+                                                src="/assets/image/history1.png"
+                                                style={{ width: "30px", height: "30px" }}
+                                                alt="history"
+                                            />
+                                            <span
+                                                style={{
+                                                    fontSize: "15px",
+                                                    fontWeight: "500",
+                                                    color: "rgb(37 38 94 / 75%)",
+                                                }}
+                                            >
+                                                Duration:  {courseDuration || "Loading..."}
+                                            </span>
+                                        </div>
                                     </div>
-                                </div>
-                                <div className="col">
-                                    <div
-                                        className="d-flex justify-content-center align-items-center gap-3 border border-warning"
-                                        style={{
-                                            height: "48px",
-                                            width: "100%",
-                                            background: "#ffecd7",
-                                            borderRadius: "5px",
-                                        }}
-                                    >
-                                        <img
-                                            src="/assets/image/history1.png"
-                                            style={{ width: "30px", height: "30px" }}
-                                            alt="interactive"
-                                        />
-                                        <span
+                                    <div className="col">
+                                        <div
+                                            className="d-flex justify-content-center align-items-center gap-3 border border-warning"
                                             style={{
-                                                fontSize: "15px",
-                                                fontWeight: "500",
-                                                color: "rgb(37 38 94 / 75%)",
+                                                height: "48px",
+                                                width: "100%",
+                                                background: "#ffecd7",
+                                                borderRadius: "5px",
                                             }}
                                         >
-                                            Type: Interactive
-                                        </span>
+                                            <img
+                                                src="/assets/image/history1.png"
+                                                style={{ width: "30px", height: "30px" }}
+                                                alt="interactive"
+                                            />
+                                            <span
+                                                style={{
+                                                    fontSize: "15px",
+                                                    fontWeight: "500",
+                                                    color: "rgb(37 38 94 / 75%)",
+                                                }}
+                                            >
+                                                Type: Interactive
+                                            </span>
+                                        </div>
                                     </div>
-                                </div>
-                                <div className="col">
-                                    <div
-                                        className="d-flex justify-content-center align-items-center gap-3 border border-warning"
-                                        style={{
-                                            height: "48px",
-                                            width: "100%",
-                                            background: "#ffecd7",
-                                            borderRadius: "5px",
-                                        }}
-                                    >
-                                        <img
-                                            src="/assets/image/comment.png"
-                                            style={{ width: "45px", height: "40px" }}
-                                            alt="comment"
-                                        />
-                                        <span
+                                    <div className="col">
+                                        <div
+                                            className="d-flex justify-content-center align-items-center gap-3 border border-warning"
                                             style={{
-                                                fontSize: "15px",
-                                                fontWeight: "500",
-                                                color: "rgb(37 38 94 / 75%)",
+                                                height: "48px",
+                                                width: "100%",
+                                                background: "#ffecd7",
+                                                borderRadius: "5px",
                                             }}
                                         >
-                                            Language: English
-                                        </span>
+                                            <img
+                                                src="/assets/image/comment.png"
+                                                style={{ width: "45px", height: "40px" }}
+                                                alt="comment"
+                                            />
+                                            <span
+                                                style={{
+                                                    fontSize: "15px",
+                                                    fontWeight: "500",
+                                                    color: "rgb(37 38 94 / 75%)",
+                                                }}
+                                            >
+                                                Language: English
+                                            </span>
+                                        </div>
                                     </div>
-                                </div>
-                                <div className="col">
-                                    <div
-                                        className="d-flex justify-content-center align-items-center gap-3 border border-warning"
-                                        style={{
-                                            height: "48px",
-                                            width: "100%",
-                                            background: "#ffecd7",
-                                            borderRadius: "5px",
-                                        }}
-                                    >
-                                        <img
-                                            src="/assets/image/webprogramming.png"
-                                            style={{ width: "30px", height: "30px" }}
-                                            alt="practice"
-                                        />
-                                        <span
+                                    <div className="col">
+                                        <div
+                                            className="d-flex justify-content-center align-items-center gap-3 border border-warning"
                                             style={{
-                                                fontSize: "15px",
-                                                fontWeight: "500",
-                                                color: "rgb(37 38 94 / 75%)",
+                                                height: "48px",
+                                                width: "100%",
+                                                background: "#ffecd7",
+                                                borderRadius: "5px",
                                             }}
                                         >
-                                            Practice Problems: 55+
-                                        </span>
+                                            <img
+                                                src="/assets/image/webprogramming.png"
+                                                style={{ width: "30px", height: "30px" }}
+                                                alt="practice"
+                                            />
+                                            <span
+                                                style={{
+                                                    fontSize: "15px",
+                                                    fontWeight: "500",
+                                                    color: "rgb(37 38 94 / 75%)",
+                                                }}
+                                            >
+                                                Practice Problems: 55+
+                                            </span>
+                                        </div>
                                     </div>
-                                </div>
-                                <div className="col">
-                                    <div
-                                        className="d-flex justify-content-center align-items-center gap-3 border border-warning"
-                                        style={{
-                                            height: "48px",
-                                            width: "100%",
-                                            background: "#ffecd7",
-                                            borderRadius: "5px",
-                                        }}
-                                    >
-                                        <img
-                                            src="/assets/image/quizzes.png"
-                                            style={{ width: "40px", height: "40px" }}
-                                            alt="quizzes"
-                                        />
-                                        <span
+                                    <div className="col">
+                                        <div
+                                            className="d-flex justify-content-center align-items-center gap-3 border border-warning"
                                             style={{
-                                                fontSize: "15px",
-                                                fontWeight: "500",
-                                                color: "rgb(37 38 94 / 75%)",
+                                                height: "48px",
+                                                width: "100%",
+                                                background: "#ffecd7",
+                                                borderRadius: "5px",
                                             }}
                                         >
-                                            Quizzes: 65+
-                                        </span>
+                                            <img
+                                                src="/assets/image/quizzes.png"
+                                                style={{ width: "40px", height: "40px" }}
+                                                alt="quizzes"
+                                            />
+                                            <span
+                                                style={{
+                                                    fontSize: "15px",
+                                                    fontWeight: "500",
+                                                    color: "rgb(37 38 94 / 75%)",
+                                                }}
+                                            >
+                                                Quizzes: 65+
+                                            </span>
+                                        </div>
                                     </div>
                                 </div>
-                                 </div>
                             </div>
-                         
+
                         </div>
                     </div>
                 </div>
             </div>
 
             {/* ------------------- Course Content Section ------------------- */}
-            <div className="container-fluid" style={{background:"white"}}>
+            <div className="container-fluid" style={{ background: "white" }}>
                 <div className="container">
                     <div className="row pt-5">
                         <div className="col ps-5">
@@ -360,7 +360,7 @@ function CourseDetail() {
                 </div>
             </div>
 
-            <div className=" accordion-container-fluid "  style={{background:"white"}}>
+            <div className=" accordion-container-fluid " style={{ background: "white" }}>
                 <div className="container d-flex gap-3">
                     <div
                         className="accordion accordion-flush border border-2"
@@ -385,13 +385,13 @@ function CourseDetail() {
                                             data-bs-target={`#flush-collapse-${index}`}
                                             aria-expanded="false"
                                             aria-controls={`flush-collapse-${index}`}
-                                            
+
                                             onClick={() => {
                                                 if (!isPremium && isPaid) {
                                                     handleLockedChapterClick(chapter);
                                                 }
                                             }}
-                                            style={{ color: !isPremium && isPaid ? "gray" : "#6501e5" ,fontWeight:"600"}}
+                                            style={{ color: !isPremium && isPaid ? "gray" : "#6501e5", fontWeight: "600" }}
 
                                         >
                                             <div className="accordion-body gap-5 ps-0">
@@ -458,7 +458,7 @@ function CourseDetail() {
                         onClick={handleStartCourse}
                     >
                         <span
-                            style={{ fontSize: "15px", fontWeight: "600", color: "white",cursor:"pointer" }}
+                            style={{ fontSize: "15px", fontWeight: "600", color: "white", cursor: "pointer" }}
                         >
                             Start this Course
                         </span>
@@ -583,7 +583,7 @@ function CourseDetail() {
                                         fontSize: "15px",
                                         fontWeight: "600",
                                         color: "white",
-                                        cursor:"pointer"
+                                        cursor: "pointer"
                                     }}
                                     // onClick={handleOpenQuiz}
                                     onClick={(e) => handleTopicClick(e, handleOpenQuiz)}
@@ -664,7 +664,7 @@ function CourseDetail() {
 
                             course.map((Courses) => (
                                 <div className="col-sm-3" key={Courses._id}>
-                                    <Link to={`/course-details/${Courses._id}`}className="course-card" style={{textDecoration:"none"}} >
+                                    <Link to={`/course-details/${Courses._id}`} className="course-card" style={{ textDecoration: "none" }} >
 
                                         <div className="card" style={{ width: "222px", height: "300px", display: "flex" }}>
                                             <div className="card-body d-flex flex-column" style={{ flex: 1 }}>
@@ -676,7 +676,7 @@ function CourseDetail() {
                                                 {/* This wrapper ensures that P and Link stay at the bottom */}
                                                 <div className="mt-auto ">
                                                     <p className="mt-3 " style={{ color: "#25265e" }}>Chapters and Topics</p>
-                                                    
+
                                                 </div>
                                             </div>
                                         </div>
