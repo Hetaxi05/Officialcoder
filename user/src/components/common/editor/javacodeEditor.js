@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import MonacoEditor from "@monaco-editor/react";
 
 const JavaCodeEditor = () => {
-    const [code, setCode] = useState(""); // No default code
+    const [code, setCode] = useState("");
     const [output, setOutput] = useState("");
     const [theme, setTheme] = useState(localStorage.getItem("theme") || "dark");
     const [showDropdown, setShowDropdown] = useState(false);

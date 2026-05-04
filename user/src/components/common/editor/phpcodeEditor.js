@@ -3,7 +3,7 @@ import MonacoEditor from "@monaco-editor/react";
 import "../editor/PhpCompiler.css"
 
 const PhpCodeEditor = () => {
-    const [code, setCode] = useState(""); // No default code
+    const [code, setCode] = useState(""); 
     const [output, setOutput] = useState("");
     const [theme, setTheme] = useState(localStorage.getItem("theme") || "dark");
     const [showDropdown, setShowDropdown] = useState(false);
@@ -11,7 +11,7 @@ const PhpCodeEditor = () => {
     const executeCode = async () => {
         const payload = {
             language: "php",
-            version: "8.2.3", // Ensure this version is available in Piston API
+            version: "8.2.3", //  Piston API
             files: [{ name: "Main.php", content: code }]
         };
 

@@ -93,9 +93,7 @@ const Courseinformation = ({ courseId }) => {
 
           
             <Modal show={showModal} onHide={handleClose} centered>
-                {/* <Modal.Header closeButton>
-                    <Modal.Title>Start This Course</Modal.Title>
-                </Modal.Header> */}
+                
                 <Modal.Body>
                     <p>Copy this course link:</p>
                     <p style={{ wordBreak: "break-word", color: "#007bff" }}>{courseUrl}</p>
