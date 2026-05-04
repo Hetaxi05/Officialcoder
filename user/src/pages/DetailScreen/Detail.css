@@ -1,34 +1,29 @@
-/* -----------------------------------------
-   GLOBAL / BASE STYLES
------------------------------------------ */
-
-/* Remove default margin/padding if needed */
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
-  /* height: 100%;  Only enable if you want 100% body height */
+  /* height: 100%; */
 }
 
-/* For your .detail-container or .details-container */
 .detail-container,
 .details-container {
-  /* By default, we assume there's a sidebar of 300px on desktop */
   /* margin-left: 300px; */
-  height: 100vh; /* Full viewport height */
+  height: 100vh;
   overflow-y: auto;
-  /* padding: 1rem; Optional padding */
 }
 
-/* Some utility classes */
 .active {
   color: #11aaa5;
 }
+
 .title:hover {
   color: #11aaa5;
 }
+
 .rotate-90 {
   transform: rotate(90deg);
 }
+
 .arrow-button {
   color: #fff;
   background-color: #06857a;
@@ -41,11 +36,13 @@ html, body {
   justify-content: center;
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
 }
+
 .arrow-button:hover {
   color: #000;
   background-color: white;
   border-radius: 50%;
 }
+
 .button-custom {
   background-color: #d9e1f9;
   border: none;
@@ -54,36 +51,29 @@ html, body {
   transition: background-color 0.3s ease-in-out;
   border-radius: 8px;
 }
+
 .button-custom:hover {
   background-color: #0d3acf;
 }
 
-/* -----------------------------------------
-   SIDEBAR
------------------------------------------ */
 .sidebar {
   background-color: #f8f9fa;
   border-right: 1px solid #ddd;
   overflow-y: auto;
-  /* Smooth open/close transition */
   transition: all 0.3s ease;
-  /* By default on desktop, we want it 300px wide. 
-     But we’ll override with .open / .closed classes. */
   width: 300px;
   height: 100vh;
 }
 
-/* When open on desktop, keep width 300px */
 .sidebar.open {
-  width:369px; 
+  width: 369px;
   padding-bottom: 70px !important;
 
 }
 
-/* When closed on desktop, collapse to 0 */
 .sidebar.closed {
   width: 0;
-  overflow: hidden; /* hide content when width=0 */
+  overflow: hidden;
 }
 
 /* Sidebar items */
@@ -98,22 +88,25 @@ html, body {
   padding: 12px;
   transition: background-color 0.3s ease;
 }
+
 .sidebar-item,
 .title {
-  font-size: 16px; /* for example */
-  /* other desktop styles here */
+  font-size: 16px;
 }
+
 .topic-title {
-  font-size: 14px;  /* Adjust as you like for desktop */
-  
+  font-size: 14px;
 }
+
 .sidebar-item:hover {
   background-color: #e1e6ef;
 }
+
 .transition-icon {
   display: inline-block;
   transition: transform 0.3s ease-in-out;
 }
+
 .title {
   color: #41454fd8;
   font-size: 14px;
@@ -124,55 +117,49 @@ html, body {
   border-radius: 6px;
   transition: background-color 0.3s ease;
 }
+
 .title:hover {
   background-color: #eef1f6;
 }
+
 .title.active {
   background-color: #d6e4ff;
   font-weight: bold;
   color: #11aaa5;
 }
+
 .collapse {
   overflow: hidden;
   transition: max-height 0.3s ease-in-out;
 }
+
 .divider {
   height: 1px;
   background-color: #ddd;
   margin: 5px 10px;
 }
 
-/* -----------------------------------------
-   DETAILS AREA
------------------------------------------ */
 .content-wrapper {
   overflow-y: auto;
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* Internet Explorer 10+ */
-}
-.content-wrapper::-webkit-scrollbar {
-  display: none; /* Chrome, Safari, Opera */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 
-/* If the sidebar is closed, we can add .details-full-width to remove left margin. */
+.content-wrapper::-webkit-scrollbar {
+  display: none;
+}
+
 .details-full-width {
   margin-left: 0 !important;
 }
 
-/* -----------------------------------------
-   PROGRESS WRAPPER (BOTTOM BUTTONS)
------------------------------------------ */
 .progress-wrapper {
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin: 1rem 0;
 }
-/* .progress-container {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-} */
+
 .progress-step {
   width: 40px;
   height: 10px;
@@ -180,15 +167,13 @@ html, body {
   border-radius: 4px;
   transition: background-color 0.2s ease, transform 0.2s ease;
 }
+
 .progress-step.active {
   background-color: #007bff;
   transform: scale(1.1);
   outline: 2px solid rgba(0, 123, 255, 0.3);
 }
 
-/* -----------------------------------------
-   BUTTON STYLES
------------------------------------------ */
 .btn.btn-secondary {
   background-color: #f8f9fa;
   border: 1px solid #ced4da;
@@ -198,10 +183,12 @@ html, body {
   border-radius: 4px;
   transition: background-color 0.2s ease, box-shadow 0.2s ease;
 }
+
 .btn.btn-secondary:hover {
   background-color: #e2e6ea;
   box-shadow: 0 0 0 3px rgba(108, 117, 125, 0.2);
 }
+
 .btn.btn-primary {
   background-color: #007bff;
   border: 1px solid #007bff;
@@ -211,15 +198,12 @@ html, body {
   border-radius: 4px;
   transition: background-color 0.2s ease, box-shadow 0.2s ease;
 }
+
 .btn.btn-primary:hover {
   background-color: #005dc1;
   box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.3);
 }
-/* .btn:disabled { opacity: 0.6; cursor: not-allowed; } */
 
-/* -----------------------------------------
-   CODE BLOCK (QUILL SYNTAX)
------------------------------------------ */
 pre.ql-syntax {
   background: black;
   color: gray;
@@ -229,9 +213,6 @@ pre.ql-syntax {
   font-family: 'Courier New', Courier, monospace;
 }
 
-/* -----------------------------------------
-   FEEDBACK BUTTONS
------------------------------------------ */
 .subtopic-feedback {
   margin-top: 20px;
   padding: 15px;
@@ -239,15 +220,18 @@ pre.ql-syntax {
   border-radius: 8px;
   background-color: #fff;
 }
+
 .feedback-question {
   font-weight: bold;
   font-size: 16px;
   margin-bottom: 10px;
 }
+
 .feedback-buttons {
   display: flex;
   gap: 10px;
 }
+
 .feedback-btn {
   display: flex;
   align-items: center;
@@ -263,37 +247,23 @@ pre.ql-syntax {
   cursor: pointer;
   transition: all 0.2s ease-in-out;
 }
+
 .feedback-btn:hover {
   background-color: #f5f5f5;
 }
+
 .feedback-btn.selected {
   border-color: #000;
   font-weight: bold;
 }
+
 .feedback-icon {
   font-size: 16px;
 }
 
-/* -----------------------------------------
-   MOBILE BEHAVIOR
------------------------------------------ */
-
-/* Hide an element completely on mobile if it has .mobile-hide */
 .mobile-hide {
   display: none !important;
 }
-
-/* Desktop overrides: 
-   at >=768px, we ignore .mobile-hide so both can show side by side */
-/* Desktop overrides: at >=768px */
-/* @media (min-width: 768px) {
-  .mobile-hide {
-    display: block !important;
-  }
-} */
- /* <-- IMPORTANT: close the media query here */
-
-/* For mobile (<768px) */
 
 .progress-wrapper {
   display: flex;
@@ -307,7 +277,6 @@ pre.ql-syntax {
   width: 100%;
 }
 
-/* Ensuring the progress bar stays at the top */
 .progress-container {
   display: flex;
   justify-content: center;
@@ -321,7 +290,6 @@ pre.ql-syntax {
 
 }
 
-/* Ensuring both buttons remain in the same row */
 .button-container {
   display: flex;
   justify-content: space-between;
@@ -334,47 +302,47 @@ pre.ql-syntax {
   .mobile-hide {
     display: block !important;
   }
+
   .sidebar {
     position: absolute;
     top: 0;
     left: 0;
     height: 100vh;
-    width: 250px; /* Adjust for mobile sidebar width */
-    transform: translateX(-100%); /* Hidden by default */
+    width: 250px;
+    transform: translateX(-100%);
     z-index: 999;
   }
+
   .sidebar.open {
     transform: translateX(0);
     /* width: 391px !important; */
     width: auto !important;
 
   }
+
   .sidebar.closed {
     transform: translateX(-100%);
   }
 
-  /* Smaller font only on mobile */
   .sidebar-item,
   .title {
-    font-size: 15px; /* smaller on mobile only */
-  }
-  .topic-title {
-    font-size: 15px;  /* Adjust as you like for desktop */
-    font-weight: 600; /* Optional styling */
-    /* any other styling you need */
+    font-size: 15px;
   }
 
-  /* On mobile, details should occupy full width when visible */
-  .details-container {  
+  .topic-title {
+    font-size: 15px;
+    font-weight: 600;
+  }
+
+  .details-container {
     margin-left: 0 !important;
     width: 100%;
   }
-  
+
   .progress-wrapper {
     padding: 0.8rem;
   }
 
-  /* Center progress bar in mobile */
   .progress-container {
     max-width: 90%;
     overflow-x: auto;
@@ -382,11 +350,10 @@ pre.ql-syntax {
   }
 
   .progress-container div {
-    width: 25px; /* Smaller progress indicators */
+    width: 25px;
     height: 6px;
   }
 
-  /* Ensure Previous & Next buttons stay in the same row */
   .button-container {
     display: flex;
     justify-content: space-between;
@@ -399,7 +366,7 @@ pre.ql-syntax {
 
   .progress-container {
     width: 100%;
-    overflow-x: auto; /* Scroll if needed */
+    overflow-x: auto;
   }
 
   .button-container {
@@ -416,7 +383,7 @@ pre.ql-syntax {
   .progress-container {
     width: 100%;
     justify-content: center;
-    margin-bottom: 10px; /* Push progress bar above buttons */
+    margin-bottom: 10px;
   }
 
   .button-container {
@@ -425,5 +392,3 @@ pre.ql-syntax {
     justify-content: space-between;
   }
 }
-
-

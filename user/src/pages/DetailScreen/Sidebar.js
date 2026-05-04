@@ -88,8 +88,8 @@ const Sidebar = ({
           borderRight: "1px solid #ddd",
         }}
       >
-        <div className="d-flex justify-content-between align-items-center px-2 pb-2" style={{marginTop:"15px"}}>
-          <p style={{ fontSize: "14px", fontWeight: "500", marginBottom: "0",fontSize:"18px" }}>
+        <div className="d-flex justify-content-between align-items-center px-2 pb-2" style={{ marginTop: "15px" }}>
+          <p style={{ fontSize: "14px", fontWeight: "500", marginBottom: "0", fontSize: "18px" }}>
             Course Content
           </p>
           <div className="d-flex flex-column align-items-end">
@@ -172,7 +172,6 @@ const Sidebar = ({
                         } else {
                           setOpenIndex(i);
                           setOpenTopicIndex(j);
-                          // <-- Here, add the mobile toggle:
                           if (window.innerWidth < 768) {
                             toggleSidebar && toggleSidebar(false);
                           }
@@ -180,7 +179,6 @@ const Sidebar = ({
                       }}
                     >
                       <div className="topic-title d-flex align-items-center gap-2">
-                        {/* <PIcon.PiYoutubeLogoFill className="me-2" /> */}
                         {completedTopics && completedTopics.includes(topic._id) && (
                           <span className="tick-icon">
                             <MdCheckCircle color="#11aaa5" size={20} />

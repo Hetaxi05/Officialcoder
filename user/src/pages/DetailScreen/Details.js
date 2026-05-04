@@ -12,11 +12,6 @@ function Details({ isSidebarVisible, onToggleSidebar }) {
   const navigate = useNavigate();
   const location = useLocation();
 
-  // Retrieve any passed state – including our custom flags.
-  // const locationState = location.state || {};
-  // If hideContent is set and the chapter has NOT been freed, then we block content.
-  // const hideContent = locationState.hideContent && !locationState.nextChapterFreed;
-
   const [chapters, setChapters] = useState([]);
   const [quiz, setQuiz] = useState([]);
   const [currentSubtopicIndex, setCurrentSubtopicIndex] = useState(0);
@@ -26,10 +21,7 @@ function Details({ isSidebarVisible, onToggleSidebar }) {
   const [isPremium, setIsPremium] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
 
-
-  // Retrieve any passed state – including our custom flags.
   const locationState = location.state || {};
-  // If hideContent is set and the chapter has NOT been freed, then we block content.
   const hideContent = locationState.hideContent && !locationState.nextChapterFreed;
   const [completedTopics, setCompletedTopics] = useState(() => {
     const stored = localStorage.getItem("completedTopics");
@@ -55,9 +47,6 @@ function Details({ isSidebarVisible, onToggleSidebar }) {
     }
   }, []);
 
-
-  // const [isMobile, setIsMobile] = useState(false);
-
   useEffect(() => {
     const checkScreenSize = () => {
       setIsMobile(window.innerWidth < 768); // 768px breakpoint
@@ -69,9 +58,6 @@ function Details({ isSidebarVisible, onToggleSidebar }) {
       window.removeEventListener("resize", checkScreenSize);
     };
   }, []);
-
-  // Replace with your actual payment status logic.
-  // const userHasPaid = false;
 
   useEffect(() => {
     fetch(`${process.env.REACT_APP_API_URL}/chap/course/${courseId}`)
@@ -94,12 +80,10 @@ function Details({ isSidebarVisible, onToggleSidebar }) {
       .catch((err) => console.error("Error fetching quiz:", err));
   }, [topicId]);
 
-  // Wait until chapters are loaded.
   if (chapters.length === 0) {
     return <div className="loading">Loading...</div>;
   }
 
-  // Determine current chapter and topic
   const selectedChapter = chapters.find((ch) => ch._id === chapterId);
   const selectedTopic = selectedChapter
     ? selectedChapter.topics.find((t) => t._id === topicId)
@@ -121,11 +105,6 @@ function Details({ isSidebarVisible, onToggleSidebar }) {
     (selectedChapter.paid === true ||
       selectedChapter.paid === "true" ||
       selectedChapter.paid === "paid");
-
-  // // Lock the content if the current chapter is paid but the user hasn't paid.
-  // const isLocked = isChapterPaid && !userHasPaid;
-  // If chapter is paid but user is not premium, then lock the content.
-  // const isLocked = isChapterPaid && !userHasPaid;
   const isLocked = isChapterPaid && !isPremium;
 
 
@@ -133,20 +112,9 @@ function Details({ isSidebarVisible, onToggleSidebar }) {
     setLockModalVisible(true);
   };
 
-  // Handler for the paid modal's OK button.
   const handlePaidOk = async () => {
     setPaidModalVisible(false);
-    // After successful payment, you can update userHasPaid accordingly.
-    // For now, proceed to quiz navigation.
-    // navigate('/topicquiz', {
-    //   state: {
-    //     courseId,
-    //     chapterId,
-    //     topicId,
-    //     nextTopicId: nextTopicIdForQuiz,
-    //     nextChapterId: nextChapterIdForQuiz,
-    //   }
-    // });
+
     try {
       const response = await fetch(`${process.env.REACT_APP_API_URL}/chap/${locationState.nextChapterId}`);
       const latestChapterData = await response.json();
@@ -157,13 +125,13 @@ function Details({ isSidebarVisible, onToggleSidebar }) {
       navigate(`/topic-details/${courseId}/${locationState.nextChapterId}/${locationState.nextTopicId}`, {
         state: {
           initialSubtopicIndex: 0,
-          hideContent: stillPaid, // block content if still paid
+          hideContent: stillPaid,
           nextChapterFreed: !stillPaid
         }
       });
     } catch (error) {
       console.error("Error fetching latest chapter data:", error);
-      // Fallback: assume it's still paid.
+
       navigate(`/topic-details/${courseId}/${locationState.nextChapterId}/${locationState.nextTopicId}`, {
         state: { initialSubtopicIndex: 0, hideContent: true, nextChapterFreed: false }
       });
@@ -185,7 +153,6 @@ function Details({ isSidebarVisible, onToggleSidebar }) {
     }
     if (!selectedTopic) return;
 
-    // If subtopics remain, simply show next subtopic.
     if (currentSubtopicIndex < totalSubtopics - 1) {
       setCurrentSubtopicIndex(currentSubtopicIndex + 1);
       return;
@@ -199,7 +166,7 @@ function Details({ isSidebarVisible, onToggleSidebar }) {
     const user = JSON.parse(localStorage.getItem("user"));
     const isPremium = user?.isPremium;
 
-    // When subtopics are complete...
+    // When subtopics are complete
     if (quiz.length === 0) {
 
       // No quiz available.
@@ -217,15 +184,13 @@ function Details({ isSidebarVisible, onToggleSidebar }) {
             // if (latestChapterData.paid === true || latestChapterData.paid === "true" || latestChapterData.paid === "paid") {
 
             if (!isPremium && (latestChapterData.paid === true || latestChapterData.paid === "true" || latestChapterData.paid === "paid")) {
-              // Still paid: update state for modal and then show modal.
-              // Save next chapter/topic IDs in locationState so that handlePaidOk can use them.
+
               navigate(`/topic-details/${courseId}/${nextChapter._id}/${nextTopic._id}`, {
                 state: { initialSubtopicIndex: 0, hideContent: true, nextChapterFreed: false }
               });
               setPaidModalVisible(true);
               return;
             } else {
-              // Now free: navigate directly with content visible.
               navigate(`/topic-details/${courseId}/${nextChapter._id}/${nextTopic._id}`, {
                 state: { initialSubtopicIndex: 0, hideContent: false, nextChapterFreed: true }
               });
@@ -234,7 +199,7 @@ function Details({ isSidebarVisible, onToggleSidebar }) {
           }
           catch (error) {
             console.error("Error fetching next chapter data:", error);
-            // Fallback: assume paid.
+
             navigate(`/topic-details/${courseId}/${nextChapter._id}/${nextTopic._id}`, {
               state: { initialSubtopicIndex: 0, hideContent: true, nextChapterFreed: false }
             });
@@ -244,7 +209,6 @@ function Details({ isSidebarVisible, onToggleSidebar }) {
         }
       }
     } else {
-      // If a quiz exists, determine next topic/chapter for quiz navigation.
       if (selectedChapter.topics[currentTopicIndex + 1]) {
         nextTopicIdForQuiz = selectedChapter.topics[currentTopicIndex + 1]._id;
         nextChapterIdForQuiz = chapterId;
@@ -298,14 +262,14 @@ function Details({ isSidebarVisible, onToggleSidebar }) {
     currentTopicIndex === 0 &&
     currentSubtopicIndex === 0;
   const disableNext =
-  isLocked ||
-  (
-    currentChapterIndex === chapters.length - 1 &&
-    selectedChapter &&
-    currentTopicIndex === selectedChapter.topics.length - 1 &&
-    currentSubtopicIndex === totalSubtopics - 1 &&
-    quiz.length === 0  // Only disable if there's no quiz
-  );
+    isLocked ||
+    (
+      currentChapterIndex === chapters.length - 1 &&
+      selectedChapter &&
+      currentTopicIndex === selectedChapter.topics.length - 1 &&
+      currentSubtopicIndex === totalSubtopics - 1 &&
+      quiz.length === 0
+    );
 
 
 
@@ -357,7 +321,7 @@ function Details({ isSidebarVisible, onToggleSidebar }) {
           currentStep={topicId}
           currentChapterId={chapterId}
           chapters={chapters}
-         completedTopics={completedTopics}
+          completedTopics={completedTopics}
           toggleSidebar={onToggleSidebar}
           className={`
             sidebar
@@ -381,51 +345,6 @@ function Details({ isSidebarVisible, onToggleSidebar }) {
           <div className="bg-light flex-grow-1 p-3 content-wrapper" style={{ overflowY: "auto" }}>
             {contentToDisplay}
           </div>
-
-
-          {/* <div
-            className="progress-wrapper shadow p-3"
-            style={{
-              position: "sticky",
-              bottom: 0,
-              backgroundColor: "#ffffff",
-              borderTop: "1px solid #ccc",
-              padding: "1rem",
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "center",
-            }}
-          >
-            <button className="btn btn-secondary" onClick={handlePrevious} disabled={disablePrevious}>
-              &larr; Previous
-            </button>
-            <div
-              className="progress-container"
-              style={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                gap: "4px",
-              }}
-            >
-              {selectedTopic &&
-                selectedTopic.subtopics.map((step, idx) => (
-                  <div
-                    key={step._id}
-                    style={{
-                      width: "40px",
-                      height: "10px",
-                      borderRadius: "4px",
-                      backgroundColor: idx === currentSubtopicIndex ? "#2f77ff" : "#d0d8ff",
-                      transition: "background-color 0.3s ease",
-                    }}
-                  />
-                ))}
-            </div>
-            <button className="btn btn-primary" onClick={handleNext} disabled={disableNext}>
-              Next &rarr;
-            </button>
-          </div> */}
 
           <div className="progress-wrapper shadow p-3 pt-4" >
             <div className="progress-container ">
