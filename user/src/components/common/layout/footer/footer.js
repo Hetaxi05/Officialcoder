@@ -28,8 +28,8 @@ function Footer() {
                         <div className="mb-4" style={{width:"60px", backgroundColor:"white",height:"1.4px"}}>
                         </div>
 
-                        <p>305,CODDING HOUSE,Exiito Hub,Jahangirpura,Surat,Gujrat 395005,india</p>
-                        <p className="fw-bold">+91 97236 78848</p>
+                        <p>305,CODDING HOUSE,Exiito Hub,Jahangirpura,Edingburgh,uk </p>
+                        <p className="fw-bold">+44 77236 78848</p>
                         <p>contact@codinghouse.in</p>
                         <div className="d-flex gap-3 fs-5">
                             <FaFacebookF />
@@ -72,14 +72,14 @@ function Footer() {
                             <img src="./assets/image/footerpost1.png" alt="Post 1" className="me-2 rounded " style={{ width: '90px', height: '80px' }} />
                             <div className="ps-3">
                                 <p className="mb-1 fw-bold">Where Dreams Find A Home</p>
-                                <small > <FaRegCalendar style={{ marginRight: '10px',color:"#07a698"  }} />02 March, 2025                                </small>
+                                <small > <FaRegCalendar style={{ marginRight: '10px',color:"#07a698"  }} />02 March, 2026                                </small>
                             </div>
                         </div>
                         <div className="d-flex align-items-center">
                             <img src="./assets/image/footerpost2.png" alt="Post 2" className="me-2 rounded" style={{ width: '90px', height: '80px' }} />
                             <div className="ps-3">
                                 <p className="mb-1 fw-bold">Where Dreams Find A Home</p>
-                                <small > <FaRegCalendar style={{ marginRight: '10px',color:"#07a698" }} />02 March, 2025</small>
+                                <small > <FaRegCalendar style={{ marginRight: '10px',color:"#07a698" }} />02 March, 2026</small>
                             </div>
                         </div>
                     </div>

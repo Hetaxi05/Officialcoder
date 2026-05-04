@@ -15,12 +15,10 @@
    Mobile Responsive Styles for Footer
 ------------------------------------- */
 @media (max-width: 768px) {
-    /* Reduce overall container padding */
     .container-fluid.bg-dark.text-light.p-4.pt-2 {
         padding: 20px 10px;
     }
     
-    /* Adjust newsletter section */
     .container.py-5.pb-0.pt-2 {
         padding: 20px 0;
     }
@@ -34,13 +32,11 @@
         font-size: 30px;
     }
 
-    /* Make newsletter columns full-width */
     .row.mb-5 > [class*="col-"] {
         width: 100%;
         margin-bottom: 15px;
     }
     
-    /* Newsletter input group adjustments */
     .input-group {
         /* flex-direction: column; */
         align-items: center;
@@ -58,25 +54,21 @@
         border-radius: 250px;
     }
     
-    /* Footer columns: stack vertically */
     .row > [class*="col-md-3"] {
         width: 100%;
         margin-bottom: 20px;
         /* text-align: center; */
     }
     
-    /* Adjust divider width */
     .mb-4[style] {
         width: 100% !important;
     }
     
-    /* Center copyright text */
     p[style*="justifyContent: center"] {
         font-size: 0.9rem;
         text-align: center;
     }
     
-    /* Reduce font sizes for list items */
     .ulli li {
         font-size: 14px;
         padding: 4px;
