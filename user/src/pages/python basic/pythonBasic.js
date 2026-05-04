@@ -7,11 +7,10 @@ import './pythonBasic.css';
 
 
 function PythonBasic() {
-   
+
     const handleOpenQuiz = () => {
-        // Opens the '/quiz' route in a new tab.
         window.open("/quiz", "_blank");
-      };
+    };
     return (
         <>
             <div className="container-fluid " style={{ backgroundColor: "#fff5e7" }}>
@@ -289,7 +288,7 @@ function PythonBasic() {
                 </div>
             </div>
 
-            
+
 
             <div className="mt-4" >
                 <img src="./assets/image/more.png" style={{ width: "60px", height: "60px", marginLeft: "50%" }}></img>
@@ -303,13 +302,13 @@ function PythonBasic() {
                             <img src="./assets/image/rockpaperscissor.svg" style={{ width: "140px", height: "170px" }}></img>
                         </div>
 
-                        
+
                         <div className="col-6">
                             <p style={{ color: "#25265e", fontSize: "25px", fontWeight: "700" }}>Gain a competitive edge with our <br />professional certifications</p>
                             <p style={{ color: "rgba(37, 38, 94, .87)", fontSize: "18px", fontWeight: "600", marginTop: "20px" }}> Showcase your expertise on LinkedIn and <br />stand out from the crowd. Impress your<br /> potential employers.</p>
                             <div className="d-flex  mt-4 justify-content-center align-items-center gap-3 border border-warning" style={{ height: '48px', width: '40%', background: "#6501e5", borderRadius: "5px" }}>
                                 <span style={{ fontSize: "15px", fontWeight: "600", color: "white" }} onClick={handleOpenQuiz}> Claim Certificate</span>
-                              
+
                                 <img src="./assets/image/rightarrow.png" style={{ width: '25px', height: '30px' }}></img>
                             </div>
                         </div>
@@ -339,10 +338,10 @@ function PythonBasic() {
 
             <div className="container-fluid pb-5" style={{ backgroundColor: "#fff5e7", marginTop: "80px" }}>
                 <div className="container mt-5 pt-5 pb-5">
-                    <h4  style={{ marginTop: "30px", fontWeight: "700", color: "#25265e" }}> Courses similar to this</h4>
+                    <h4 style={{ marginTop: "30px", fontWeight: "700", color: "#25265e" }}> Courses similar to this</h4>
                     <div className="row mt-4 gap-4">
                         <div className="col-sm-3" >
-                            <div className="card " style={{width:"222px"}}>
+                            <div className="card " style={{ width: "222px" }}>
                                 <div className="card-body"  >
                                     <h5 className="card-title pt-2" style={{ color: "#25265e", fontWeight: "700" }}>DSA with Python</h5>
                                     <img className="card-img pt-1" src="./assets/image/dsawithpython.png" alt="dsa with python"></img><br />
@@ -351,7 +350,7 @@ function PythonBasic() {
                             </div>
                         </div>
                         <div className="col-sm-3">
-                            <div className="card" style={{width:"222px"}}>
+                            <div className="card" style={{ width: "222px" }}>
                                 <div className="card-body" >
                                     <h5 className="card-title" style={{ color: "#25265e", fontWeight: "700" }}>Python interview Questions</h5>
                                     <img className="card-img" src="./assets/image/pythoninterviewquestions.png" alt="dsa with python"></img><br />

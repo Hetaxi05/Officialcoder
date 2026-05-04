@@ -1,264 +1,232 @@
-
-h1{
-    font-weight: 650;
-    margin-top: 15px;
-    font-style:initial;
+h1 {
+  font-weight: 650;
+  margin-top: 15px;
+  font-style: initial;
 }
+
 .border-warning {
-    --bs-border-opacity: 1;
-    border-color: rgb(234 214 151 / 94%) !important;
-}   
-.accordion-item .accordion-collapse .accordion-body{
-color: rgb(27, 91, 230);
-font-weight: 600;
+  --bs-border-opacity: 1;
+  border-color: rgb(234 214 151 / 94%) !important;
 }
 
-.certifictebgimage img{
-    
-    max-width: 100%;
-    height: auto;
-    vertical-align: top;
-    transition: .2sease-in-out;
-    border-style: none;
-    position: absolute;
-    top: 20px;
-    left: 10%;
-    transform: translateX(-50%);
-    pointer-events: none;
+.accordion-item .accordion-collapse .accordion-body {
+  color: rgb(27, 91, 230);
+  font-weight: 600;
+}
+
+.certifictebgimage img {
+
+  max-width: 100%;
+  height: auto;
+  vertical-align: top;
+  transition: .2sease-in-out;
+  border-style: none;
+  position: absolute;
+  top: 20px;
+  left: 10%;
+  transform: translateX(-50%);
+  pointer-events: none;
 }
 
 
 
-.coursebgimage img{
-    
-    max-width: 100%;
-    height: auto;
-    width: 440px;
-    vertical-align: top;
-    transition: .2sease-in-out;
-    border-style: none;
-    position: absolute;
-    top: 60px;
-    left: 17%;
-    transform: translateX(-50%);
-    pointer-events: none;
+.coursebgimage img {
+
+  max-width: 100%;
+  height: auto;
+  width: 440px;
+  vertical-align: top;
+  transition: .2sease-in-out;
+  border-style: none;
+  position: absolute;
+  top: 60px;
+  left: 17%;
+  transform: translateX(-50%);
+  pointer-events: none;
 }
-/* .coursebtn:hover{
-    background-color: "#07a698";
-    color: aliceblue;
-} */
-/* .coursebtn:hover{background-color: #07baab;color:#fff;} */
+
 .coursebtn {
-    border-radius: 220px;
-    text-decoration: none;
-    color: black;
-    padding: 10px 20px;
-    border: 2px solid transparent;
-    transition: all 0.3s ease-in-out;
-    background: white;
-    /* position: fixed; */
+  border-radius: 220px;
+  text-decoration: none;
+  color: black;
+  padding: 10px 20px;
+  border: 2px solid transparent;
+  transition: all 0.3s ease-in-out;
+  background: white;
+  /* position: fixed; */
 }
-
-/* .coursebtn:hover {
-    background-color: #07baab !important;
-    color: white !important;
-    border-color: #07baab;
-} */
 
 .course-card {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 .course-card .card {
-    width: 222px;
-    height: 300px;
-    display: flex;
-    /* transition: all 0.3s ease-in-out; */
-    border: 1.2px solid transparent;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 222px;
+  height: 300px;
+  display: flex;
+  /* transition: all 0.3s ease-in-out; */
+  border: 1.2px solid transparent;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Hover Effect: Smooth Border Animation */
+/* Smooth Border Animation */
 .course-card:hover .card {
-    border-color: #1d6ade;
-    transform: scale(1.0);
-    /* box-shadow: 0 6px 15px rgba(7, 186, 171, 0.3); */
+  border-color: #1d6ade;
+  transform: scale(1.0);
+  /* box-shadow: 0 6px 15px rgba(7, 186, 171, 0.3); */
 }
 
-/* Click Effect: Scale Down Quickly then Bounce Back */
-/* .course-card:active .card {
-    transform: scale(0.95);
-     transition: transform 0.1s ease-in-out;
-} */
-
-
-
-
-/* ============================= */
-/*         Mobile Responsive     */
-/* ============================= */
 @media (max-width: 768px) {
 
-  .above-of-course-container-fluid .coursebgimage img{
+  .above-of-course-container-fluid .coursebgimage img {
     display: none;
   }
+
   .desktop-only {
     display: none;
   }
-.course-description{
-  margin: auto !important;
-  /* padding: auto !important; */
-  padding-left: 32px !important;
 
-} 
+  .course-description {
+    margin: auto !important;
+    /* padding: auto !important; */
+    padding-left: 32px !important;
 
-    /* General Containers */
-    .container,
-    .container-fluid {
-      padding-left: 10px !important;
-      padding-right: 10px !important;
-    }
-    
-    /* Course Intro / Top Section */
-    .coursebgimage img {
-      /* width: 100%;
+  }
+
+  /* General Containers */
+  .container,
+  .container-fluid {
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+  }
+
+  .coursebgimage img {
+    /* width: 100%;
       height: auto;
       position: relative;
       top: 0;
       left: 50%;
       transform: translateX(-50%); */
-      display: hide;
-    }
-    
-    /* Stack row with image and details vertically */
-    .row.gap-5 {
-      flex-direction: column;
-      gap: 15px;
-    }
-    
+    display: hide;
+  }
 
-    /* Left Column (Course Image) & Center Column (Course Details) */
-    .col-sm-2,
-    .col-sm-8 {
-      width: 100%;
-      /* text-align: center; */
-      margin: 0 auto;
-    }
-    .course-img{
-display: none !important;
-    }
+  /* Stack row with image and details vertically */
+  .row.gap-5 {
+    flex-direction: column;
+    gap: 15px;
+  }
 
-    /* Adjust course intro text sizes */
-    .col-sm-8 h1 {
-      font-size: 24px !important;
-      margin-top: 10px;
-    }
-    .col-sm-8 p {
-      font-size: 14px !important;
-      line-height: 1.4;
-      margin-top: 10px;
-    }
-    .col-sm-8.mt-5.pt-4{
-        margin: 0px !important;
-        padding: 20px !important;
-    }
-    
-    /* Info Boxes (Level, Duration, etc.) Stack Vertically */
-    .row.row-cols-3.gy-3 {
-      flex-direction: column;
-      gap: 10px;
-    }
-    .row.row-cols-3.gy-3 .col {
-      width: 100%;
-      margin-bottom: 10px;
-    }
-    
-    /* Accordion / Course Content Section */
-/*     
-    .accordion {
-      width: 100% !important;
-    }
-    .accordion-header button.accordion-button {
-      font-size: 14px;
-      padding: 10px;
-    }
-    .accordion-body {
-      font-size: 14px;
-      padding: 8px;
-    } */
-    
+  /* Left Column (Course Image) & Center Column (Course Details) */
+  .col-sm-2,
+  .col-sm-8 {
+    width: 100%;
+    /* text-align: center; */
+    margin: 0 auto;
+  }
 
-    .container-fluid {
-        padding-left: 10px !important;
-        padding-right: 10px !important;
-        padding: 0px !important;
-      }
-      
-      /* Center and reduce padding for the header row */
-      .container .row.pt-5 {
-        text-align: center;
-        padding-top: 0px !important;
-      }
-      
-      /* Remove extra left padding on the column */
-      .container .row.pt-5 .col {
-        padding-left: 0 !important;
-      }
-      
-      /* Adjust the header text size */
-      .container .row.pt-5 h3 {
-        font-size: 20px !important;
-        margin-top: 10px;
-      }
-      
-  /* Accordion Container: Make it full width and let height adjust */
-  
+  .course-img {
+    display: none !important;
+  }
+
+  /* Adjust course intro text sizes */
+  .col-sm-8 h1 {
+    font-size: 24px !important;
+    margin-top: 10px;
+  }
+
+  .col-sm-8 p {
+    font-size: 14px !important;
+    line-height: 1.4;
+    margin-top: 10px;
+  }
+
+  .col-sm-8.mt-5.pt-4 {
+    margin: 0px !important;
+    padding: 20px !important;
+  }
+
+  /* Info Boxes (Level, Duration, etc.) Stack Vertically */
+  .row.row-cols-3.gy-3 {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .row.row-cols-3.gy-3 .col {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .container-fluid {
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+    padding: 0px !important;
+  }
+
+  .container .row.pt-5 {
+    text-align: center;
+    padding-top: 0px !important;
+  }
+
+  .container .row.pt-5 .col {
+    padding-left: 0 !important;
+  }
+
+  .container .row.pt-5 h3 {
+    font-size: 20px !important;
+    margin-top: 10px;
+  }
+
   .accordion.accordion-flush {
     width: 100% !important;
     height: auto !important;
     margin: 0 auto;
   }
-  
+
   /* Accordion Headers & Bodies */
   .accordion-header button.accordion-button {
     font-size: 14px !important;
     padding: 10px;
   }
+
   .accordion-body {
     font-size: 14px;
     padding: 8px;
   }
-  
+
   /* Container that holds the accordion and Courseinformation */
   .container.d-flex.gap-3 {
     flex-direction: column !important;
     align-items: center;
     gap: 20px;
   }
+
   .accordion-container-fluid {
     padding: 1%;
   }
-  /* ===================== Courseinformation Component ===================== */
-  
-  /* Override fixed width (28%) and margin in Courseinformation */
+
+  /*  Courseinformation Component  */
+
   .cols.ms-5 {
     width: 100% !important;
     margin: 20px auto !important;
     padding: 10px;
   }
+
   .cols.ms-5 .card {
     padding: 15px !important;
   }
+
   .cols.ms-5 ul {
     padding: 0;
     margin: 0;
     text-align: left;
   }
+
   .cols.ms-5 li {
     padding: 8px;
     font-size: 14px;
   }
-  
+
   /* Share Button inside Courseinformation */
   .cols.ms-5 .button {
     width: 100% !important;
@@ -268,39 +236,35 @@ display: none !important;
     display: block;
   }
 
-
-    /* "Start this Course" Button Section */
-     /* Override the margin and width for the start-course button container */
+  /* Override the margin and width for the start-course button container */
   .start-course-container {
     margin-left: 0 !important;
     width: 100% !important;
     text-align: center;
   }
+
   .start-course-container.mt-5 {
     margin-top: 0 !important;
   }
 
-  /* Target the image with alt "more" and remove the left margin */
   img[alt="more"] {
     margin-left: 43% !important;
     display: block;
     margin: 0px auto;
   }
 
-
-
-/* certificate section */
+  /* certificate section */
   .container-fliud.mt-5.pt-5.pb-5 {
     padding: 20px 10px !important;
     background-color: #f7edce38 !important;
     margin: 0px !important;
   }
-  
+
   /* Remove extra side padding from inner container */
   .container.ps-0 {
     padding-left: 0 !important;
   }
-  
+
   /* Adjust background pattern image in .coursebgimage */
   .coursebgimage img {
     top: 0 !important;
@@ -309,21 +273,20 @@ display: none !important;
     width: 100% !important;
     height: auto !important;
   }
-  
+
   /* Stack the row vertically instead of side-by-side */
   .row {
     flex-direction: column;
     gap: 15px;
   }
-  
-  /* Adjust hover image (Eye Icon) container: full width and centered */
+
   .col-3.pt-4.m {
     width: 100% !important;
     margin: 0 auto !important;
     padding: 10px;
     text-align: center;
   }
-  
+
   /* Adjust the text & button column to full width and center text */
   .col-6 {
     width: 100% !important;
@@ -331,101 +294,94 @@ display: none !important;
     margin: 0 auto;
     padding: 10px;
   }
-  
-  /* Optionally, adjust heading and paragraph font sizes */
+
   .col-6 p {
     font-size: 16px !important;
     margin-top: 10px;
   }
+
   .col-6 p:first-of-type {
     font-size: 20px !important;
   }
-  
-  /* Adjust the "Claim Certificate" button container */
+
   .d-flex.mt-4.justify-content-center.align-items-center.gap-3.border.border-warning {
     width: 100% !important;
     padding: 10px;
     border-radius: 5px;
   }
+
   .d-flex.mt-4.justify-content-center.align-items-center.gap-3.border.border-warning span {
     font-size: 14px !important;
   }
+
   .d-flex.mt-4.justify-content-center.align-items-center.gap-3.border.border-warning img {
     width: 20px !important;
     height: 20px !important;
   }
 
-
- /* Force the modal content to be narrower on mobile */
- .ant-modal-content {
+  .ant-modal-content {
     width: 90% !important;
     max-width: 90% !important;
     margin: 0 auto;
     margin-top: 50px;
   }
 
-  /* Adjust modal body padding if needed */
   .ant-modal-body {
     padding: 10px !important;
   }
 
-  /* Scale down the certificate image */
   .ant-modal-body img {
     width: 100% !important;
     height: 150px !important;
     max-height: none !important;
   }
 
-
-
-    /* Certificate Section */
-    .col-3.pt-4.m {
-      width: 100%;
-      margin: 0 auto;
-      padding-left: 60px;
-    }
-    .mt-4 img[alt="more"] {
-      display: block;
-      margin: 0 auto;
-      width: 60px;
-      height: 60px;
-    }
-    
-    /* "Courses similar to this" Section */
-    
-    .row.mt-4.gap-4 {
-      flex-direction: column;
-      align-items: center;
-      margin-left: 10%;
-    }
-    .col-sm-3 {
-      width: 90% !important;
-      margin: 0 auto 20px;
-    }
-    
-    /* Modal adjustments (for antd Modal) */
-    .ant-modal {
-      width: 90% !important;
-    }
-
-    .container-fluid.pb-5 {
-        /* margin-top: 10px !important;  */
-        padding: 10px 10px !important;
-        margin-bottom: 62px;
-      }
-      
-      .container.mt-5.pt-5.pb-5 {
-        padding: 0px 0 !important  ;
-        margin: 0px !important;
-      }
-      
-      /* Section Header */
-      .container.mt-5.pt-5.pb-5 h4 {
-        font-size: 20px !important;
-        text-align: center;
-        margin-top: 40px !important;
-      }
-      
-      /* Courses Grid: Stack cards vertically */
-      
+  /* Certificate Section */
+  .col-3.pt-4.m {
+    width: 100%;
+    margin: 0 auto;
+    padding-left: 60px;
   }
+
+  .mt-4 img[alt="more"] {
+    display: block;
+    margin: 0 auto;
+    width: 60px;
+    height: 60px;
+  }
+
+  .row.mt-4.gap-4 {
+    flex-direction: column;
+    align-items: center;
+    margin-left: 10%;
+  }
+
+  .col-sm-3 {
+    width: 90% !important;
+    margin: 0 auto 20px;
+  }
+
+  .ant-modal {
+    width: 90% !important;
+  }
+
+  .container-fluid.pb-5 {
+    /* margin-top: 10px !important;  */
+    padding: 10px 10px !important;
+    margin-bottom: 62px;
+  }
+
+  .container.mt-5.pt-5.pb-5 {
+    padding: 0px 0 !important;
+    margin: 0px !important;
+  }
+
+  /* Section Header */
+  .container.mt-5.pt-5.pb-5 h4 {
+    font-size: 20px !important;
+    text-align: center;
+    margin-top: 40px !important;
+  }
+
+
+}
