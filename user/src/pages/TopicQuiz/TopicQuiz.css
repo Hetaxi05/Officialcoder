@@ -371,7 +371,6 @@ p {
   right: 0;
   bottom: 0;
   background: rgba(237, 83, 72, 0.644);
-  /* a subtle red overlay */
   border-radius: inherit;
   pointer-events: none;
 }

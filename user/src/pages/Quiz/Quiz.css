@@ -1,7 +1,6 @@
-/* Overall container to center the card and set background */
 .topicquiz-container {
   position: relative;
-  min-height: 100vh;              /* Full viewport height */
+  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -21,7 +20,6 @@
   width: 260px;
 }
 
-/* Small label for question number */
 .quiz-number-btn {
   background-color: #07a698;
   color: white;
@@ -34,7 +32,6 @@
   border-radius: 50px;
 }
 
-/* Main question text styling */
 .topicquiz-title {
   font-size: 25px;
   font-weight: bold;
@@ -51,7 +48,6 @@
   padding-bottom: 20px;
 }
 
-/* Wrap the multiple-choice options */
 .options-list {
   display: flex;
   flex-direction: column;
@@ -60,7 +56,6 @@
   padding: 10px 20px 10px 10px;
 }
 
-/* Each option item styling */
 .option-item {
   position: relative;
   display: flex;
@@ -71,7 +66,7 @@
   border-radius: 0;
   padding: 1rem;
   margin-bottom: 0.2rem;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
   cursor: pointer;
   transition: border-color 0.3s, background-color 0.3s;
 }
@@ -89,7 +84,6 @@
   background-color: #fafafa;
 }
 
-/* The round letter badge (A, B, C, D) */
 .option-letter {
   width: 28px;
   height: 28px;
@@ -121,10 +115,12 @@
   color: rgb(16, 221, 249);
   background-color: rgb(229, 251, 254);
 }
+
 .option-item[data-option="E"] .option-letter {
   color: rgb(103, 102, 102);
   background-color: rgb(243, 240, 234);
 }
+
 .option-item[data-option="F"] .option-letter {
   color: rgb(206, 113, 164);
   background-color: rgb(240, 223, 232);
@@ -146,12 +142,10 @@
   pointer-events: none;
 }
 
-/* Hide the native radio input */
 .option-item input[type="radio"] {
   display: none;
 }
 
-/* Style when an option is selected */
 .option-item.selected .option-check {
   opacity: 1;
 }
@@ -200,6 +194,7 @@ option-item.selected[data-option="E"] {
   border-color: #919082;
   /* background-color: #f2fff8; */
 }
+
 .option-item[data-option="E"].selected .option-check {
   border-color: #919082;
   color: white;
@@ -210,12 +205,14 @@ option-item.selected[data-option="E"] {
   border-color: #ce7eab;
   /* background-color: #f2fff8; */
 }
+
 .option-item[data-option="F"].selected .option-check {
   border-color: rgb(211, 134, 176);
   color: white;
   background-color: rgb(241, 191, 221);
 }
-/* Continue button styling */
+
+/*  button styling */
 .continue-btn {
   background-color: black;
   border-color: #F8C382;
@@ -282,178 +279,138 @@ option-item.selected[data-option="E"] {
   transition: width 0.3s ease;
 }
 
-/* Modal styling */
-/* 
 .custom-modal-overlay {
   position: fixed;
   top: 0;
   left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.6);
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 1000;
+  animation: fadeIn 0.3s ease-in-out;
 }
 
+/* Custom Modal Box */
 .custom-modal {
-  background: #fff;
-  padding: 2rem;
-  border-radius: 8px;
+  background: #ffffff;
+  padding: 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  max-width: 420px;
+  width: 90%;
   text-align: center;
   position: relative;
+  animation: zoomIn 0.3s ease-in-out;
 }
 
-.custom-modal .close-btn {
+/* Close Button */
+.close-btn {
   position: absolute;
-  top: 10px;
+  top: 12px;
   right: 15px;
-  font-size: 1.5rem;
+  font-size: 24px;
+  color: #777;
   cursor: pointer;
+  transition: 0.3s;
 }
 
-.custom-modal .modal-icon {
+.close-btn:hover {
+  color: #000;
+}
+
+/* Modal Icon */
+.modal-icon {
   font-size: 3rem;
   margin-bottom: 1rem;
+  color: #ff9800;
 }
 
-.custom-modal .custom-modal-button {
-  background-color: #07a698;
+/* Modal Heading */
+.custom-modal h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.8rem;
+  color: #333;
+}
+
+/* Modal Text */
+.custom-modal p {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 1.5rem;
+}
+
+/* Modal Button */
+.custom-modal-button {
+  padding: 0.7rem 1.5rem;
+  background: linear-gradient(45deg, #ff416c, #ff4b2b);
   border: none;
+  border-radius: 8px;
   color: white;
-  padding: 0.5rem 1rem;
-  margin-top: 1rem;
-  border-radius: 4px;
+  font-size: 1rem;
   cursor: pointer;
-} */
-  /* Custom Modal Overlay */
-  .custom-modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5); /* Blurred background */
-    backdrop-filter: blur(5px);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-    animation: fadeIn 0.3s ease-in-out;
-  }
-  
-  /* Custom Modal Box */
-  .custom-modal {
-    background: #ffffff;
-    padding: 2.5rem;
-    border-radius: 12px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-    max-width: 420px;
-    width: 90%;
-    text-align: center;
-    position: relative;
-    animation: zoomIn 0.3s ease-in-out;
-  }
-  
-  /* Close Button */
-  .close-btn {
-    position: absolute;
-    top: 12px;
-    right: 15px;
-    font-size: 24px;
-    color: #777;
-    cursor: pointer;
-    transition: 0.3s;
-  }
-  
-  .close-btn:hover {
-    color: #000;
-  }
-  
-  /* Modal Icon */
-  .modal-icon {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-    color: #ff9800;
-  }
-  
-  /* Modal Heading */
-  .custom-modal h3 {
-    font-size: 1.5rem;
-    margin-bottom: 0.8rem;
-    color: #333;
-  }
-  
-  /* Modal Text */
-  .custom-modal p {
-    font-size: 1rem;
-    color: #666;
-    margin-bottom: 1.5rem;
-  }
-  
-  /* Modal Button */
-  .custom-modal-button {
-    padding: 0.7rem 1.5rem;
-    background: linear-gradient(45deg, #ff416c, #ff4b2b);
-    border: none;
-    border-radius: 8px;
-    color: white;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: 0.3s;
-  }
-  
-  .custom-modal-button:hover {
-    background: linear-gradient(45deg, #ff4b2b, #ff416c);
-    transform: scale(1.05);
-  }
-  
-  /* Animations */
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-  
-  @keyframes zoomIn {
-    from {
-      transform: scale(0.8);
-      opacity: 0;
-    }
-    to {
-      transform: scale(1);
-      opacity: 1;
-    }
+  transition: 0.3s;
+}
+
+.custom-modal-button:hover {
+  background: linear-gradient(45deg, #ff4b2b, #ff416c);
+  transform: scale(1.05);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
   }
 
-  @media (max-width: 767px) { 
-    .text-dark-container::before {
-        display: none !important;  /* ✅ Hides only on mobile */
-    }
-    .topicquiz-container::before {
-      display: none !important;
-    }
-    .topicquiz-container {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background-image: url(http://localhost:3000/static/media/bg.717faa5….jpg);
-      background-repeat: no-repeat;
-      padding: 0.5rem !important;
-      padding-bottom: 87px !important;
-    }
-    .options-list {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes zoomIn {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 767px) {
+  .text-dark-container::before {
+    display: none !important;
+  }
+
+  .topicquiz-container::before {
+    display: none !important;
+  }
+
+  .topicquiz-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url(http://localhost:3000/static/media/bg.717faa5….jpg);
+    background-repeat: no-repeat;
+    padding: 0.5rem !important;
+    padding-bottom: 87px !important;
+  }
+
+  .options-list {
     padding: 0 !important;
     ;
-    }
-    .continue-btn {
-    
-      width: 124% !important;
+  }
 
-    }
+  .continue-btn {
+
+    width: 124% !important;
+
+  }
 }

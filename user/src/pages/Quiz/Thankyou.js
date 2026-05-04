@@ -1,18 +1,15 @@
 import React from "react";
 import { useNavigate, useLocation, useParams } from "react-router-dom";
-import "./Quiz.css"; // Reuse your Quiz styles for consistency
+import "./Quiz.css"; 
 import "./Thankyou.css";
 
 function ThankYou() {
     const { courseId } = useParams();
     const navigate = useNavigate();
     const location = useLocation();
-
-    // Retrieve score and total from the navigation state
     const { score, total } = location.state || { score: 0, total: 0 };
 
     const handleViewResults = () => {
-        // Forward the state to the Result page
         navigate(`/quiz-result/${courseId}`, { state: { score, total } });
     };
 
