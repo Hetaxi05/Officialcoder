@@ -9,19 +9,14 @@ import { IoPlayCircleOutline } from "react-icons/io5";
 import ExperienceSection from "../AboutUs/ExperienceSection.js";
 import { useNavigate } from "react-router-dom";
 
-
-
 function Home() {
-    const navigate=useNavigate()
+    const navigate = useNavigate()
     const handleGetStarted = () => {
-        navigate("/mobilecourse"); // Aa route ne tamara project pramane update karo
-      };
+        navigate("/mobilecourse");
+    };
 
     return (
         <>
-
-
-
             <section className="hero-section container-fluid">
                 <div className="row align-items-center">
 
@@ -62,18 +57,13 @@ function Home() {
                             >
                                 Get Started
                             </motion.button>
-                            <motion.button className="btn watchvideo" whileHover={{ scale: 1.1 }} 
-                                                            onClick={handleGetStarted}
->
+                            <motion.button className="btn watchvideo" whileHover={{ scale: 1.1 }}
+                                onClick={handleGetStarted}
+                            >
                                 <IoPlayCircleOutline size={30} /> Watch the Content
                             </motion.button>
 
                         </div>
-                        {/* <div className="enrollment-info mt-4">
-                            <img src="users-icon.png" alt="Users" />
-
-                            <span>10k Enrolment</span>
-                        </div> */}
                         <p className="mt-5 explore">Explore <span style={{ color: "#07a698" }}>850+</span> Courses within Subject</p>
 
 
@@ -87,8 +77,6 @@ function Home() {
                             transition={{
                                 duration: 5,
                                 repeat: Infinity,
-                                //   repeatType: "mirror",
-                                //   ease: "easeInOut",
                             }}
                         >
                             <img src="./assets/image/hero-shape-2.png" alt="hero-shape-1" height="75px" ></img>
@@ -104,8 +92,6 @@ function Home() {
                             transition={{
                                 duration: 5,
                                 repeat: Infinity,
-                                //   repeatType: "mirror",
-                                //   ease: "easeInOut",
                             }}
                         >
                             <img src="./assets/image/hero-shape-1.png" alt="hero-shape-1" height="200px" width="220px"></img>
@@ -115,7 +101,7 @@ function Home() {
                     </div>
 
                     <div className="col-lg-5 image-section">
-                  
+
                         <motion.img
                             src="./assets/image/heroimg1.png"
                             alt="Student"
@@ -124,7 +110,7 @@ function Home() {
                             animate={{ opacity: 1, scale: 1 }}
                             transition={{ duration: 1 }}
                         />
-                        
+
                         <motion.div
                             className="course-badge"
                             initial={{ opacity: 0, x: 50 }}
@@ -135,22 +121,16 @@ function Home() {
                             transition={{
                                 duration: 5,
                                 repeat: Infinity,
-                                //   repeatType: "mirror",
-                                //   ease: "easeInOut",
                             }}
                         >
                             <strong style={{ color: "#07a698", fontSize: "30px", fontWeight: "700" }}>256+</strong><br /> CRASHED COURSES
                         </motion.div>
-                        {/* <div className="shapes3">
-                            <img src="./assets/image/hero-shape-3.png" alt="shape-3" width="680px"></img>
-
-                        </div> */}
                     </div>
 
                 </div>
             </section>
 
-            <ExperienceSection/>
+            <ExperienceSection />
             <Courses />
             <Coursecard />
             <Programize />

@@ -5,7 +5,6 @@ import { useState } from "react";
 import './pricing.css';
 import FAQ from "../FAQ/FAQ";
 import axios from 'axios';
-// import { FaShippingFast } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 
 function Pricing() {
@@ -25,13 +24,13 @@ function Pricing() {
         }
 
         const requestData = {
-            userId: user._id, //Include userId
+            userId: user._id,
             item_name: planName,
             price: price,
             duration: duration,
             currency: "USD"
         };
-        setLoading(true); // Show loader
+        setLoading(true);
 
 
         console.log("Sending request data:", requestData);
@@ -44,7 +43,7 @@ function Pricing() {
                 let link = res.data.links.find(link => link.rel === "approval_url").href;
                 //Append userId to the PayPal URL
                 let paymentURL = `${link}&userId=${user._id}`;
-                window.open(paymentURL, '_blank'); // Opens in a new tab
+                window.open(paymentURL, '_blank');
             }
         } catch (error) {
             console.log(error)
@@ -71,29 +70,21 @@ function Pricing() {
                                 </div>
                                 <div className="ms-5 ps-5">
                                     <p style={{ fontSize: "34px", color: "rgb(34, 34, 84)", fontWeight: "700", justifyContent: "center", display: "flex" }}>Choose the best plan for you.</p>
-                                 {/* <p className="pt-2 " style={{ fontSize: "19px", color: "rgba(25, 25, 53, 0.67)", fontWeight: "500", justifyContent: "center", display: "flex" }}>Price discounted based on your region<img className="ms-2" src="./assets/image/india.svg" alt="india flag" width="20px" height="60px"></img></p>  */}
-
                                 </div>
                                 {/* <div className="col-1" style={{width:"8px"}}></div> */}
                                 <div className="col-1" ></div>
 
                                 <div className="col border border-1 shadow pt-4 p-3" style={{ borderRadius: "2%", backgroundColor: "white", position: "relative" }}>
                                     <p style={{ color: "rgb(34, 34, 84)", fontSize: "24px", fontWeight: "700" }}>Half-yearly</p>
-                                    <p   style={{ color: "rgba(37, 38, 94, .67)", fontsize: "16px", fontWeight: "500", lineheight: "24px" }}>Best for learning a specific course or skill</p>
+                                    <p style={{ color: "rgba(37, 38, 94, .67)", fontsize: "16px", fontWeight: "500", lineheight: "24px" }}>Best for learning a specific course or skill</p>
                                     <div className="line " style={{ height: "0.3px", width: "250px", backgroundColor: "rgba(37, 38, 94, .67)" }}>
                                     </div>
 
-                                    
-                                    <h1  className=" "style={{ color: "rgb(34, 34, 84)", fontSize: "30px", fontWeight: "700" }}>$49<span className="ps-2" style={{ fontSize: "17px", color: "rgba(31, 32, 75, 0.67)", fontWeight: "500" }}>for 6 months</span></h1>
 
-                                    {/* <span className="mt-4 pt-2 pb-2 border border-1 " onClick={HandleSubmit}
-                                style={{ cursor: "pointer",fontWeight: "500", borderRadius: "3.5%", justifyContent: "center", display: "flex" }} >
-                                    Get Harf-Yearly</span> */}
+                                    <h1 className=" " style={{ color: "rgb(34, 34, 84)", fontSize: "30px", fontWeight: "700" }}>$49<span className="ps-2" style={{ fontSize: "17px", color: "rgba(31, 32, 75, 0.67)", fontWeight: "500" }}>for 6 months</span></h1>
 
                                     <span
                                         className="mt-4 pt-2 pb-2 border border-1"
-
-                                        // onClick={HandleSubmit}
                                         onClick={() => HandleSubmit("Half-Yearly", 49, "6 months")}
 
                                         onMouseOver={(e) => e.target.style.color = "blue"}
@@ -119,7 +110,6 @@ function Pricing() {
                                         <li> <GoCheck style={{ color: "green", height: "20px", width: "30px" }} />  Professional certifications</li>
                                         <li>  <GoCheck style={{ color: "green", height: "20px", width: "30px" }} /> Unlimited coding playground </li>
                                     </ul>
-                                    {/* <p style={{ color: "rgba(37, 38, 94, .67)", fontSize: "14px", justifyContent: "center", display: "flex" }}>14 day money back guarantee</p> */}
                                 </div>
 
 
@@ -130,8 +120,6 @@ function Pricing() {
                                     <div className="line" style={{ height: "0.3px", width: "250px", backgroundColor: "rgba(37, 38, 94, .67)" }}>
                                     </div>
                                     <h1 style={{ color: "rgb(34, 34, 84)", fontSize: "30px", fontWeight: "700" }}>$99<span className="ps-2" style={{ fontSize: "17px", color: "rgba(31, 32, 75, 0.67)", fontWeight: "500" }}>for 1 year</span></h1>
-
-                                    {/* <p className=" mt-4 pt-2 pb-2 border border-1 " style={{ fontWeight: "500", borderRadius: "3.5%", justifyContent: "center", display: "flex", background: "linear-gradient(90deg, #ec008c, #fc6767)", color: "white" }} >Get Annual</p> */}
                                     <span
                                         className="mt-4 pt-2 pb-2 border border-1"
                                         onClick={() => HandleSubmit("Annual", 99, "1 year")}
@@ -155,7 +143,6 @@ function Pricing() {
                                         <li> <GoCheck style={{ color: "green", height: "20px", width: "30px" }} />  Professional certifications</li>
                                         <li>  <GoCheck style={{ color: "green", height: "20px", width: "30px" }} /> Unlimited coding playground </li>
                                     </ul>
-                                    {/* <p style={{ color: "rgba(37, 38, 94, .67)", fontSize: "14px", justifyContent: "center", display: "flex" }}>14 day money back guarantee</p> */}
                                 </div>
 
                                 <div className="col border border-1 shadow pt-4 p-3" style={{ borderRadius: "2%", backgroundColor: "white", position: "relative" }}>
@@ -186,7 +173,6 @@ function Pricing() {
                                         <li> <GoCheck style={{ color: "green", height: "20px", width: "30px" }} />Lifetime access</li>
                                         <li> <GoCheck style={{ color: "green", height: "20px", width: "30px" }} />   No recurring payments</li>
                                     </ul>
-                                    {/* <p className="pb-0" style={{ color: "rgba(37, 38, 94, .67)", fontSize: "14px", justifyContent: "center", display: "flex", paddingTop: "137px" }}>14 day money back guarantee</p> */}
                                 </div>
                             </div>
                         </div>

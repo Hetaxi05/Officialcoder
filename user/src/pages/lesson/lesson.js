@@ -39,8 +39,6 @@ const LessonCompleted = () => {
                     {/* </div> */}
                 </div>
 
-                {/* Vertical Line */}
-                {/* <div className="border-end" style={{ height: "285px", width: "2px", backgroundColor: "#e0e0e0", margin: "auto 25px" }}></div> */}
                 <div
                     className="border-end position-absolute"
                     style={{
@@ -58,10 +56,6 @@ const LessonCompleted = () => {
                     <div className="border rounded-3 p-4  shadow-sm text-center " >
                     <img src="/assets/lesson/nextlesson.jpeg" alt="next"  style={{ height: "90px", width: "90px", position: "absolute", top: "170px",right:"370px" }}></img>
 
-                        {/* <h4 className="fw-bold pt-5"  style={{textAlign:"left"}}>
-                            <span className="text-danger">sens</span>
-                            <span className="text-dark">AI</span> Feedback
-                        </h4> */}
                         <p className="text-muted pt-5 "  style={{textAlign:"left"}}>
                             Get <span className="fw-bold">personalized</span> lesson feedback—catered to complement your learning.
                         </p>

@@ -12,12 +12,9 @@ function FetchCoursecard() {
 
     useEffect(() => {
         getAllCourse();
-    }, [categoryId]); // Re-run the fetch whenever categoryId changes
+    }, [categoryId]);
 
     function getAllCourse() {
-        // Fetch courses for the selected category.
-        // Ensure your API is set to filter courses by the provided categoryId.
-        // fetch(`http://localhost:3000/cour/${categoryId}`)
         fetch(`${process.env.REACT_APP_API_URL}/cour/category/${categoryId}`)
             .then((response) => response.json())
             .then((data) => {
@@ -83,19 +80,6 @@ function FetchCoursecard() {
                                             </p>
                                         </div>
 
-
-
-{/* 
-                                        <div className="course-meta1 ">
-                                            <p className=""><img src="/assets/image/category-1.png" alt="courses categori" width="30px" height="30px" style={{ backgroundColor: "#f0f0f0", padding: "5px", borderRadius: "90%" }}></img>
-                                            </p>
-                                            <p className="Instructor ">CourseCode:<span style={{ color: "black" }}>{item.coursecode} </span></p>
-                                            <p className="course-rating align-items-center pt-0 ">
-                                                <p className="Instructor pt-3 ">  Duration: <span style={{ color: "black" }}>{item.duration}</span></p>
-
-                                            </p>
-                                        </div> */}
-
                                         <div className="course-meta1  pt-3 mb-3 ">
                                             <p className="coursesimg  mb-0"><img src="/assets/image/category-1.png" alt="courses categori" width="30px" height="30px" style={{ backgroundColor: "#f0f0f0", padding: "5px", borderRadius: "90%", marginBottom: "none" }}></img>
                                             </p>
@@ -105,8 +89,6 @@ function FetchCoursecard() {
 
                                             </p>
                                         </div>
-
-
 
                                         <hr className="my-1 pt-4" />
                                         <div className="d-flex justify-content-end">

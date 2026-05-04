@@ -18,8 +18,8 @@
 .mobile-nav a {
   text-decoration: none;
   /* color: rgb(8, 168, 138); */
-    /* color: rgb(156, 204, 195);   */
-  color: rgb(57, 61, 60);  /* ✅ Icon color updated */
+  /* color: rgb(156, 204, 195);   */
+  color: rgb(57, 61, 60);
 
   font-size: 14px;
   font-weight: 500;
@@ -35,21 +35,21 @@
   font-size: 22px;
   margin-bottom: 5px;
   /* color: rgb(156, 204, 195);   */
-  color: rgb(95, 103, 102);  /* ✅ Icon color updated */
+  color: rgb(95, 103, 102);
 
   transition: transform 0.3s ease-in-out, color 0.3s ease;
 }
 
 /* Hover & Active Effects */
-.mobile-nav a:hover, 
+.mobile-nav a:hover,
 .mobile-nav a.active {
   color: rgb(6, 135, 110);
-  
+
   transform: scale(1.05);
 
 }
 
-.mobile-nav a:hover svg, 
+.mobile-nav a:hover svg,
 .mobile-nav a.active svg {
   transform: scale(1.15);
   color: rgb(6, 135, 110);
@@ -64,16 +64,20 @@
   0% {
     transform: scale(1);
   }
+
   50% {
     transform: scale(0.99);
   }
+
   100% {
     transform: scale(1);
   }
 }
+
 /* Responsive Design */
 @media (min-width: 768px) {
   .mobile-nav {
-    display: none; /* Hide on larger screens */
+    display: none;
+    /* Hide on larger screens */
   }
 }

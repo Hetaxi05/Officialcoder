@@ -1,17 +1,17 @@
 import React from "react";
 import { IoMdArrowRoundForward } from "react-icons/io";
 import { BsTerminal } from "react-icons/bs";
-import "./compiler.css"; // Ensure CSS is imported
+import "./compiler.css";
 import { Link } from "react-router-dom";
 
 
 function Programize() {
-    const numDots = 9; // Number of dots
+    const numDots = 9;
     const compilers = [
         { name: "Python", link: "/language-compiler" },
         { name: "Java", link: "/java-compiler" },
         { name: "PHP", link: "/php-compiler" },
-        
+
         { name: "R", link: "/r-compiler" },
         { name: "SQL", link: "/sql-compiler" },
         { name: "HTML/CSS", link: "/html-css-compiler" },
@@ -22,7 +22,7 @@ function Programize() {
         { name: "GO", link: "/go-compiler" },
         { name: "Swift", link: "/swift-compiler" },
         { name: "Rust", link: "/rust-compiler" }
-      ];
+    ];
     return (
         <div className="programize-container container position-relative">
             {/* Background Dots */}
@@ -59,29 +59,17 @@ function Programize() {
                 We believe coding should be accessible to all, so we made our own compilers for web and mobile—and they're free!
             </p>
 
-            {/* <div className="col d-flex flex-wrap gap-4 justify-content-center p-4 mb-4">
-                {["Python", "R", "SQL", "HTML/CSS", "JavaScript", "Java", "C", "C++", "C#", "GO", "PHP", "Swift", "Rust"].map((lang, index) => (
-                    <Link to="/language-compiler" key={index} className="button-customm" >
+            <div className="col d-flex flex-wrap gap-4 justify-content-center p-4 mb-4">
+                {compilers.map((compiler, index) => (
+                    <Link to={compiler.link} key={index} className="button-customm">
                         <div className="d-flex justify-content-between align-items-center">
-                            <div >{lang} Compiler</div>
+                            <div>{compiler.name} Compiler</div>
                             <IoMdArrowRoundForward />
                         </div>
                     </Link>
                 ))}
-            </div> */}
-
-            
-            <div className="col d-flex flex-wrap gap-4 justify-content-center p-4 mb-4">
-        {compilers.map((compiler, index) => (
-          <Link to={compiler.link} key={index} className="button-customm">
-            <div className="d-flex justify-content-between align-items-center">
-              <div>{compiler.name} Compiler</div>
-              <IoMdArrowRoundForward />
             </div>
-          </Link>
-        ))}
-      </div>
-      
+
         </div>
     );
 }

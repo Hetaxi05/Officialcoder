@@ -1,133 +1,123 @@
-.pricing-ul li{
-    padding: 5px;
-    font-size: "2px";
+.pricing-ul li {
+  padding: 5px;
+  font-size: "2px";
 }
 
 .pricingbgimage img {
-    max-width: 100%;
-    height: auto;
-    vertical-align: top;
-    transition: .2sease-in-out;
-    border-style: none;
-    position: absolute;
-    top: 250px;
-    left: 50%;
-    transform: translateX(-50%);
-    pointer-events: none;
-    }
-    
-    
+  max-width: 100%;
+  height: auto;
+  vertical-align: top;
+  transition: .2sease-in-out;
+  border-style: none;
+  position: absolute;
+  top: 250px;
+  left: 50%;
+  transform: translateX(-50%);
+  pointer-events: none;
+}
 
 
-    @media (max-width: 768px) {
-        /* General container adjustments for Pricing page */
-        .pricing-page .container-fluid,
-        .pricing-page .container {
-          padding-left: 10px !important;
-          padding-right: 10px !important;
-          margin: 0 auto !important;
-        }
-        
-        /* Pricing Top Section: Override spacing for .ms-5.ps-5 and hide its images */
-        .pricing-page .ms-5.ps-5,
-        .pricing-page .pricingtext {
-          margin: 0 auto !important;
-          padding: 0 !important;
-          text-align: center;
-        }
-        .pricing-page .ms-5.ps-5 img,
-        .pricing-page .pricingtext img {
-          display: none !important;
-        }
-        
-        /* Pricing Background Image: reposition & scale */
-        .pricing-page .pricingbgimage img {
-          width: 100% !important;
-          height: auto !important;
-          top: 100px !important;  /* Adjust vertical position as needed */
-          left: 50% !important;
-          transform: translateX(-50%) !important;
-        }
-        
-        /* Top Row: Stack content vertically */
-        .pricing-page .row.pb-5.m-3.gap-5 {
-          flex-direction: column !important;
-          align-items: center !important;
-          gap: 20px !important;
-          margin: 0 !important;
-        }
-        
-        /* Pricing Cards: Full width & centered */
-        .pricing-page .col.border.border-1.shadow.pt-4.p-3,
-        .pricing-page .col.border-danger.shadow.pt-4.p-3 {
-          width: 100% !important;
-          margin: 10px auto !important;
-          padding: 15px !important;
-          text-align: center !important;
-        }
-        
-        /* Text in Pricing Cards: Adjust font sizes */
-        .pricing-page .col.border.border-1.shadow.pt-4.p-3 h1,
-        .pricing-page .col.border-danger.shadow.pt-4.p-3 h1,
-        .pricing-page .col.border.border-1.shadow.pt-4.p-3 h5,
-        .pricing-page .col.border.border-1.shadow.pt-4.p-3 p {
-          text-align: center !important;
-          font-size: 16px !important;
-        }
-        
-        /* Pricing Button Styling within boxes */
-        .pricing-page .col span.mt-4.pt-2.pb-2.border.border-1 {
-          width: 100% !important;
-          margin-top: 10px !important;
-          padding: 8px 0 !important;
-          text-align: center !important;
-          font-size: 14px !important;
-        }
-        
-        /* Pricing UL list items */
-        .pricing-page .pricing-ul li {
-          font-size: 14px !important;
-          padding: 5px 0 !important;
-          text-align: left !important;
-        }
-        
-        /* Adjust bottom spacing on Lifetime box text */
-        .pricing-page .col p.pb-0 {
-          padding-top: 50px !important;
-        }
-        
-        /* "Courses similar to this" Section */
-        .pricing-page .container-fluid.pb-5 {
-          margin-top: 40px !important;
-        }
-        .pricing-page .container.mt-5.pt-5.pb-5 h4 {
-          font-size: 20px !important;
-          text-align: center;
-          margin-top: 20px !important;
-        }
-        .pricing-page .row.mt-4.gap-4 {
-          flex-direction: column !important;
-          align-items: center !important;
-          gap: 20px !important;
-        }
-        .pricing-page .col-sm-3 {
-          width: 90% !important;
-          margin: 0 auto 20px !important;
-        }
-        
-        /* Line element override */
-        .pricing-page .line {
-          width: 100% !important;
-          max-width: 300px;
-          margin: 0 auto !important;
-          height: 0.3px;
-          background-color: rgba(37, 38, 94, 0.67) !important;
-        }
-        
-        /* Modal adjustments (if using antd or Bootstrap Modal) */
-        .pricing-page .ant-modal,
-        .pricing-page .modal {
-          width: 90% !important;
-        }
-      }
-      
+@media (max-width: 768px) {
+
+  .pricing-page .container-fluid,
+  .pricing-page .container {
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+    margin: 0 auto !important;
+  }
+
+  .pricing-page .ms-5.ps-5,
+  .pricing-page .pricingtext {
+    margin: 0 auto !important;
+    padding: 0 !important;
+    text-align: center;
+  }
+
+  .pricing-page .ms-5.ps-5 img,
+  .pricing-page .pricingtext img {
+    display: none !important;
+  }
+
+  .pricing-page .pricingbgimage img {
+    width: 100% !important;
+    height: auto !important;
+    top: 100px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+  }
+
+  .pricing-page .row.pb-5.m-3.gap-5 {
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 20px !important;
+    margin: 0 !important;
+  }
+
+  .pricing-page .col.border.border-1.shadow.pt-4.p-3,
+  .pricing-page .col.border-danger.shadow.pt-4.p-3 {
+    width: 100% !important;
+    margin: 10px auto !important;
+    padding: 15px !important;
+    text-align: center !important;
+  }
+
+  .pricing-page .col.border.border-1.shadow.pt-4.p-3 h1,
+  .pricing-page .col.border-danger.shadow.pt-4.p-3 h1,
+  .pricing-page .col.border.border-1.shadow.pt-4.p-3 h5,
+  .pricing-page .col.border.border-1.shadow.pt-4.p-3 p {
+    text-align: center !important;
+    font-size: 16px !important;
+  }
+
+  .pricing-page .col span.mt-4.pt-2.pb-2.border.border-1 {
+    width: 100% !important;
+    margin-top: 10px !important;
+    padding: 8px 0 !important;
+    text-align: center !important;
+    font-size: 14px !important;
+  }
+
+  .pricing-page .pricing-ul li {
+    font-size: 14px !important;
+    padding: 5px 0 !important;
+    text-align: left !important;
+  }
+
+  .pricing-page .col p.pb-0 {
+    padding-top: 50px !important;
+  }
+
+  .pricing-page .container-fluid.pb-5 {
+    margin-top: 40px !important;
+  }
+
+  .pricing-page .container.mt-5.pt-5.pb-5 h4 {
+    font-size: 20px !important;
+    text-align: center;
+    margin-top: 20px !important;
+  }
+
+  .pricing-page .row.mt-4.gap-4 {
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 20px !important;
+  }
+
+  .pricing-page .col-sm-3 {
+    width: 90% !important;
+    margin: 0 auto 20px !important;
+  }
+
+  .pricing-page .line {
+    width: 100% !important;
+    max-width: 300px;
+    margin: 0 auto !important;
+    height: 0.3px;
+    background-color: rgba(37, 38, 94, 0.67) !important;
+  }
+
+  .pricing-page .ant-modal,
+  .pricing-page .modal {
+    width: 90% !important;
+  }
+}

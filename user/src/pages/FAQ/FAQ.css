@@ -70,22 +70,22 @@
     transition: transform 0.2s ease-in-out;
   }
   
-  /* FAQ Answer (HIDDEN BY DEFAULT) */
+  /* FAQ Answer */
   .faq-answer {
     max-height: 0;
     overflow: hidden;
     font-size: 16px;
     font-weight: 400;
     color: #555;
-    background: white; /* No border */
-    padding: 0 25px; /* Keep padding 0 initially */
+    background: white;
+    padding: 0 25px;
     transition: max-height 0.2s ease-out, padding 0.2s ease-out;
   }
   
   /* When Answer is Open */
   .faq-answer.open {
     max-height: 150px;
-    padding: 15px 25px; /* Add padding only when open */
+    padding: 15px 25px;
   }
   
   /* Rotate icon when expanded */
@@ -95,17 +95,7 @@
   }
   
   /* Responsive Design */
-  @media (max-width: 768px) {
-    /* .faq-title {
-      font-size: 22px;
-    } */
-  
-
-    /* .faq-question {
-      font-size: 16px;
-      padding: 15px 12px !important;
-    } */
-  
+  @media (max-width: 768px) {  
     .faq-answer {
       font-size: 14px;
       padding: 10px 20px;
@@ -113,8 +103,8 @@
   }
 
 
-  /*       Mobile Responsive       */
-/* ============================= */
+  /* Mobile Responsive */
+
 @media (max-width: 768px) {
   /* Adjust FAQ Title */
   .faq-title {
@@ -128,16 +118,16 @@
     padding: 15px 12px !important;
   }
   .faq-question {
-    display: flex;       /* use flex layout */
-    flex-wrap: wrap;     /* allow wrapping onto new lines */
-    white-space: normal; /* ensures text can wrap */
-    align-items: center; /* vertically center items */
-    justify-content: flex-start; /* text stays on the left */
+    display: flex;      
+    flex-wrap: wrap;    
+    white-space: normal; 
+    align-items: center; 
+    justify-content: flex-start;
   }
   
   .faq-question .faq-icon {
-    flex: 0 0 auto;      /* icon does not grow or shrink */
-    margin-left: auto;   /* push icon to the far right */
+    flex: 0 0 auto;     
+    margin-left: auto;  
     font-size: 20px;
     font-weight: 700;
   }

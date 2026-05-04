@@ -1,11 +1,10 @@
-/* Container takes full viewport height for vertical centering */
+
 .payment-success {
     width: 100%;
     height: 100vh;
     /* background: #f9fafb; Light background */
   }
   
-  /* The card-like box in the center */
   .payment-box {
     background: #fff;
     padding: 2rem;
@@ -27,6 +26,7 @@
     align-items: center;
     justify-content: center;
   }
+
    /* Circle for the checkmark or icon */
    .falsemark-circle {
     width: 100px;
@@ -40,15 +40,6 @@
     justify-content: center;
   }
 
-  
-
-  /* If using React Icons, you can style the icon:
-  .check-icon {
-    color: #28a745;
-    font-size: 3rem;
-  }
-  */
-  
   /* Keyframe for fade-in-up effect */
   @keyframes fadeInUp {
     0% {

@@ -1,22 +1,20 @@
-import React,{useEffect,useState} from "react";
+import React, { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./PaymentSuccess.css"; // We'll create this next
+import "./PaymentSuccess.css";
 import { FaCheckCircle } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 
 const PaymentSuccess = () => {
-  const navigate=useNavigate();
-  const [isUpdated, setIsUpdated] = useState(false); // Track update status
+  const navigate = useNavigate();
+  const [isUpdated, setIsUpdated] = useState(false);
 
   const handleBackToWebsite = () => {
-    navigate("/")
-    // window.location.href = "/";
+    navigate("/");
   };
 
   useEffect(() => {
-    // Function to update user payment status in the database
     const handlePaymentSuccess = async () => {
-      if (isUpdated) return; // Prevent multiple API calls
+      if (isUpdated) return;
 
       const user = JSON.parse(localStorage.getItem("user"));
       if (!user || !user._id) {
@@ -45,13 +43,13 @@ const PaymentSuccess = () => {
       }
     };
 
-    handlePaymentSuccess(); // Call function on page load
+    handlePaymentSuccess();
   }, [isUpdated]);
-  
+
   return (
     <div className="payment-success d-flex align-items-center justify-content-center">
       <div className="payment-box text-center ">
-      
+
         <div className="checkmark-circle">
           <FaCheckCircle className="check-icon" />
 

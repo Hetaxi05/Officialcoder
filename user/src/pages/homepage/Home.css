@@ -3,7 +3,6 @@
     padding-right: 5%;
     padding-left: 9%;
     padding-bottom: 6%;
-
     background-color: #eff2f9;
     position: relative;
 }
@@ -12,10 +11,6 @@
     background: #f8f9fa !important;
     border: 1px solid #ddd !important;
     border-radius: 70px !important;
-    /* padding: 7.5px 30px 7.5px 5px !important; */
-    /* margin: 8px !important; */
-    /* display: flex !important; */
-    /* align-items: center !important; */
     transition: 0.3s ease-in-out !important;
     font-size: 15px !important;
     font-weight: 400 !important;
@@ -67,13 +62,6 @@ h1 span {
     /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
 }
 
-/* .enrollment-info {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-weight: bold;
-    animation: fadeInUp 1s ease-in-out;
-  } */
 .explore {
     font-size: 22px;
     font-weight: 700;
@@ -111,21 +99,15 @@ h1 span {
     position: absolute;
     top: 190px;
     right: 10px;
-
-
 }
 
 
 .shapes3 {
     position: absolute;
-    /* background-image: url("/public/assets/image/hero-shape-3.png"); */
     top: 242px;
     right: 10px;
     z-index: 20;
-    /* Ensure it's above other elements */
     pointer-events: none;
-    /* Prevent interaction if necessary */
-
 }
 
 
@@ -176,37 +158,35 @@ h1 span {
     }
 }
 
-
-
-
-
 /* Mobile Responsive Styles */
 @media (max-width: 768px) {
     .hero-section {
         padding: 20px 5% 4% 5%;
     }
-    
+
     h1 {
         font-size: 1.8rem;
     }
-    
+
     h1 span {
         font-size: 1.5rem;
     }
-    
+
     .badge-text {
         font-size: 13px !important;
         padding: 3px 10px;
     }
-    
+
     .explore {
         font-size: 18px;
     }
-    .mb-4[style]{
+
+    .mb-4[style] {
         width: 100% !important;
-        font-size:17px !important;
+        font-size: 17px !important;
     }
-    .homebtn .btn{
+
+    .homebtn .btn {
         font-size: 16px;
         padding: 10px 20px;
         margin-right: -11px;
@@ -214,23 +194,24 @@ h1 span {
         width: auto;
         height: 40px;
         padding-left: 10px;
-        padding-right:20px ;
+        padding-right: 20px;
     }
-    .watchvideo{
+
+    .watchvideo {
         display: none !important;
     }
-    
-    
+
+
     .play-btn {
         font-size: 15px;
     }
-    
+
     .hero-image {
         max-width: 100%;
         height: auto;
         border-radius: 30px;
     }
-    
+
     .course-badge {
         position: absolute;
         top: 530px;
@@ -241,21 +222,21 @@ h1 span {
         font-size: 14px;
         padding: 8px 15px;
     }
-    .shapes2{
+
+    .shapes2 {
         position: absolute;
-        top:530px;
+        top: 530px;
         left: 70%;
 
     }
-    .shapes2 img{
+
+    .shapes2 img {
         /* position: absolute; */
-       height: 100px;
-       width: 108px;
+        height: 100px;
+        width: 108px;
 
     }
-    
-    
-    /* Hide decorative shapes on mobile if they interfere with layout */
+
     .shapes1,
     .shapes3 {
         display: none;
