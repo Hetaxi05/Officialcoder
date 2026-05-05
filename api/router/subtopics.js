@@ -1,9 +1,7 @@
-
-const subTopic=require('../model/subtopic')
+const subTopic = require('../model/subtopic')
 const express = require("express");
 const mongoose = require("mongoose");
 const RouterSubtopic = express.Router();
-
 
 RouterSubtopic.get('/', (req, res) => {
     subTopic.find()
@@ -27,7 +25,7 @@ RouterSubtopic.get('/:id', (req, res) => {
 RouterSubtopic.post('/', (req, res) => {
     // console.log(req.body)
     const subtopic = new subTopic({
-        subtopictitle:req.body['subtopictitle'],
+        subtopictitle: req.body['subtopictitle'],
         topicid: req.body['topicid'],
         content: req.body['content']
     })
@@ -51,7 +49,7 @@ RouterSubtopic.delete('/:id', (req, res) => {
             res.send(err);
         })
 })
- 
+
 RouterSubtopic.put('/:id', (req, res) => {
 
     subTopic.updateOne(
@@ -59,33 +57,18 @@ RouterSubtopic.put('/:id', (req, res) => {
             _id: req.params['id']
         },
         {
-            $set:req.body
+            $set: req.body
         }
     )
-    .then(()=>{
-        res.send("update data")
-    })
-    .catch((err)=>{
-        res.send(err)
-    })
+        .then(() => {
+            res.send("update data")
+        })
+        .catch((err) => {
+            res.send(err)
+        })
     console.log(req.body);
 
 
 })
-// subtopicRouter.put('/:id', (req, res) => {
-//     console.log("Received ID:", req.params.id);
-//     console.log("Received Data:", req.body); // Debugging request body
-
-//     subTopic.updateOne(
-//         { _id: req.params.id },
-//         { $set: req.body }
-//     )
-//         .then(() => {
-//             res.send("Update successful");
-//         })
-//         .catch((err) => {
-//             res.send(err)
-//         })
-// });
 
 module.exports = RouterSubtopic;

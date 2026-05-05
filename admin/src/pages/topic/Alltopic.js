@@ -12,7 +12,7 @@ function Alltopic() {
     const [messageApi, contextHolder] = message.useMessage();
     const [searchText, setSearchText] = useState("");
 
-    const { confirm } = Modal; // extract confirm from Modal
+    const { confirm } = Modal;
 
     useEffect(() => {
         getTopic();
@@ -30,7 +30,7 @@ function Alltopic() {
     }
 
     function confirmDelete(id) {
-        message.loading({content:"deleting...",key:"deleteTopic"})
+        message.loading({ content: "deleting...", key: "deleteTopic" })
         return new Promise((resolve) => {
             setTimeout(() => {
                 fetch(`${process.env.REACT_APP_API_URL}/topic/del/${id}`, {
@@ -41,11 +41,11 @@ function Alltopic() {
                             throw new Error("Failed to delete the topic");
                         }
                         setgetTopic(gettopic.filter(topic => topic._id !== id));
-                        message.success({content:"Topic deleted successfully",key:"deleteTopic"});
+                        message.success({ content: "Topic deleted successfully", key: "deleteTopic" });
                         resolve();
                     })
                     .catch((err) => {
-                        message.error({content:"Topic not deleted: " + err.message,key:"deleteTopic"});
+                        message.error({ content: "Topic not deleted: " + err.message, key: "deleteTopic" });
                         resolve();
                     });
             }, 1000);
@@ -75,15 +75,15 @@ function Alltopic() {
 
     function showDeleteConfirm(id) {
         confirm({
-          title: "Are you sure you want to delete this topic?",
-          icon: <ExclamationCircleOutlined />,
-          content: "This action cannot be undone",
-          okText: "Delete",
-          okType: "danger",
-          cancelText: "Cancel",
-          onOk() {
-            confirmDelete(id);
-          },
+            title: "Are you sure you want to delete this topic?",
+            icon: <ExclamationCircleOutlined />,
+            content: "This action cannot be undone",
+            okText: "Delete",
+            okType: "danger",
+            cancelText: "Cancel",
+            onOk() {
+                confirmDelete(id);
+            },
         });
     }
 
@@ -155,10 +155,10 @@ function Alltopic() {
                     Add Quiz
                 </Link>
 
-                 
-                
+
+
             ),
-            
+
         },
     ];
 
@@ -177,7 +177,7 @@ function Alltopic() {
                         <span>All Topics</span>
                     </div>
                     <ol className="breadcrumb d-flex justify-content-between align-items-center mt-3 p-3 main" style={{ fontFamily: "sans-serif" }}>
-                        <Link to="/all-topic" className="breadcrumb-item" style={{ textDecoration: "none", color:"#07a698" }}>Topic</Link>
+                        <Link to="/all-topic" className="breadcrumb-item" style={{ textDecoration: "none", color: "#07a698" }}>Topic</Link>
                         <Link to="/add-topic" className="breadcrumb-item active" style={{ color: "#07a698", textDecoration: "none" }} aria-current="page">Add Topic</Link>
                     </ol>
                 </div>

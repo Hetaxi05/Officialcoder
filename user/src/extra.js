@@ -106,7 +106,7 @@ const Outputscreen = () => {
                             >
                                 <FaFolder style={styles.icon} /> New Folder
                             </button>
-                            
+
                             <button
                                 style={styles.actionButton}
                                 onClick={() => setIsUploadVisible(!isUploadVisible)}
@@ -173,10 +173,10 @@ const Outputscreen = () => {
                 <div style={styles.toolbar}>
                     <button style={styles.runbutton} onClick={executeCode}>▶ Run Code</button>
                     <div style={styles.dropdown}>
-                    
+
                         <button style={styles.dropdownbutton} onClick={() => setShowDropdown(!showDropdown)}>
-                        <img src={menu} alt="Menu" />
-                    </button>
+                            <img src={menu} alt="Menu" />
+                        </button>
                         {showDropdown && (
                             <div style={styles.dropdownMenu}>
                                 <button style={styles.dropdownItem} onClick={() => setTheme(theme === "dark" ? "light" : "dark")}>
@@ -204,7 +204,7 @@ const Outputscreen = () => {
                 {/* Output Section */}
                 <div style={theme === "dark" ? styles.darkPreview : styles.lightPreview}>
                     <div style={styles.outputHeader}>
-                        <h3 style={{color:"white"}}>Output:</h3>
+                        <h3 style={{ color: "white" }}>Output:</h3>
                         <button style={styles.clearShellButton} onClick={() => setOutput("")}>🗑 Clear Shell</button>
                     </div>
                     <pre style={styles.outputBox}>{output}</pre>
